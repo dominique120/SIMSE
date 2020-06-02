@@ -58,6 +58,12 @@
     <Compile Include="PERSONA\CLIENTE\frmNuevoCliente.Designer.cs">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmNuevoEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmNuevoEmpleado.Designer.cs">
+      <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\UTIL\Direcciones\frmNewDireccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +78,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROYECTO\frmNuevoProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PROYECTO\frmNuevoProyecto.Designer.cs">
+      <DependentUpon>frmNuevoProyecto.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\CLIENTE\frmNuevoCliente.resx">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\EMPLEADO\frmNuevoEmpleado.resx">
+      <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\UTIL\Direcciones\frmNewDireccion.resx">
       <DependentUpon>frmNewDireccion.cs</DependentUpon>
@@ -93,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PROYECTO\frmNuevoProyecto.resx">
+      <DependentUpon>frmNuevoProyecto.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

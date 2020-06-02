@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ClienteADO.cs" />
     <Compile Include="Conection.cs" />
+    <Compile Include="EmpleadoADO.cs" />
     <Compile Include="MarketingUTIL\ContactoInicialADO.cs" />
     <Compile Include="MarketingUTIL\PersonaFuenteADO.cs" />
     <Compile Include="MarketingUTIL\PrimerInteresADO.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="PersonaUTIL\DireccionADO.cs" />
     <Compile Include="PersonaUTIL\EmailADO.cs" />
     <Compile Include="PersonaUTIL\TelefonoADO.cs" />
+    <Compile Include="ProyectoADO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">

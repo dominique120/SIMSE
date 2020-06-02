@@ -51,6 +51,7 @@
     <Compile Include="PERSONA\SalarioBE.cs" />
     <Compile Include="PERSONA\TelefonoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROYECTO\ProyectoBE.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
