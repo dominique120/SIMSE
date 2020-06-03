@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BE {
-    class PersonaDeInteresBE {
+    public class PersonaDeInteresBE {
         private int id_persona;
         private int id_directorio;
         private int id_proyecto;
