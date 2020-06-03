@@ -18,5 +18,15 @@ namespace GUI {
             PERSONA.CLIENTE.frmNuevoCliente frmcliente = new PERSONA.CLIENTE.frmNuevoCliente();
                 frmcliente.Show();
         }
+
+        private void nuevoToolStripMenuItem2_Click(object sender, EventArgs e) {
+            PERSONA.EMPLEADO.frmNuevoEmpleado frmempleado = new PERSONA.EMPLEADO.frmNuevoEmpleado();
+            frmempleado.Show();
+        }
+
+        private void nuevoToolStripMenuItem4_Click(object sender, EventArgs e) {
+            PROYECTO.frmNuevoProyecto frmproyecto = new PROYECTO.frmNuevoProyecto();
+            frmproyecto.Show();
+        }
     }
 }

@@ -33,9 +33,20 @@ namespace BL.UTIL {
             return dir.ListarDireccionesTipos();
         }
 
-        DireccionADO dirado = new DireccionADO();
         public Boolean DireccionNew(DireccionBE dirbe) {
-            return dirado.DireccionNew(dirbe);
+            return dir.DireccionNew(dirbe);
+        }
+
+        public DataTable ListarCiudadesPorIdRegion(int idRegion) {
+            return dir.ListarCiudadesPorIdRegion(idRegion);
+        }
+
+        public DataTable ListarDistritosPorIdCiudad(int idCiudad) {
+            return dir.ListarDistritosPorIdCiudad(idCiudad);
+        }
+
+        public DataTable ListarRegionesPorIdPais(int idPais) {
+            return dir.ListarRegionesPorIdPais(idPais);
         }
     }
 }

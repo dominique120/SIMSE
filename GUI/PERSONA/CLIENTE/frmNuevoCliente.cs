@@ -32,21 +32,6 @@ namespace GUI.PERSONA.CLIENTE {
         public void frmNuevoCliente_Load(object sender, EventArgs e) {
             //informacion direccion
             try {
-                //Distrito
-                cboDirDistrito.DataSource = dirs.ListarDistritos();
-                cboDirDistrito.DisplayMember = "nom_distrito";
-                cboDirDistrito.ValueMember = "id_distrito";
-
-                //Ciudad
-                cboDirCiudad.DataSource = dirs.ListarCiudades();
-                cboDirCiudad.DisplayMember = "nom_ciudad";
-                cboDirCiudad.ValueMember = "id_ciudad";
-
-                //Region
-                cboDirProvincia.DataSource = dirs.ListarRegiones();
-                cboDirProvincia.DisplayMember = "nom_region";
-                cboDirProvincia.ValueMember = "id_region";
-
                 //Pais
                 cboDirPais.DataSource = dirs.ListarPaises();
                 cboDirPais.DisplayMember = "nom_pais";
@@ -141,7 +126,7 @@ namespace GUI.PERSONA.CLIENTE {
                 int.Parse(cboDirDistrito.SelectedValue.ToString()),
                 txtDirLinea1.Text.Trim(),
                 txtDirLinea2.Text.Trim(),
-                txtCP.Text.Trim()
+                txtDirPostal.Text.Trim()
             );
             DireccionesBL dirbl = new DireccionesBL();
             dirbl.DireccionNew(dirbe);
@@ -169,6 +154,49 @@ namespace GUI.PERSONA.CLIENTE {
             emailBL.EmailNew(embe);
 
             MessageBox.Show("Se ingreso la informacion correctamente");
+        }
+
+        private void cboDirPais_SelectionChangeCommitted(object sender, EventArgs e) {
+            cboDirProvincia.DataSource = null;
+            cboDirCiudad.DataSource = null;
+            cboDirDistrito.DataSource = null;
+            //Region
+            try { 
+            cboDirProvincia.DataSource = dirs.ListarRegionesPorIdPais((byte)cboDirPais.SelectedValue);
+            cboDirProvincia.DisplayMember = "nom_region";
+            cboDirProvincia.ValueMember = "id_region";
+            } catch (Exception ex) {
+                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+            }
+        }
+
+        private void cboDirProvincia_SelectionChangeCommitted(object sender, EventArgs e) {
+            cboDirCiudad.DataSource = null;
+            cboDirDistrito.DataSource = null;
+            //Ciudad
+            try { 
+            cboDirCiudad.DataSource = dirs.ListarCiudadesPorIdRegion((int)cboDirProvincia.SelectedValue);
+            cboDirCiudad.DisplayMember = "nom_ciudad";
+            cboDirCiudad.ValueMember = "id_ciudad";
+            } catch (Exception ex) {
+                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+            }
+        }
+
+        private void cboDirCiudad_SelectionChangeCommitted(object sender, EventArgs e) {
+            cboDirDistrito.DataSource = null;
+            //Distrito
+            try {
+                cboDirDistrito.DataSource = dirs.ListarDistritosPorIdCiudad((int)cboDirCiudad.SelectedValue);
+                cboDirDistrito.DisplayMember = "nom_distrito";
+                cboDirDistrito.ValueMember = "id_distrito";
+            } catch (Exception ex) {
+                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            MessageBox.Show(this, "Si sale los cambios se eliminaran.", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
         }
     }
 }

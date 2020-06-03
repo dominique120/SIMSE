@@ -13,13 +13,34 @@ namespace ADO.PersonaUTIL.Direcciones {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable ListarDistritos() {
+
+        public DataTable  ListarDistritos() {
             DataSet dts = new DataSet();
             try {
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.ListarDistritos";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Distritos");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando los distritos: " + ex.Message);
+            }
+            return dts.Tables["Distritos"];
+        }
+
+        public DataTable  ListarDistritosPorIdCiudad(int idCiudad) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarDistritoPorIdPorCiudad";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_ciudad", idCiudad);
+
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "Distritos");
             } catch (Exception ex) {
@@ -43,6 +64,25 @@ namespace ADO.PersonaUTIL.Direcciones {
             return dts.Tables["Ciudades"];
         }
 
+        public DataTable ListarCiudadesPorIdRegion(int idRegion) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarCiudadesPorIdRegion";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_region", idRegion);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Regiones");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las regiones: " + ex.Message);
+            }
+            return dts.Tables["Regiones"];
+        }
+
         public DataTable ListarRegiones() {
             DataSet dts = new DataSet();
             try {
@@ -54,6 +94,25 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Regiones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los regiones: " + ex.Message);
+            }
+            return dts.Tables["Regiones"];
+        }
+
+        public DataTable ListarRegionesPorIdPais(int idPais) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarRegionesPorIdPais";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_pais", idPais);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Regiones");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las regiones: " + ex.Message);
             }
             return dts.Tables["Regiones"];
         }

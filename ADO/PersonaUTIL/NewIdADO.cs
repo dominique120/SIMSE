@@ -22,10 +22,10 @@ namespace ADO.PersonaUTIL {
 
                 var returnParameter = cmd.Parameters.Add("@NewId", SqlDbType.Int);
                 returnParameter.Direction = ParameterDirection.Output;
-                
 
                 con.Open();
                 cmd.ExecuteNonQuery();
+
                 newid = (int)cmd.Parameters["@NewId"].Value; ;
 
             } catch (Exception ex) {
