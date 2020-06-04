@@ -64,6 +64,12 @@
     <Compile Include="PERSONA\EMPLEADO\frmNuevoEmpleado.Designer.cs">
       <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmNuevaPersonaDeInteres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmNuevaPersonaDeInteres.designer.cs">
+      <DependentUpon>frmNuevaPersonaDeInteres.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\UTIL\Direcciones\frmNewDireccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\EMPLEADO\frmNuevoEmpleado.resx">
       <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\PersonaDeInteres\frmNuevaPersonaDeInteres.resx">
+      <DependentUpon>frmNuevaPersonaDeInteres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\UTIL\Direcciones\frmNewDireccion.resx">
       <DependentUpon>frmNewDireccion.cs</DependentUpon>

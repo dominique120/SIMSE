@@ -49,6 +49,7 @@
     <Compile Include="PersonaUTIL\NewIdBL.cs" />
     <Compile Include="Persona\ClienteBL.cs" />
     <Compile Include="Persona\EmpleadoBL.cs" />
+    <Compile Include="Persona\PersonaDeInteresBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PersonaUTIL\DireccionesBL.cs" />
     <Compile Include="PersonaUTIL\EmailsBL.cs" />

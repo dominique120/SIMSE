@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbPrincipal = new System.Windows.Forms.GroupBox();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbDireccion = new System.Windows.Forms.GroupBox();
             this.cboDirPais = new System.Windows.Forms.ComboBox();
             this.cboDirProvincia = new System.Windows.Forms.ComboBox();
             this.cboDirCiudad = new System.Windows.Forms.ComboBox();
@@ -37,18 +37,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtDirPostal = new System.Windows.Forms.TextBox();
             this.txtDirLinea2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDirLinea1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbEmail = new System.Windows.Forms.GroupBox();
             this.txtEmailEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cboEmailTipo = new System.Windows.Forms.ComboBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gbTelefono = new System.Windows.Forms.GroupBox();
             this.txtTelCext = new System.Windows.Forms.TextBox();
             this.txtTelC3 = new System.Windows.Forms.TextBox();
             this.txtTelC2 = new System.Windows.Forms.TextBox();
@@ -71,13 +73,16 @@
             this.cboPerFuente = new System.Windows.Forms.ComboBox();
             this.cboPrInteres = new System.Windows.Forms.ComboBox();
             this.cboMarkContInic = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtDirPostal = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.chkDireccion = new System.Windows.Forms.CheckBox();
+            this.chkEmail = new System.Windows.Forms.CheckBox();
+            this.chkTelefono = new System.Windows.Forms.CheckBox();
+            this.gbPrincipal.SuspendLayout();
+            this.gbDireccion.SuspendLayout();
+            this.gbEmail.SuspendLayout();
+            this.gbTelefono.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -89,18 +94,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // groupBox1
+            // gbPrincipal
             // 
-            this.groupBox1.Controls.Add(this.txtDocumento);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(252, 78);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Principal";
+            this.gbPrincipal.Controls.Add(this.txtDocumento);
+            this.gbPrincipal.Controls.Add(this.txtNombre);
+            this.gbPrincipal.Controls.Add(this.label2);
+            this.gbPrincipal.Controls.Add(this.label1);
+            this.gbPrincipal.Location = new System.Drawing.Point(12, 12);
+            this.gbPrincipal.Name = "gbPrincipal";
+            this.gbPrincipal.Size = new System.Drawing.Size(252, 78);
+            this.gbPrincipal.TabIndex = 1;
+            this.gbPrincipal.TabStop = false;
+            this.gbPrincipal.Text = "Principal";
             // 
             // txtDocumento
             // 
@@ -125,30 +130,30 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Documento";
             // 
-            // groupBox2
+            // gbDireccion
             // 
-            this.groupBox2.Controls.Add(this.cboDirPais);
-            this.groupBox2.Controls.Add(this.cboDirProvincia);
-            this.groupBox2.Controls.Add(this.cboDirCiudad);
-            this.groupBox2.Controls.Add(this.cboDirDistrito);
-            this.groupBox2.Controls.Add(this.cboDirTipo);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtDirPostal);
-            this.groupBox2.Controls.Add(this.txtDirLinea2);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtDirLinea1);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 96);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 244);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Direccion";
+            this.gbDireccion.Controls.Add(this.cboDirPais);
+            this.gbDireccion.Controls.Add(this.cboDirProvincia);
+            this.gbDireccion.Controls.Add(this.cboDirCiudad);
+            this.gbDireccion.Controls.Add(this.cboDirDistrito);
+            this.gbDireccion.Controls.Add(this.cboDirTipo);
+            this.gbDireccion.Controls.Add(this.label8);
+            this.gbDireccion.Controls.Add(this.label7);
+            this.gbDireccion.Controls.Add(this.label9);
+            this.gbDireccion.Controls.Add(this.txtDirPostal);
+            this.gbDireccion.Controls.Add(this.txtDirLinea2);
+            this.gbDireccion.Controls.Add(this.label6);
+            this.gbDireccion.Controls.Add(this.txtDirLinea1);
+            this.gbDireccion.Controls.Add(this.label18);
+            this.gbDireccion.Controls.Add(this.label5);
+            this.gbDireccion.Controls.Add(this.label3);
+            this.gbDireccion.Controls.Add(this.label4);
+            this.gbDireccion.Location = new System.Drawing.Point(12, 96);
+            this.gbDireccion.Name = "gbDireccion";
+            this.gbDireccion.Size = new System.Drawing.Size(252, 244);
+            this.gbDireccion.TabIndex = 1;
+            this.gbDireccion.TabStop = false;
+            this.gbDireccion.Text = "Direccion";
             // 
             // cboDirPais
             // 
@@ -221,6 +226,13 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Ciudad:";
             // 
+            // txtDirPostal
+            // 
+            this.txtDirPostal.Location = new System.Drawing.Point(74, 208);
+            this.txtDirPostal.Name = "txtDirPostal";
+            this.txtDirPostal.Size = new System.Drawing.Size(169, 20);
+            this.txtDirPostal.TabIndex = 10;
+            // 
             // txtDirLinea2
             // 
             this.txtDirLinea2.Location = new System.Drawing.Point(74, 45);
@@ -243,6 +255,15 @@
             this.txtDirLinea1.Name = "txtDirLinea1";
             this.txtDirLinea1.Size = new System.Drawing.Size(168, 20);
             this.txtDirLinea1.TabIndex = 3;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 211);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "C. Postal:";
             // 
             // label5
             // 
@@ -271,18 +292,18 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Linea 1:";
             // 
-            // groupBox3
+            // gbEmail
             // 
-            this.groupBox3.Controls.Add(this.txtEmailEmail);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.cboEmailTipo);
-            this.groupBox3.Location = new System.Drawing.Point(270, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(252, 78);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Email";
+            this.gbEmail.Controls.Add(this.txtEmailEmail);
+            this.gbEmail.Controls.Add(this.label10);
+            this.gbEmail.Controls.Add(this.label11);
+            this.gbEmail.Controls.Add(this.cboEmailTipo);
+            this.gbEmail.Location = new System.Drawing.Point(270, 12);
+            this.gbEmail.Name = "gbEmail";
+            this.gbEmail.Size = new System.Drawing.Size(252, 78);
+            this.gbEmail.TabIndex = 2;
+            this.gbEmail.TabStop = false;
+            this.gbEmail.Text = "Email";
             // 
             // txtEmailEmail
             // 
@@ -318,22 +339,22 @@
             this.cboEmailTipo.Size = new System.Drawing.Size(179, 21);
             this.cboEmailTipo.TabIndex = 2;
             // 
-            // groupBox4
+            // gbTelefono
             // 
-            this.groupBox4.Controls.Add(this.txtTelCext);
-            this.groupBox4.Controls.Add(this.txtTelC3);
-            this.groupBox4.Controls.Add(this.txtTelC2);
-            this.groupBox4.Controls.Add(this.txtTelC1);
-            this.groupBox4.Controls.Add(this.txtCP);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.cboTelTipo);
-            this.groupBox4.Location = new System.Drawing.Point(270, 96);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(252, 78);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Telefono";
+            this.gbTelefono.Controls.Add(this.txtTelCext);
+            this.gbTelefono.Controls.Add(this.txtTelC3);
+            this.gbTelefono.Controls.Add(this.txtTelC2);
+            this.gbTelefono.Controls.Add(this.txtTelC1);
+            this.gbTelefono.Controls.Add(this.txtCP);
+            this.gbTelefono.Controls.Add(this.label12);
+            this.gbTelefono.Controls.Add(this.label13);
+            this.gbTelefono.Controls.Add(this.cboTelTipo);
+            this.gbTelefono.Location = new System.Drawing.Point(270, 96);
+            this.gbTelefono.Name = "gbTelefono";
+            this.gbTelefono.Size = new System.Drawing.Size(252, 78);
+            this.gbTelefono.TabIndex = 3;
+            this.gbTelefono.TabStop = false;
+            this.gbTelefono.Text = "Telefono";
             // 
             // txtTelCext
             // 
@@ -408,7 +429,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(206, 357);
+            this.button2.Location = new System.Drawing.Point(111, 357);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 39);
             this.button2.TabIndex = 6;
@@ -530,35 +551,71 @@
             this.cboMarkContInic.Size = new System.Drawing.Size(181, 21);
             this.cboMarkContInic.TabIndex = 0;
             // 
-            // label18
+            // groupBox6
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(12, 211);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(52, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "C. Postal:";
+            this.groupBox6.Controls.Add(this.chkTelefono);
+            this.groupBox6.Controls.Add(this.chkEmail);
+            this.groupBox6.Controls.Add(this.chkDireccion);
+            this.groupBox6.Location = new System.Drawing.Point(211, 347);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(211, 50);
+            this.groupBox6.TabIndex = 8;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Opciones";
             // 
-            // txtDirPostal
+            // chkDireccion
             // 
-            this.txtDirPostal.Location = new System.Drawing.Point(74, 208);
-            this.txtDirPostal.Name = "txtDirPostal";
-            this.txtDirPostal.Size = new System.Drawing.Size(169, 20);
-            this.txtDirPostal.TabIndex = 10;
+            this.chkDireccion.AutoSize = true;
+            this.chkDireccion.Checked = true;
+            this.chkDireccion.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDireccion.Location = new System.Drawing.Point(6, 19);
+            this.chkDireccion.Name = "chkDireccion";
+            this.chkDireccion.Size = new System.Drawing.Size(71, 17);
+            this.chkDireccion.TabIndex = 0;
+            this.chkDireccion.Text = "Direccion";
+            this.chkDireccion.UseVisualStyleBackColor = true;
+            this.chkDireccion.CheckedChanged += new System.EventHandler(this.chkDireccion_CheckedChanged);
+            // 
+            // chkEmail
+            // 
+            this.chkEmail.AutoSize = true;
+            this.chkEmail.Checked = true;
+            this.chkEmail.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEmail.Location = new System.Drawing.Point(83, 19);
+            this.chkEmail.Name = "chkEmail";
+            this.chkEmail.Size = new System.Drawing.Size(51, 17);
+            this.chkEmail.TabIndex = 0;
+            this.chkEmail.Text = "Email";
+            this.chkEmail.UseVisualStyleBackColor = true;
+            this.chkEmail.CheckedChanged += new System.EventHandler(this.chkEmail_CheckedChanged);
+            // 
+            // chkTelefono
+            // 
+            this.chkTelefono.AutoSize = true;
+            this.chkTelefono.Checked = true;
+            this.chkTelefono.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTelefono.Location = new System.Drawing.Point(140, 19);
+            this.chkTelefono.Name = "chkTelefono";
+            this.chkTelefono.Size = new System.Drawing.Size(68, 17);
+            this.chkTelefono.TabIndex = 0;
+            this.chkTelefono.Text = "Telefono";
+            this.chkTelefono.UseVisualStyleBackColor = true;
+            this.chkTelefono.CheckedChanged += new System.EventHandler(this.chkTelefono_CheckedChanged);
             // 
             // frmNuevoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 409);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbDireccion);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbTelefono);
+            this.Controls.Add(this.gbEmail);
+            this.Controls.Add(this.gbPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -566,16 +623,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Cliente";
             this.Load += new System.EventHandler(this.frmNuevoCliente_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gbPrincipal.ResumeLayout(false);
+            this.gbPrincipal.PerformLayout();
+            this.gbDireccion.ResumeLayout(false);
+            this.gbDireccion.PerformLayout();
+            this.gbEmail.ResumeLayout(false);
+            this.gbEmail.PerformLayout();
+            this.gbTelefono.ResumeLayout(false);
+            this.gbTelefono.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -583,11 +642,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbPrincipal;
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbDireccion;
         private System.Windows.Forms.ComboBox cboDirPais;
         private System.Windows.Forms.ComboBox cboDirProvincia;
         private System.Windows.Forms.ComboBox cboDirCiudad;
@@ -602,12 +661,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbEmail;
         private System.Windows.Forms.TextBox txtEmailEmail;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cboEmailTipo;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbTelefono;
         private System.Windows.Forms.TextBox txtTelCext;
         private System.Windows.Forms.TextBox txtTelC3;
         private System.Windows.Forms.TextBox txtTelC2;
@@ -632,5 +691,9 @@
         private System.Windows.Forms.ComboBox cboPerFuente;
         private System.Windows.Forms.TextBox txtDirPostal;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox chkTelefono;
+        private System.Windows.Forms.CheckBox chkEmail;
+        private System.Windows.Forms.CheckBox chkDireccion;
     }
 }

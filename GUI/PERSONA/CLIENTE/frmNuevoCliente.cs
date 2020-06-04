@@ -89,12 +89,71 @@ namespace GUI.PERSONA.CLIENTE {
         }
 
         private void btnGuardar_Click(object sender, EventArgs e) {
+            int idCliente;
+            string strInserted = "Insertaste un cliente con: ";
+
+            if (
+                String.IsNullOrWhiteSpace(txtNombre.Text) &&
+                String.IsNullOrWhiteSpace(txtEmailEmail.Text) &&
+                String.IsNullOrWhiteSpace(txtDirLinea1.Text) &&
+                String.IsNullOrWhiteSpace(txtTelC1.Text)
+                ) {
+                MessageBox.Show(this, "El formulario esta vacio.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (
+                String.IsNullOrWhiteSpace(txtNombre.Text)
+                ) {
+                MessageBox.Show(this, "No puedes agregar un cliente sin nombre.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
 
             // 1. Nuevo ID de Persona
-            NewIdBL newid = new NewIdBL();
-            int idCliente = newid.NewId();
+            idCliente = NewPersonId();
 
             // 2. Nueva ficha Marketing
+            NewFichaMarketing(idCliente);
+
+            // 3. Nuevo Cliente
+            NewCliente(idCliente);
+
+            // 4. Llenar Direccion
+            if (chkDireccion.Checked == true) {
+                NewDireccion(idCliente);
+                strInserted += " direccion, ";
+            }
+
+            // 5. Llenar Telefono
+            if (chkTelefono.Checked == true) {
+                NewTelefono(idCliente);
+                strInserted += " telefono, ";
+            }
+
+            //6. Llenar Email
+            if (chkEmail.Checked == true) {
+                NewEmail(idCliente);
+                strInserted += " email, ";
+            }
+
+            if (chkEmail.Checked == false && chkDireccion.Checked == false && chkTelefono.Checked == false)  { 
+                strInserted += "una ficha marketing con id " + idCliente; } 
+            else {
+                strInserted += " y una ficha marketing con id " + idCliente;
+            }
+
+            MessageBox.Show(this, strInserted, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+            return;
+        }
+
+        private int NewPersonId () {
+            NewIdBL newid = new NewIdBL();
+            int idPersona = newid.NewId();
+            return idPersona;
+        }
+
+        private void NewFichaMarketing(int idCliente) {
             FichaMarketingBE fmBE = new FichaMarketingBE(
                 idCliente,
                 int.Parse(cboPerFuente.SelectedValue.ToString()),
@@ -105,8 +164,9 @@ namespace GUI.PERSONA.CLIENTE {
                 );
             FichaMarketingBL fmBL = new FichaMarketingBL();
             fmBL.FichaMarketingNew(fmBE);
+        }
 
-            // 3. Nuevo Cliente
+        private void NewCliente(int idCliente) {
             ClienteBE cBE = new ClienteBE(
                 idCliente,
                 idCliente,
@@ -115,8 +175,9 @@ namespace GUI.PERSONA.CLIENTE {
                 );
             ClienteBL clibe = new ClienteBL();
             clibe.ClienteNew(cBE);
+        }
 
-            // 4. Llenar Direccion
+        private void NewDireccion(int idCliente) {
             DireccionBE dirbe = new DireccionBE(
                 byte.Parse(cboDirTipo.SelectedValue.ToString()),
                 idCliente,
@@ -130,8 +191,9 @@ namespace GUI.PERSONA.CLIENTE {
             );
             DireccionesBL dirbl = new DireccionesBL();
             dirbl.DireccionNew(dirbe);
+        }
 
-            // 5. Llenar Telefono
+        private void NewTelefono(int idCliente) {
             TelefonoBE telbe = new TelefonoBE(
                 short.Parse(cboTelTipo.SelectedValue.ToString()),
                 idCliente,
@@ -143,8 +205,9 @@ namespace GUI.PERSONA.CLIENTE {
                 );
             TelefonosBL telBL = new TelefonosBL();
             telBL.TelefonoNew(telbe);
+        }
 
-            //6. Llenar Email
+        private void NewEmail(int idCliente) {
             EmailBE embe = new EmailBE(
                 short.Parse(cboEmailTipo.SelectedValue.ToString()),
                 idCliente,
@@ -152,8 +215,6 @@ namespace GUI.PERSONA.CLIENTE {
                 );
             EmailsBL emailBL = new EmailsBL();
             emailBL.EmailNew(embe);
-
-            MessageBox.Show("Se ingreso la informacion correctamente");
         }
 
         private void cboDirPais_SelectionChangeCommitted(object sender, EventArgs e) {
@@ -197,6 +258,30 @@ namespace GUI.PERSONA.CLIENTE {
 
         private void button3_Click(object sender, EventArgs e) {
             MessageBox.Show(this, "Si sale los cambios se eliminaran.", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+        }
+
+        private void chkTelefono_CheckedChanged(object sender, EventArgs e) {
+            if (chkTelefono.Checked) {
+                gbTelefono.Enabled = true;
+            } else {
+                gbTelefono.Enabled = false;
+            }
+        }
+
+        private void chkEmail_CheckedChanged(object sender, EventArgs e) {
+            if (chkEmail.Checked) {
+                gbEmail.Enabled = true;
+            } else {
+                gbEmail.Enabled = false;
+            }
+        }
+
+        private void chkDireccion_CheckedChanged(object sender, EventArgs e) {
+            if (chkDireccion.Checked) {
+                gbDireccion.Enabled = true;
+            } else {
+                gbDireccion.Enabled = false;
+            }
         }
     }
 }

@@ -28,5 +28,10 @@ namespace GUI {
             PROYECTO.frmNuevoProyecto frmproyecto = new PROYECTO.frmNuevoProyecto();
             frmproyecto.Show();
         }
+
+        private void nuevoToolStripMenuItem3_Click(object sender, EventArgs e) {
+            PERSONA.PersonaDeInteres.frmNuevaPersonaDeInteres frmNuevaPersonaDeInteres = new PERSONA.PersonaDeInteres.frmNuevaPersonaDeInteres();
+            frmNuevaPersonaDeInteres.Show();
+        }
     }
 }
