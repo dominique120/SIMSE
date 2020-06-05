@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AUTH\AuthADO.cs" />
     <Compile Include="ClienteADO.cs" />
     <Compile Include="Conection.cs" />
     <Compile Include="EmpleadoADO.cs" />

@@ -34,7 +34,7 @@ namespace GUI.PROYECTO
                 cboDirTipo.ValueMember = "tipo_direccion";
 
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
 
         }
@@ -49,7 +49,7 @@ namespace GUI.PROYECTO
                 cboDirProvincia.DisplayMember = "nom_region";
                 cboDirProvincia.ValueMember = "id_region";
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
         }
 
@@ -62,7 +62,7 @@ namespace GUI.PROYECTO
                 cboDirCiudad.DisplayMember = "nom_ciudad";
                 cboDirCiudad.ValueMember = "id_ciudad";
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
         }
 
@@ -74,7 +74,7 @@ namespace GUI.PROYECTO
                 cboDirDistrito.DisplayMember = "nom_distrito";
                 cboDirDistrito.ValueMember = "id_distrito";
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
         }
     }

@@ -125,11 +125,11 @@ namespace ADO.PersonaUTIL.Direcciones {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.ListarPaises";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Paises");
+                adapter.Fill(dts, "Países");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando los paises: " + ex.Message);
+                throw new Exception("Error mostrando los países: " + ex.Message);
             }
-            return dts.Tables["Paises"];
+            return dts.Tables["Países"];
         }
 
         public DataTable ListarDireccionesTipos() {
@@ -142,7 +142,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "DireccionesTipos");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando los tipos de direccion: " + ex.Message);
+                throw new Exception("Error mostrando los tipos de dirección: " + ex.Message);
             }
             return dts.Tables["DireccionesTipos"];
         }

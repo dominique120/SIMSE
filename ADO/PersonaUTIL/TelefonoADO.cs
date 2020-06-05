@@ -21,11 +21,11 @@ namespace ADO.PersonaUTIL {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.ListarTelefonos";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Telefonos");
+                adapter.Fill(dts, "Teléfonos");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando los telefonos: " + ex.Message);
+                throw new Exception("Error mostrando los teléfonos: " + ex.Message);
             }
-            return dts.Tables["Telefonos"];
+            return dts.Tables["Teléfonos"];
         }
 
         public DataTable ListarTelefonosTipos() {
@@ -38,7 +38,7 @@ namespace ADO.PersonaUTIL {
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "TelefonosTipos");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando los tipos de telefonos: " + ex.Message);
+                throw new Exception("Error mostrando los tipos de teléfonos: " + ex.Message);
             }
             return dts.Tables["TelefonosTipos"];
         }

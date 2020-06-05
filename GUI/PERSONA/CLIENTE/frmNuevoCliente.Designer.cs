@@ -153,7 +153,7 @@
             this.gbDireccion.Size = new System.Drawing.Size(252, 244);
             this.gbDireccion.TabIndex = 1;
             this.gbDireccion.TabStop = false;
-            this.gbDireccion.Text = "Direccion";
+            this.gbDireccion.Text = "Dirección";
             // 
             // cboDirPais
             // 
@@ -206,7 +206,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Pais:";
+            this.label8.Text = "País:";
             // 
             // label7
             // 
@@ -354,7 +354,7 @@
             this.gbTelefono.Size = new System.Drawing.Size(252, 78);
             this.gbTelefono.TabIndex = 3;
             this.gbTelefono.TabStop = false;
-            this.gbTelefono.Text = "Telefono";
+            this.gbTelefono.Text = "Teléfono";
             // 
             // txtTelCext
             // 
@@ -407,7 +407,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 13);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Telefono:";
+            this.label13.Text = "Teléfono:";
             // 
             // cboTelTipo
             // 
@@ -513,7 +513,7 @@
             this.randomlabel.Name = "randomlabel";
             this.randomlabel.Size = new System.Drawing.Size(55, 13);
             this.randomlabel.TabIndex = 0;
-            this.randomlabel.Text = "Pr. Interes";
+            this.randomlabel.Text = "Pr. Interés";
             // 
             // label15
             // 
@@ -572,7 +572,7 @@
             this.chkDireccion.Name = "chkDireccion";
             this.chkDireccion.Size = new System.Drawing.Size(71, 17);
             this.chkDireccion.TabIndex = 0;
-            this.chkDireccion.Text = "Direccion";
+            this.chkDireccion.Text = "Dirección";
             this.chkDireccion.UseVisualStyleBackColor = true;
             this.chkDireccion.CheckedChanged += new System.EventHandler(this.chkDireccion_CheckedChanged);
             // 
@@ -598,7 +598,7 @@
             this.chkTelefono.Name = "chkTelefono";
             this.chkTelefono.Size = new System.Drawing.Size(68, 17);
             this.chkTelefono.TabIndex = 0;
-            this.chkTelefono.Text = "Telefono";
+            this.chkTelefono.Text = "Teléfono";
             this.chkTelefono.UseVisualStyleBackColor = true;
             this.chkTelefono.CheckedChanged += new System.EventHandler(this.chkTelefono_CheckedChanged);
             // 

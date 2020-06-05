@@ -33,5 +33,17 @@ namespace GUI {
             PERSONA.PersonaDeInteres.frmNuevaPersonaDeInteres frmNuevaPersonaDeInteres = new PERSONA.PersonaDeInteres.frmNuevaPersonaDeInteres();
             frmNuevaPersonaDeInteres.Show();
         }
+
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e) {
+            Application.Exit();
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e) {
+
+        }
     }
 }

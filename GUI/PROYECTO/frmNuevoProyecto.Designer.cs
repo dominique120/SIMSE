@@ -163,7 +163,7 @@
             this.groupBox4.Size = new System.Drawing.Size(252, 244);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Direccion";
+            this.groupBox4.Text = "Dirección";
             // 
             // cboDirPais
             // 
@@ -216,7 +216,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Pais:";
+            this.label10.Text = "País:";
             // 
             // label11
             // 

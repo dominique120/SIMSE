@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AUTH\AuthBL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="MarketingUTIL\ContactoInicialBL.cs" />
     <Compile Include="MarketingUTIL\PersonaFuenteBL.cs" />

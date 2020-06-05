@@ -56,7 +56,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Tipo Direccion:";
+            this.label1.Text = "Tipo Dirección:";
             // 
             // label2
             // 
@@ -74,7 +74,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Pais:";
+            this.label3.Text = "País:";
             // 
             // label4
             // 
@@ -119,7 +119,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 3;
-            this.label8.Text = "Codigo Postal:";
+            this.label8.Text = "Código Postal:";
             // 
             // comboBox2
             // 

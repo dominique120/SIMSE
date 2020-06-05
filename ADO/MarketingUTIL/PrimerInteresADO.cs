@@ -22,7 +22,7 @@ namespace ADO.MarketingUTIL {
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "PrimerInteres");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando los tipos de Primer Interes: " + ex.Message);
+                throw new Exception("Error mostrando los tipos de Primer Interés: " + ex.Message);
             }
             return dts.Tables["PrimerInteres"];
         }

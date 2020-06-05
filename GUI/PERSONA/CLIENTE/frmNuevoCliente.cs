@@ -43,7 +43,7 @@ namespace GUI.PERSONA.CLIENTE {
                 cboDirTipo.ValueMember = "tipo_direccion";
 
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
 
             
@@ -54,7 +54,7 @@ namespace GUI.PERSONA.CLIENTE {
                 cboTelTipo.DisplayMember = "nombre_telefono";
                 cboTelTipo.ValueMember = "tipo_telefono";
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de telefono : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de teléfono : " + ex.Message);
             }
             
             //informacion email
@@ -98,7 +98,7 @@ namespace GUI.PERSONA.CLIENTE {
                 String.IsNullOrWhiteSpace(txtDirLinea1.Text) &&
                 String.IsNullOrWhiteSpace(txtTelC1.Text)
                 ) {
-                MessageBox.Show(this, "El formulario esta vacio.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "El formulario esta vació.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (
@@ -121,13 +121,13 @@ namespace GUI.PERSONA.CLIENTE {
             // 4. Llenar Direccion
             if (chkDireccion.Checked == true) {
                 NewDireccion(idCliente);
-                strInserted += " direccion, ";
+                strInserted += " dirección, ";
             }
 
             // 5. Llenar Telefono
             if (chkTelefono.Checked == true) {
                 NewTelefono(idCliente);
-                strInserted += " telefono, ";
+                strInserted += " teléfono, ";
             }
 
             //6. Llenar Email
@@ -227,7 +227,7 @@ namespace GUI.PERSONA.CLIENTE {
             cboDirProvincia.DisplayMember = "nom_region";
             cboDirProvincia.ValueMember = "id_region";
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
         }
 
@@ -240,7 +240,7 @@ namespace GUI.PERSONA.CLIENTE {
             cboDirCiudad.DisplayMember = "nom_ciudad";
             cboDirCiudad.ValueMember = "id_ciudad";
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
         }
 
@@ -252,12 +252,16 @@ namespace GUI.PERSONA.CLIENTE {
                 cboDirDistrito.DisplayMember = "nom_distrito";
                 cboDirDistrito.ValueMember = "id_distrito";
             } catch (Exception ex) {
-                MessageBox.Show("Error al poblar opciones de direccion : " + ex.Message);
+                MessageBox.Show("Error al poblar opciones de dirección : " + ex.Message);
             }
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            MessageBox.Show(this, "Si sale los cambios se eliminaran.", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            DialogResult btnClicked = MessageBox.Show(this, "Si sale los cambios se eliminaran.", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+            if (btnClicked == DialogResult.Yes) {
+                this.Close();
+            }
         }
 
         private void chkTelefono_CheckedChanged(object sender, EventArgs e) {
