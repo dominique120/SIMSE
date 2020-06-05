@@ -30,7 +30,9 @@ namespace ADO.PersonaUTIL {
 
             } catch (Exception ex) {
                 throw new Exception("Error generando nuevo Id de persona: " + ex.Message);
-            } 
+            } finally {
+                con.Close();
+            }
             return newid;
         }
     }

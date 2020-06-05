@@ -30,103 +30,26 @@ namespace BL.AUTH {
             return authado.CredentialActivate(authBE);
         }
 
-        public bool auth(AuthBE authBE) {
-            string EnteredUsr = authBE.Usuario;
-
-            AuthBE SelectedCredentials = new AuthBE();
-            SelectedCredentials = authado.CredentialSelect(EnteredUsr);
-
-            if (SelectedCredentials.Usuario.Length == 0) {
-                return false;
-            }
-
-
-
-
-
-            
-            byte[] EnteredPwd = Encoding.UTF32.GetBytes(authBE.Password);
-
-
-
-
-            byte[] ConvertedBase64Salt = Convert.FromBase64String(SelectedCredentials.Salt);
-
-            byte[] SelectedPwd = Encoding.UTF32.GetBytes(SelectedCredentials.Password);
-            byte[] SelectedSalt = Encoding.UTF32.GetBytes(SelectedCredentials.Salt);
-
-            byte[] EncodedPassword = GenerateSaltedHash(EnteredPwd, SelectedSalt);
-            
-            if (CompareByteArrays(SelectedPwd, EncodedPassword) == false) {
-                return false;
-            } else {
-                return true;
-            }
-
-        }
-
-        public bool auth2 (AuthBE authBE) {
-            string EnteredPwd = authBE.Password;
-            string EnteredUsr = authBE.Usuario;
-
-            //Select and return an object with all the information queried from the database
-            //where the usuario matches the one entered.
-            AuthBE SelectedCredentials = new AuthBE();
-            SelectedCredentials = authado.CredentialSelect(EnteredUsr);
-
-            //If the user does not exist, return false
-            if (SelectedCredentials.Usuario.Length == 0) {
-                return false;
-            }
-
-            // get the salt value and decode it from Base64
-            byte[] salt = Convert.FromBase64String(SelectedCredentials.Salt);
-
-            //convert the entered password to a byte array
-            byte[] ConvertedEnteredPwd = Encoding.UTF32.GetBytes(EnteredPwd);
-
-            //Hash entered password to compare it with the returned hash
-            byte[] EnteredPasswordHashedNormal = GenerateSaltedHash(ConvertedEnteredPwd, salt);
-            string EnteredPasswordHashedBase64 = Convert.ToBase64String(EnteredPasswordHashedNormal);
-            //byte[] EnteredPasswordHashed = Encoding.UTF32.GetBytes(EnteredPasswordHashedBase64);
-
-            // get the stored password value  and decode it from Base64
-            //byte[] StoredPassword = Convert.FromBase64String(SelectedCredentials.Password);
-            string StoredPasswordHashedBase64 = SelectedCredentials.Password;
-
-            //compare both values
-            //bool comparison = CompareByteArrays(EnteredPasswordHashed, StoredPassword);
-
-            bool comparison = string.Equals(StoredPasswordHashedBase64, EnteredPasswordHashedBase64);
-
-            if (comparison == true) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         public bool Authenticate(AuthBE authBE) {
             string EnteredPwd = authBE.Password;
             string EnteredUsr = authBE.Usuario;
 
-            //Select and return an object with all the information queried from the database
-            //where the usuario matches the one entered.
             AuthBE SelectedCredentials = new AuthBE();
             SelectedCredentials = authado.CredentialSelect(EnteredUsr);
 
-            //If the user does not exist, return false
             if (SelectedCredentials.Usuario.Length == 0) {
                 return false;
             }
 
+            if (SelectedCredentials.Active == false) {
+                return false;
+            }
 
             AuthBE GeneratedAuthBE = new AuthBE();
             GeneratedAuthBE.Salt = SelectedCredentials.Salt;
             GeneratedAuthBE.Password = EnteredPwd;
             GeneratedAuthBE.HashedPassword = GenerateSaltedHash(Encoding.UTF32.GetBytes(GeneratedAuthBE.Password), Convert.FromBase64String(SelectedCredentials.Salt));
             string HashedPasswordString = Convert.ToBase64String(GeneratedAuthBE.HashedPassword);
-
 
 
             bool comparison = string.Equals(HashedPasswordString, SelectedCredentials.Password.Trim());
@@ -156,12 +79,9 @@ namespace BL.AUTH {
         }
 
         private static string CreateSalt(int size) {
-            //Generate a cryptographic random number.
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] buff = new byte[size];
             rng.GetBytes(buff);
-
-            // Return a Base64 string representation of the random number.
             return Convert.ToBase64String(buff);
         }
 

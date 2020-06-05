@@ -214,7 +214,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(38, 101);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(30, 13);
+            this.label10.Size = new System.Drawing.Size(32, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "País:";
             // 
@@ -316,7 +316,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmNuevoProyecto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmNuevoProyecto";
+            this.Text = "Nuevo Proyecto";
             this.Load += new System.EventHandler(this.frmNuevoProyecto_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -16,7 +16,6 @@ namespace ADO.AUTH {
         bool success;
 
         public AuthBE CredentialSelect(string username) {
-            //DataSet dts = new DataSet();
             AuthBE authBE = new AuthBE();
             try {
                 con.ConnectionString = conection.GetCon();
@@ -27,14 +26,8 @@ namespace ADO.AUTH {
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@usuario", username);
 
-                /*
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Usuario");
-                */
-
                 con.Open();
                 SqlDataReader dtr = cmd.ExecuteReader();
-
 
                 if (dtr.HasRows == true) {
                     dtr.Read();

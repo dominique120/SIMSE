@@ -43,6 +43,21 @@ namespace GUI {
         }
 
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e) {
+            PERSONA.CLIENTE.frmModificarCliente frmModificarCliente = new PERSONA.CLIENTE.frmModificarCliente();
+            frmModificarCliente.Show();
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e) {
+            PERSONA.CLIENTE.frmEliminarCliente frmEliminarCliente = new PERSONA.CLIENTE.frmEliminarCliente();
+            frmEliminarCliente.Show();
+        }
+
+        private void nuevoToolStripMenuItem5_Click(object sender, EventArgs e) {
+            AUTH.frmNewUser frmNewUser = new AUTH.frmNewUser();
+            frmNewUser.Show();
+        }
+
+        private void eliminarToolStripMenuItem2_Click(object sender, EventArgs e) {
 
         }
     }

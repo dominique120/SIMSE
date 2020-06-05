@@ -64,11 +64,37 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="grubalDataSet.cs">
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="grubalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\CLIENTE\frmEliminarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\CLIENTE\frmEliminarCliente.Designer.cs">
+      <DependentUpon>frmEliminarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\CLIENTE\frmModificarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\CLIENTE\frmModificarCliente.Designer.cs">
+      <DependentUpon>frmModificarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\CLIENTE\frmNuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PERSONA\CLIENTE\frmNuevoCliente.Designer.cs">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmModificarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmModificarEmpleado.Designer.cs">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="PERSONA\EMPLEADO\frmNuevoEmpleado.cs">
       <SubType>Form</SubType>
@@ -111,8 +137,17 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\CLIENTE\frmEliminarCliente.resx">
+      <DependentUpon>frmEliminarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\CLIENTE\frmModificarCliente.resx">
+      <DependentUpon>frmModificarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\CLIENTE\frmNuevoCliente.resx">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\EMPLEADO\frmModificarEmpleado.resx">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\EMPLEADO\frmNuevoEmpleado.resx">
       <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
@@ -138,6 +173,17 @@
     <EmbeddedResource Include="PROYECTO\frmNuevoProyecto.resx">
       <DependentUpon>frmNuevoProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="grubalDataSet.xsc">
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="grubalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>grubalDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="grubalDataSet.xss">
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

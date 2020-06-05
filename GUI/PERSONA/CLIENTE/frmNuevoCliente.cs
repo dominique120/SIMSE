@@ -93,9 +93,9 @@ namespace GUI.PERSONA.CLIENTE {
             string strInserted = "Insertaste un cliente con: ";
 
             if (
-                String.IsNullOrWhiteSpace(txtNombre.Text) &&
-                String.IsNullOrWhiteSpace(txtEmailEmail.Text) &&
-                String.IsNullOrWhiteSpace(txtDirLinea1.Text) &&
+                String.IsNullOrWhiteSpace(txtNombre.Text) ||
+                String.IsNullOrWhiteSpace(txtEmailEmail.Text) ||
+                String.IsNullOrWhiteSpace(txtDirLinea1.Text) ||
                 String.IsNullOrWhiteSpace(txtTelC1.Text)
                 ) {
                 MessageBox.Show(this, "El formulario esta vació.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);

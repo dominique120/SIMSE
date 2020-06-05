@@ -11,6 +11,9 @@ namespace BE.PERSONA {
         private string nom_cliente;
         private string doc_oficial;
 
+        public ClienteBE() {
+        }
+
         public ClienteBE(int id_persona, int marketing, string nom_cliente, string doc_oficial) {
             this.id_persona = id_persona;
             this.marketing = marketing;

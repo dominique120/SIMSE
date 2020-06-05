@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BL.Persona
 {
-    class EmpleadoBL
+    public class EmpleadoBL
     {
         EmpleadoADO empado = new EmpleadoADO();
 
