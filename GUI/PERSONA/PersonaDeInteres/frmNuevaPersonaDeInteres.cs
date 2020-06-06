@@ -14,91 +14,63 @@ using BE.PERSONA;
 using BL.PersonaUTIL;
 
 
-namespace GUI.PERSONA.PersonaDeInteres
-{
-    public partial class frmNuevaPersonaDeInteres : Form
-    {
-        public frmNuevaPersonaDeInteres()
-        {
+namespace GUI.PERSONA.PersonaDeInteres {
+    public partial class frmNuevaPersonaDeInteres : Form {
+        public frmNuevaPersonaDeInteres() {
             InitializeComponent();
         }
 
         PersonaDeInteresBL puest = new PersonaDeInteresBL();
         PersonaDeInteresBL proy = new PersonaDeInteresBL();
 
-        private void frmNuevaPersonaDeInteres_Load(object sender, EventArgs e)
-        {
+        private void frmNuevaPersonaDeInteres_Load(object sender, EventArgs e) {
             //informacion
-            try
-            { //Listar Puestos
+            try { //Listar Puestos
                 cboPuesto.DataSource = puest.ListarPuestos();
                 cboPuesto.DisplayMember = "desc_puesto";
                 cboPuesto.ValueMember = "id_puesto";
 
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 MessageBox.Show("Error al poblar opciones de puesto : " + ex.Message);
             }
 
             //Listar Proyecto
-            try
-            {
+            try {
 
                 cboProyecto.DataSource = proy.ListarProyecto();
                 cboProyecto.DisplayMember = "nom_proyecto";
                 cboProyecto.ValueMember = "id_proyecto";
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 MessageBox.Show("Error al poblar opciones de proyecto : " + ex.Message);
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-
-        {
-            try
-            {
-                //Codifique
+        private void btnGuardar_Click(object sender, EventArgs e) {
+            try {
                 // 1. Nuevo ID de Persona
                 NewIdBL newId = new NewIdBL();
                 int idPersonaIn = newId.NewId();
 
                 // 2. Nueva Puesto y proyecto
                 PersonaDeInteresBE objPersonaDeInteres = new PersonaDeInteresBE();
-                objPersonaDeInteres.Puesto = cboPuesto.SelectedValue.ToString();
-                objPersonaDeInteres.Id_proyecto = cboProyecto.SelectedValue.ToString();
+                objPersonaDeInteres.Id_persona = idPersonaIn;
+                objPersonaDeInteres.Puesto = int.Parse(cboPuesto.SelectedValue.ToString());
+                objPersonaDeInteres.Id_proyecto = int.Parse(cboProyecto.SelectedValue.ToString());
                 objPersonaDeInteres.Nom_persona = txtNombrePersona.Text.Trim();
+                objPersonaDeInteres.Id_directorio = objPersonaDeInteres.Id_proyecto;
 
-
-                //Insertamos el nuevo 
-
-
-                if (puest.InsertarPersonaInt(objPersonaDeInteres) == true)
-                {
-                    this.Close();
+                if (puest.InsertarPersonaInt(objPersonaDeInteres) == true) {
+                    MessageBox.Show(this, "Se inserto la nueva persona", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else {
+                    throw new Exception("Ocurrió un error al insertar la nueva persona.");
                 }
-                else
-                {
-                    throw new Exception("No se pudo insertar registro. Contacte con IT.");
-                }
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 MessageBox.Show("Se ha producido el error: " + ex.Message);
             }
 
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            txtNombrePersona.Text = "";
-            txtNombrePersona.Focus();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
+        private void btnSalir_Click(object sender, EventArgs e) {
             this.Close();
 
         }

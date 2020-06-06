@@ -76,6 +76,21 @@ namespace ADO {
             return dts.Tables["Proyecto"];
         }
 
+        public DataTable ListarPersonasDeInteres() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarPersonasDeInteres";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "PersonasDeInteres");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando PersonasDeInteres: " + ex.Message);
+            }
+            return dts.Tables["PersonasDeInteres"];
+        }
+
         public int NewIdPersonaInteres() {
             int newid;
             try {
@@ -96,6 +111,103 @@ namespace ADO {
                 throw new Exception("Error generando nuevo Id de persona: " + ex.Message);
             }
             return newid;
+        }
+
+        public PersonaDeInteresBE ListarPersonasDeInteresPorId(int idPersonaInter) {
+            PersonaDeInteresBE perintBE = new PersonaDeInteresBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarPersonasDeInteresPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", idPersonaInter);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    perintBE.Id_directorio = int.Parse(dtr["id_directorio"].ToString());
+                    perintBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
+                    perintBE.Nom_persona = dtr["nom_persona"].ToString();
+                    perintBE.Puesto = int.Parse(dtr["puesto"].ToString());
+                    perintBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
+
+                } else {
+                    throw new Exception("Error al buscar la persona de interés.");
+                }
+                dtr.Close();
+
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return perintBE;
+        }
+
+        public Boolean ModificarPersonaInteres(PersonaDeInteresBE perinteBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.UpdatePersonaInteres";
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", perinteBE.Id_persona);
+                cmd.Parameters.AddWithValue("@puesto", perinteBE.Puesto);
+                cmd.Parameters.AddWithValue("@id_proyecto", perinteBE.Id_proyecto);
+                cmd.Parameters.AddWithValue("@id_directorio", perinteBE.Id_directorio);
+                cmd.Parameters.AddWithValue("@nom_persona", perinteBE.Nom_persona);
+   
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public Boolean EliminarPersonaDeInteres(int idPersona) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.EliminarPersonaDeInteres";
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", idPersona);
+
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
         }
     }
 }

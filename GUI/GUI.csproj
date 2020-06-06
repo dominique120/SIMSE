@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcercaDe.Designer.cs">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="AUTH\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,18 @@
     <Compile Include="PERSONA\EMPLEADO\frmNuevoEmpleado.Designer.cs">
       <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmEliminarPersonaDeInteres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmEliminarPersonaDeInteres.Designer.cs">
+      <DependentUpon>frmEliminarPersonaDeInteres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmModificarPersonaDeInteres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmModificarPersonaDeInteres.Designer.cs">
+      <DependentUpon>frmModificarPersonaDeInteres.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\PersonaDeInteres\frmNuevaPersonaDeInteres.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +152,9 @@
     <Compile Include="PROYECTO\frmNuevoProyecto.Designer.cs">
       <DependentUpon>frmNuevoProyecto.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AcercaDe.resx">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AUTH\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\EMPLEADO\frmNuevoEmpleado.resx">
       <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\PersonaDeInteres\frmEliminarPersonaDeInteres.resx">
+      <DependentUpon>frmEliminarPersonaDeInteres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\PersonaDeInteres\frmModificarPersonaDeInteres.resx">
+      <DependentUpon>frmModificarPersonaDeInteres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\PersonaDeInteres\frmNuevaPersonaDeInteres.resx">
       <DependentUpon>frmNuevaPersonaDeInteres.cs</DependentUpon>

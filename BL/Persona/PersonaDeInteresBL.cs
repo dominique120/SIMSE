@@ -33,6 +33,18 @@ namespace BL.Persona {
             return perintado.PersonaDeInteresNew(objPersonaDeIntersBE);
         }
 
+        public PersonaDeInteresBE ListarPersonasDeInteresPorId(int idPersonaInter) {
+            return perintado.ListarPersonasDeInteresPorId(idPersonaInter);
+        }
 
+        public DataTable ListarPersonasDeInteres() {
+            return perintado.ListarPersonasDeInteres();
+        }
+        public Boolean ModificarPersonaInteres(PersonaDeInteresBE perinteBE) {
+            return perintado.ModificarPersonaInteres(perinteBE);
+        }
+        public Boolean EliminarPersonaDeInteres(int idPersona) {
+            return perintado.EliminarPersonaDeInteres(idPersona);
+        }
     }
 }

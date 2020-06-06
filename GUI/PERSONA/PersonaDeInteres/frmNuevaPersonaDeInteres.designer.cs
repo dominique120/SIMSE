@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cboPuesto = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -112,16 +111,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(134, 246);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(78, 35);
-            this.btnLimpiar.TabIndex = 7;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(242, 246);
@@ -138,13 +127,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 312);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cboPuesto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboProyecto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNuevaPersonaDeInteres";
             this.Text = "frmNuevaPersonaDeInteres";
             this.Load += new System.EventHandler(this.frmNuevaPersonaDeInteres_Load);
@@ -165,7 +156,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboPuesto;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnGuardar;
     }
 }

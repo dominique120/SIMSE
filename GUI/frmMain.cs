@@ -75,5 +75,22 @@ namespace GUI {
             frmdeactivarEmpleado.MdiParent = this;
             frmdeactivarEmpleado.Show();
         }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e) {
+            AcercaDe acercade = new AcercaDe();
+            acercade.ShowDialog();
+        }
+
+        private void modificarToolStripMenuItem3_Click(object sender, EventArgs e) {
+            PERSONA.PersonaDeInteres.frmModificarPersonaDeInteres frmmodificar = new PERSONA.PersonaDeInteres.frmModificarPersonaDeInteres();
+            frmmodificar.MdiParent = this;
+            frmmodificar.Show();
+        }
+
+        private void eliminarToolStripMenuItem3_Click(object sender, EventArgs e) {
+            PERSONA.PersonaDeInteres.frmEliminarPersonaDeInteres frmeliminarperint = new PERSONA.PersonaDeInteres.frmEliminarPersonaDeInteres();
+            frmeliminarperint.MdiParent = this;
+            frmeliminarperint.Show();
+        }
     }
 }
