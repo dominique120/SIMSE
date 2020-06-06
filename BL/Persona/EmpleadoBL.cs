@@ -8,13 +8,27 @@ using System.Threading.Tasks;
 
 namespace BL.Persona
 {
-    public class EmpleadoBL
-    {
+    public class EmpleadoBL {
         EmpleadoADO empado = new EmpleadoADO();
 
-        public Boolean NuevoEmpleado(EmpleadoBE empbe)
-        {
+        public Boolean NuevoEmpleado(EmpleadoBE empbe) {
             return empado.NuevoEmpleado(empbe);
+        }
+
+        public bool RevisarEstado(int idEmpleado) {
+            return empado.RevisarEstado(idEmpleado);
+        }
+
+        public Boolean UpdateEstado(int idEmpleado, bool estado) {
+            return empado.UpdateEstado(idEmpleado, estado);
+        }
+
+        public Boolean ModificarEmpleado(EmpleadoBE empbe) {
+            return empado.ModificarEmpleado(empbe);
+        }
+
+        public EmpleadoBE ListarEmpleadosPorId(int idEmpleado) {
+            return empado.ListarEmpleadosPorId(idEmpleado);
         }
     }
 }

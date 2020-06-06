@@ -30,27 +30,27 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDocumento = new System.Windows.Forms.TextBox();
+            this.txtSApellido = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtSNombre = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboPuesto = new System.Windows.Forms.ComboBox();
             this.dtpFecIni = new System.Windows.Forms.DateTimePicker();
             this.dtpFecNac = new System.Windows.Forms.DateTimePicker();
             this.txtRuc = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtSNombre = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtSApellido = new System.Windows.Forms.TextBox();
-            this.cboPuesto = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -81,12 +81,60 @@
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
             this.txtDocumento.TabIndex = 3;
             // 
+            // txtSApellido
+            // 
+            this.txtSApellido.Location = new System.Drawing.Point(77, 96);
+            this.txtSApellido.Name = "txtSApellido";
+            this.txtSApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtSApellido.TabIndex = 1;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(77, 70);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "S. Apellido";
+            // 
+            // txtSNombre
+            // 
+            this.txtSNombre.Location = new System.Drawing.Point(77, 44);
+            this.txtSNombre.Name = "txtSNombre";
+            this.txtSNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtSNombre.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 73);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Apelido";
+            // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(77, 19);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "S, Nombre";
             // 
             // label2
             // 
@@ -123,6 +171,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Personales:";
             // 
+            // cboPuesto
+            // 
+            this.cboPuesto.FormattingEnabled = true;
+            this.cboPuesto.Location = new System.Drawing.Point(109, 100);
+            this.cboPuesto.Name = "cboPuesto";
+            this.cboPuesto.Size = new System.Drawing.Size(109, 21);
+            this.cboPuesto.TabIndex = 6;
+            // 
             // dtpFecIni
             // 
             this.dtpFecIni.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -145,6 +201,15 @@
             this.txtRuc.Name = "txtRuc";
             this.txtRuc.Size = new System.Drawing.Size(109, 20);
             this.txtRuc.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 103);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Ouesto";
             // 
             // label5
             // 
@@ -201,71 +266,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "S, Nombre";
-            // 
-            // txtSNombre
-            // 
-            this.txtSNombre.Location = new System.Drawing.Point(77, 44);
-            this.txtSNombre.Name = "txtSNombre";
-            this.txtSNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtSNombre.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 73);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Apelido";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(77, 70);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 99);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "S. Apellido";
-            // 
-            // txtSApellido
-            // 
-            this.txtSApellido.Location = new System.Drawing.Point(77, 96);
-            this.txtSApellido.Name = "txtSApellido";
-            this.txtSApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtSApellido.TabIndex = 1;
-            // 
-            // cboPuesto
-            // 
-            this.cboPuesto.FormattingEnabled = true;
-            this.cboPuesto.Location = new System.Drawing.Point(109, 100);
-            this.cboPuesto.Name = "cboPuesto";
-            this.cboPuesto.Size = new System.Drawing.Size(109, 21);
-            this.cboPuesto.TabIndex = 6;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 103);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Ouesto";
             // 
             // frmNuevoEmpleado
             // 

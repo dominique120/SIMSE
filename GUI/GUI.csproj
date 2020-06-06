@@ -90,6 +90,12 @@
     <Compile Include="PERSONA\CLIENTE\frmNuevoCliente.Designer.cs">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmDe-ActivarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmDe-ActivarEmpleado.Designer.cs">
+      <DependentUpon>frmDe-ActivarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\EMPLEADO\frmModificarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\CLIENTE\frmNuevoCliente.resx">
       <DependentUpon>frmNuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\EMPLEADO\frmDe-ActivarEmpleado.resx">
+      <DependentUpon>frmDe-ActivarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\EMPLEADO\frmModificarEmpleado.resx">
       <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
