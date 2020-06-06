@@ -60,7 +60,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cboTelTipo = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
@@ -74,9 +73,9 @@
             this.cboPrInteres = new System.Windows.Forms.ComboBox();
             this.cboMarkContInic = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.chkDireccion = new System.Windows.Forms.CheckBox();
-            this.chkEmail = new System.Windows.Forms.CheckBox();
             this.chkTelefono = new System.Windows.Forms.CheckBox();
+            this.chkEmail = new System.Windows.Forms.CheckBox();
+            this.chkDireccion = new System.Windows.Forms.CheckBox();
             this.gbPrincipal.SuspendLayout();
             this.gbDireccion.SuspendLayout();
             this.gbEmail.SuspendLayout();
@@ -103,7 +102,7 @@
             this.gbPrincipal.Location = new System.Drawing.Point(12, 12);
             this.gbPrincipal.Name = "gbPrincipal";
             this.gbPrincipal.Size = new System.Drawing.Size(252, 78);
-            this.gbPrincipal.TabIndex = 1;
+            this.gbPrincipal.TabIndex = 0;
             this.gbPrincipal.TabStop = false;
             this.gbPrincipal.Text = "Principal";
             // 
@@ -112,14 +111,14 @@
             this.txtDocumento.Location = new System.Drawing.Point(74, 45);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento.TabIndex = 2;
+            this.txtDocumento.TabIndex = 1;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(75, 19);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(168, 20);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 0;
             // 
             // label2
             // 
@@ -161,7 +160,7 @@
             this.cboDirPais.Location = new System.Drawing.Point(74, 98);
             this.cboDirPais.Name = "cboDirPais";
             this.cboDirPais.Size = new System.Drawing.Size(169, 21);
-            this.cboDirPais.TabIndex = 6;
+            this.cboDirPais.TabIndex = 3;
             this.cboDirPais.SelectionChangeCommitted += new System.EventHandler(this.cboDirPais_SelectionChangeCommitted);
             // 
             // cboDirProvincia
@@ -170,7 +169,7 @@
             this.cboDirProvincia.Location = new System.Drawing.Point(74, 125);
             this.cboDirProvincia.Name = "cboDirProvincia";
             this.cboDirProvincia.Size = new System.Drawing.Size(169, 21);
-            this.cboDirProvincia.TabIndex = 7;
+            this.cboDirProvincia.TabIndex = 4;
             this.cboDirProvincia.SelectionChangeCommitted += new System.EventHandler(this.cboDirProvincia_SelectionChangeCommitted);
             // 
             // cboDirCiudad
@@ -179,7 +178,7 @@
             this.cboDirCiudad.Location = new System.Drawing.Point(74, 154);
             this.cboDirCiudad.Name = "cboDirCiudad";
             this.cboDirCiudad.Size = new System.Drawing.Size(169, 21);
-            this.cboDirCiudad.TabIndex = 8;
+            this.cboDirCiudad.TabIndex = 5;
             this.cboDirCiudad.SelectionChangeCommitted += new System.EventHandler(this.cboDirCiudad_SelectionChangeCommitted);
             // 
             // cboDirDistrito
@@ -188,7 +187,7 @@
             this.cboDirDistrito.Location = new System.Drawing.Point(74, 181);
             this.cboDirDistrito.Name = "cboDirDistrito";
             this.cboDirDistrito.Size = new System.Drawing.Size(169, 21);
-            this.cboDirDistrito.TabIndex = 9;
+            this.cboDirDistrito.TabIndex = 6;
             // 
             // cboDirTipo
             // 
@@ -197,14 +196,14 @@
             this.cboDirTipo.Location = new System.Drawing.Point(74, 71);
             this.cboDirTipo.Name = "cboDirTipo";
             this.cboDirTipo.Size = new System.Drawing.Size(169, 21);
-            this.cboDirTipo.TabIndex = 5;
+            this.cboDirTipo.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(38, 101);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "País:";
             // 
@@ -231,14 +230,14 @@
             this.txtDirPostal.Location = new System.Drawing.Point(74, 208);
             this.txtDirPostal.Name = "txtDirPostal";
             this.txtDirPostal.Size = new System.Drawing.Size(169, 20);
-            this.txtDirPostal.TabIndex = 10;
+            this.txtDirPostal.TabIndex = 7;
             // 
             // txtDirLinea2
             // 
             this.txtDirLinea2.Location = new System.Drawing.Point(74, 45);
             this.txtDirLinea2.Name = "txtDirLinea2";
             this.txtDirLinea2.Size = new System.Drawing.Size(169, 20);
-            this.txtDirLinea2.TabIndex = 4;
+            this.txtDirLinea2.TabIndex = 1;
             // 
             // label6
             // 
@@ -254,7 +253,7 @@
             this.txtDirLinea1.Location = new System.Drawing.Point(75, 19);
             this.txtDirLinea1.Name = "txtDirLinea1";
             this.txtDirLinea1.Size = new System.Drawing.Size(168, 20);
-            this.txtDirLinea1.TabIndex = 3;
+            this.txtDirLinea1.TabIndex = 0;
             // 
             // label18
             // 
@@ -310,7 +309,7 @@
             this.txtEmailEmail.Location = new System.Drawing.Point(65, 19);
             this.txtEmailEmail.Name = "txtEmailEmail";
             this.txtEmailEmail.Size = new System.Drawing.Size(178, 20);
-            this.txtEmailEmail.TabIndex = 1;
+            this.txtEmailEmail.TabIndex = 0;
             // 
             // label10
             // 
@@ -337,7 +336,7 @@
             this.cboEmailTipo.Location = new System.Drawing.Point(64, 45);
             this.cboEmailTipo.Name = "cboEmailTipo";
             this.cboEmailTipo.Size = new System.Drawing.Size(179, 21);
-            this.cboEmailTipo.TabIndex = 2;
+            this.cboEmailTipo.TabIndex = 1;
             // 
             // gbTelefono
             // 
@@ -361,35 +360,35 @@
             this.txtTelCext.Location = new System.Drawing.Point(208, 19);
             this.txtTelCext.Name = "txtTelCext";
             this.txtTelCext.Size = new System.Drawing.Size(30, 20);
-            this.txtTelCext.TabIndex = 5;
+            this.txtTelCext.TabIndex = 4;
             // 
             // txtTelC3
             // 
             this.txtTelC3.Location = new System.Drawing.Point(172, 19);
             this.txtTelC3.Name = "txtTelC3";
             this.txtTelC3.Size = new System.Drawing.Size(30, 20);
-            this.txtTelC3.TabIndex = 4;
+            this.txtTelC3.TabIndex = 3;
             // 
             // txtTelC2
             // 
             this.txtTelC2.Location = new System.Drawing.Point(136, 19);
             this.txtTelC2.Name = "txtTelC2";
             this.txtTelC2.Size = new System.Drawing.Size(30, 20);
-            this.txtTelC2.TabIndex = 3;
+            this.txtTelC2.TabIndex = 2;
             // 
             // txtTelC1
             // 
             this.txtTelC1.Location = new System.Drawing.Point(100, 19);
             this.txtTelC1.Name = "txtTelC1";
             this.txtTelC1.Size = new System.Drawing.Size(30, 20);
-            this.txtTelC1.TabIndex = 2;
+            this.txtTelC1.TabIndex = 1;
             // 
             // txtCP
             // 
             this.txtCP.Location = new System.Drawing.Point(64, 19);
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(30, 20);
-            this.txtCP.TabIndex = 1;
+            this.txtCP.TabIndex = 0;
             // 
             // label12
             // 
@@ -415,26 +414,17 @@
             this.cboTelTipo.Location = new System.Drawing.Point(62, 45);
             this.cboTelTipo.Name = "cboTelTipo";
             this.cboTelTipo.Size = new System.Drawing.Size(181, 21);
-            this.cboTelTipo.TabIndex = 6;
+            this.cboTelTipo.TabIndex = 5;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(438, 358);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 39);
-            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(111, 357);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 39);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -559,9 +549,35 @@
             this.groupBox6.Location = new System.Drawing.Point(211, 347);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(211, 50);
-            this.groupBox6.TabIndex = 8;
+            this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Opciones";
+            // 
+            // chkTelefono
+            // 
+            this.chkTelefono.AutoSize = true;
+            this.chkTelefono.Checked = true;
+            this.chkTelefono.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTelefono.Location = new System.Drawing.Point(140, 19);
+            this.chkTelefono.Name = "chkTelefono";
+            this.chkTelefono.Size = new System.Drawing.Size(68, 17);
+            this.chkTelefono.TabIndex = 2;
+            this.chkTelefono.Text = "Teléfono";
+            this.chkTelefono.UseVisualStyleBackColor = true;
+            this.chkTelefono.CheckedChanged += new System.EventHandler(this.chkTelefono_CheckedChanged);
+            // 
+            // chkEmail
+            // 
+            this.chkEmail.AutoSize = true;
+            this.chkEmail.Checked = true;
+            this.chkEmail.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEmail.Location = new System.Drawing.Point(83, 19);
+            this.chkEmail.Name = "chkEmail";
+            this.chkEmail.Size = new System.Drawing.Size(51, 17);
+            this.chkEmail.TabIndex = 1;
+            this.chkEmail.Text = "Email";
+            this.chkEmail.UseVisualStyleBackColor = true;
+            this.chkEmail.CheckedChanged += new System.EventHandler(this.chkEmail_CheckedChanged);
             // 
             // chkDireccion
             // 
@@ -576,32 +592,6 @@
             this.chkDireccion.UseVisualStyleBackColor = true;
             this.chkDireccion.CheckedChanged += new System.EventHandler(this.chkDireccion_CheckedChanged);
             // 
-            // chkEmail
-            // 
-            this.chkEmail.AutoSize = true;
-            this.chkEmail.Checked = true;
-            this.chkEmail.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEmail.Location = new System.Drawing.Point(83, 19);
-            this.chkEmail.Name = "chkEmail";
-            this.chkEmail.Size = new System.Drawing.Size(51, 17);
-            this.chkEmail.TabIndex = 0;
-            this.chkEmail.Text = "Email";
-            this.chkEmail.UseVisualStyleBackColor = true;
-            this.chkEmail.CheckedChanged += new System.EventHandler(this.chkEmail_CheckedChanged);
-            // 
-            // chkTelefono
-            // 
-            this.chkTelefono.AutoSize = true;
-            this.chkTelefono.Checked = true;
-            this.chkTelefono.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTelefono.Location = new System.Drawing.Point(140, 19);
-            this.chkTelefono.Name = "chkTelefono";
-            this.chkTelefono.Size = new System.Drawing.Size(68, 17);
-            this.chkTelefono.TabIndex = 0;
-            this.chkTelefono.Text = "Teléfono";
-            this.chkTelefono.UseVisualStyleBackColor = true;
-            this.chkTelefono.CheckedChanged += new System.EventHandler(this.chkTelefono_CheckedChanged);
-            // 
             // frmNuevoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,7 +599,6 @@
             this.ClientSize = new System.Drawing.Size(537, 409);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gbDireccion);
             this.Controls.Add(this.groupBox5);
@@ -676,7 +665,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cboTelTipo;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label randomlabel;

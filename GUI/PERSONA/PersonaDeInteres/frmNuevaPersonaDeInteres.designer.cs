@@ -56,7 +56,7 @@
             this.groupBox1.Location = new System.Drawing.Point(30, 32);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(278, 193);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Principal";
             // 
@@ -65,7 +65,7 @@
             this.txtNombrePersona.Location = new System.Drawing.Point(95, 27);
             this.txtNombrePersona.Name = "txtNombrePersona";
             this.txtNombrePersona.Size = new System.Drawing.Size(143, 20);
-            this.txtNombrePersona.TabIndex = 1;
+            this.txtNombrePersona.TabIndex = 0;
             // 
             // label2
             // 
@@ -82,7 +82,7 @@
             this.cboProyecto.Location = new System.Drawing.Point(125, 173);
             this.cboProyecto.Name = "cboProyecto";
             this.cboProyecto.Size = new System.Drawing.Size(143, 21);
-            this.cboProyecto.TabIndex = 3;
+            this.cboProyecto.TabIndex = 2;
             // 
             // label3
             // 
@@ -99,14 +99,14 @@
             this.cboPuesto.Location = new System.Drawing.Point(125, 116);
             this.cboPuesto.Name = "cboPuesto";
             this.cboPuesto.Size = new System.Drawing.Size(143, 21);
-            this.cboPuesto.TabIndex = 5;
+            this.cboPuesto.TabIndex = 1;
             // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(30, 246);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 35);
-            this.btnSalir.TabIndex = 6;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -116,7 +116,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(242, 246);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 35);
-            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -137,7 +137,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNuevaPersonaDeInteres";
-            this.Text = "frmNuevaPersonaDeInteres";
+            this.Text = "Nueva Persona De Interes";
             this.Load += new System.EventHandler(this.frmNuevaPersonaDeInteres_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

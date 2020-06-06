@@ -52,6 +52,12 @@
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="AUTH\frmListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AUTH\frmListar.Designer.cs">
+      <DependentUpon>frmListar.cs</DependentUpon>
+    </Compile>
     <Compile Include="AUTH\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     <Compile Include="PERSONA\CLIENTE\frmEliminarCliente.Designer.cs">
       <DependentUpon>frmEliminarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="PERSONA\CLIENTE\frmListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\CLIENTE\frmListar.Designer.cs">
+      <DependentUpon>frmListar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\CLIENTE\frmModificarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     <Compile Include="PERSONA\EMPLEADO\frmDe-ActivarEmpleado.Designer.cs">
       <DependentUpon>frmDe-ActivarEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\EMPLEADO\frmListar.Designer.cs">
+      <DependentUpon>frmListar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\EMPLEADO\frmModificarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +137,12 @@
     </Compile>
     <Compile Include="PERSONA\PersonaDeInteres\frmEliminarPersonaDeInteres.Designer.cs">
       <DependentUpon>frmEliminarPersonaDeInteres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\PersonaDeInteres\frmListar.Designer.cs">
+      <DependentUpon>frmListar.cs</DependentUpon>
     </Compile>
     <Compile Include="PERSONA\PersonaDeInteres\frmModificarPersonaDeInteres.cs">
       <SubType>Form</SubType>
@@ -146,6 +170,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROYECTO\frmListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PROYECTO\frmListar.Designer.cs">
+      <DependentUpon>frmListar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PROYECTO\frmModificarProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PROYECTO\frmModificarProyecto.Designer.cs">
+      <DependentUpon>frmModificarProyecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="PROYECTO\frmNuevoProyecto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +190,9 @@
     </Compile>
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AUTH\frmListar.resx">
+      <DependentUpon>frmListar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AUTH\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -167,6 +206,9 @@
     <EmbeddedResource Include="PERSONA\CLIENTE\frmEliminarCliente.resx">
       <DependentUpon>frmEliminarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\CLIENTE\frmListar.resx">
+      <DependentUpon>frmListar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\CLIENTE\frmModificarCliente.resx">
       <DependentUpon>frmModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +218,9 @@
     <EmbeddedResource Include="PERSONA\EMPLEADO\frmDe-ActivarEmpleado.resx">
       <DependentUpon>frmDe-ActivarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\EMPLEADO\frmListar.resx">
+      <DependentUpon>frmListar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\EMPLEADO\frmModificarEmpleado.resx">
       <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\PersonaDeInteres\frmEliminarPersonaDeInteres.resx">
       <DependentUpon>frmEliminarPersonaDeInteres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\PersonaDeInteres\frmListar.resx">
+      <DependentUpon>frmListar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\PersonaDeInteres\frmModificarPersonaDeInteres.resx">
       <DependentUpon>frmModificarPersonaDeInteres.cs</DependentUpon>
@@ -206,6 +254,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PROYECTO\frmListar.resx">
+      <DependentUpon>frmListar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PROYECTO\frmModificarProyecto.resx">
+      <DependentUpon>frmModificarProyecto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PROYECTO\frmNuevoProyecto.resx">
       <DependentUpon>frmNuevoProyecto.cs</DependentUpon>
     </EmbeddedResource>

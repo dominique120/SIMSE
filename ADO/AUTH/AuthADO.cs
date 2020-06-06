@@ -170,5 +170,20 @@ namespace ADO.AUTH {
             return success;
         }
 
+        public DataTable ListarCredenciales() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarCredenciales";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Credenciales");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las credenciales: " + ex.Message);
+            }
+            return dts.Tables["Credenciales"];
+        }
+
     }
 }

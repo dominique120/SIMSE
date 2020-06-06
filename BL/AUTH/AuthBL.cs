@@ -14,6 +14,10 @@ namespace BL.AUTH {
     public class AuthBL {
         AuthADO authado = new AuthADO();
 
+        public DataTable ListarCredenciales() {
+            return authado.ListarCredenciales();
+        }
+
         public AuthBE CredentialSelect(string username) {
             return authado.CredentialSelect(username);
         }

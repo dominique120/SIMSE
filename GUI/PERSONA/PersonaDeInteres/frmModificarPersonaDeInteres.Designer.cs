@@ -43,7 +43,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(214, 298);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 35);
-            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -53,9 +53,10 @@
             this.btnSalir.Location = new System.Drawing.Point(11, 298);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 35);
-            this.btnSalir.TabIndex = 14;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // cboPuesto
             // 
@@ -63,7 +64,7 @@
             this.cboPuesto.Location = new System.Drawing.Point(107, 158);
             this.cboPuesto.Name = "cboPuesto";
             this.cboPuesto.Size = new System.Drawing.Size(143, 21);
-            this.cboPuesto.TabIndex = 13;
+            this.cboPuesto.TabIndex = 3;
             // 
             // label3
             // 
@@ -80,7 +81,7 @@
             this.cboProyecto.Location = new System.Drawing.Point(107, 215);
             this.cboProyecto.Name = "cboProyecto";
             this.cboProyecto.Size = new System.Drawing.Size(143, 21);
-            this.cboProyecto.TabIndex = 11;
+            this.cboProyecto.TabIndex = 4;
             // 
             // label2
             // 
@@ -98,7 +99,7 @@
             this.groupBox1.Location = new System.Drawing.Point(11, 84);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(278, 193);
-            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Principal";
             // 
@@ -107,7 +108,7 @@
             this.txtNombrePersona.Location = new System.Drawing.Point(95, 27);
             this.txtNombrePersona.Name = "txtNombrePersona";
             this.txtNombrePersona.Size = new System.Drawing.Size(143, 20);
-            this.txtNombrePersona.TabIndex = 1;
+            this.txtNombrePersona.TabIndex = 0;
             // 
             // label1
             // 
@@ -123,7 +124,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(175, 54);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 18;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -143,7 +144,7 @@
             this.cboPerInte.Location = new System.Drawing.Point(12, 27);
             this.cboPerInte.Name = "cboPerInte";
             this.cboPerInte.Size = new System.Drawing.Size(243, 21);
-            this.cboPerInte.TabIndex = 16;
+            this.cboPerInte.TabIndex = 0;
             // 
             // frmModificarPersonaDeInteres
             // 

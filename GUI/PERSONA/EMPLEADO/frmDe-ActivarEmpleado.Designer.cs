@@ -34,7 +34,7 @@
             this.btnEstado.Location = new System.Drawing.Point(13, 39);
             this.btnEstado.Name = "btnEstado";
             this.btnEstado.Size = new System.Drawing.Size(407, 51);
-            this.btnEstado.TabIndex = 0;
+            this.btnEstado.TabIndex = 2;
             this.btnEstado.UseVisualStyleBackColor = true;
             this.btnEstado.Click += new System.EventHandler(this.btnEstado_Click);
             // 
@@ -53,14 +53,14 @@
             this.cboBuscarEmpleado.Location = new System.Drawing.Point(70, 12);
             this.cboBuscarEmpleado.Name = "cboBuscarEmpleado";
             this.cboBuscarEmpleado.Size = new System.Drawing.Size(269, 21);
-            this.cboBuscarEmpleado.TabIndex = 14;
+            this.cboBuscarEmpleado.TabIndex = 0;
             // 
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(345, 12);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(75, 23);
-            this.txtBuscar.TabIndex = 13;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.Text = "Buscar";
             this.txtBuscar.UseVisualStyleBackColor = true;
             this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);

@@ -49,7 +49,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -79,21 +78,21 @@
             this.txtDocumento.Location = new System.Drawing.Point(77, 122);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento.TabIndex = 3;
+            this.txtDocumento.TabIndex = 4;
             // 
             // txtSApellido
             // 
             this.txtSApellido.Location = new System.Drawing.Point(77, 96);
             this.txtSApellido.Name = "txtSApellido";
             this.txtSApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtSApellido.TabIndex = 1;
+            this.txtSApellido.TabIndex = 3;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(77, 70);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 1;
+            this.txtApellido.TabIndex = 2;
             // 
             // label9
             // 
@@ -125,7 +124,7 @@
             this.txtNombre.Location = new System.Drawing.Point(77, 19);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 0;
             // 
             // label7
             // 
@@ -177,7 +176,7 @@
             this.cboPuesto.Location = new System.Drawing.Point(109, 100);
             this.cboPuesto.Name = "cboPuesto";
             this.cboPuesto.Size = new System.Drawing.Size(109, 21);
-            this.cboPuesto.TabIndex = 6;
+            this.cboPuesto.TabIndex = 3;
             // 
             // dtpFecIni
             // 
@@ -185,7 +184,7 @@
             this.dtpFecIni.Location = new System.Drawing.Point(109, 74);
             this.dtpFecIni.Name = "dtpFecIni";
             this.dtpFecIni.Size = new System.Drawing.Size(109, 20);
-            this.dtpFecIni.TabIndex = 5;
+            this.dtpFecIni.TabIndex = 2;
             // 
             // dtpFecNac
             // 
@@ -193,14 +192,14 @@
             this.dtpFecNac.Location = new System.Drawing.Point(109, 45);
             this.dtpFecNac.Name = "dtpFecNac";
             this.dtpFecNac.Size = new System.Drawing.Size(109, 20);
-            this.dtpFecNac.TabIndex = 3;
+            this.dtpFecNac.TabIndex = 1;
             // 
             // txtRuc
             // 
             this.txtRuc.Location = new System.Drawing.Point(109, 19);
             this.txtRuc.Name = "txtRuc";
             this.txtRuc.Size = new System.Drawing.Size(109, 20);
-            this.txtRuc.TabIndex = 1;
+            this.txtRuc.TabIndex = 0;
             // 
             // label10
             // 
@@ -240,29 +239,20 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(215, 198);
+            this.btnSalir.Location = new System.Drawing.Point(214, 156);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(82, 35);
-            this.btnSalir.TabIndex = 2;
+            this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(215, 150);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(82, 35);
-            this.btnLimpiar.TabIndex = 3;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(329, 156);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(94, 77);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.Size = new System.Drawing.Size(94, 35);
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -271,9 +261,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 246);
+            this.ClientSize = new System.Drawing.Size(450, 200);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -305,7 +294,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnGuardar;
         internal System.Windows.Forms.DateTimePicker dtpFecNac;
         internal System.Windows.Forms.DateTimePicker dtpFecIni;

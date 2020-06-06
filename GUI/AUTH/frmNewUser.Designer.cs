@@ -39,7 +39,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(12, 151);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(136, 23);
-            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Crear Nuevo Usuario";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -49,7 +49,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(12, 23);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(136, 20);
-            this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.TabIndex = 0;
             // 
             // label1
             // 
@@ -82,7 +82,7 @@
             this.button2.Location = new System.Drawing.Point(12, 180);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 23);
-            this.button2.TabIndex = 0;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -94,7 +94,7 @@
             this.cboEmpleado.Location = new System.Drawing.Point(12, 101);
             this.cboEmpleado.Name = "cboEmpleado";
             this.cboEmpleado.Size = new System.Drawing.Size(136, 21);
-            this.cboEmpleado.TabIndex = 3;
+            this.cboEmpleado.TabIndex = 2;
             // 
             // label3
             // 
@@ -113,7 +113,7 @@
             this.chkActivo.Location = new System.Drawing.Point(52, 128);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 4;
+            this.chkActivo.TabIndex = 3;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 

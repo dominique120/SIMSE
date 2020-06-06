@@ -14,6 +14,9 @@ namespace BL.Persona {
         public Boolean ClienteNew(ClienteBE clibe) {
             return cliado.ClienteNew(clibe);
         }
+        public DataTable ListarClientesFull() {
+            return cliado.ListarClientesFull();
+        }
 
         public Boolean ModificarCliente(ClienteBE clibe) {
             return cliado.ModificarCliente(clibe);

@@ -92,5 +92,46 @@ namespace GUI {
             frmeliminarperint.MdiParent = this;
             frmeliminarperint.Show();
         }
+
+        private void eliminarToolStripMenuItem4_Click(object sender, EventArgs e) {
+            MessageBox.Show(this, "Para eliminar un proyecto contactar con el gerente de su area.", "Alerta", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            return;
+        }
+
+        private void modificarToolStripMenuItem4_Click(object sender, EventArgs e) {
+            PROYECTO.frmModificarProyecto modproy = new PROYECTO.frmModificarProyecto();
+            modproy.MdiParent = this;
+            modproy.Show();
+        }
+
+        private void listarToolStripMenuItem2_Click(object sender, EventArgs e) {
+            PROYECTO.frmListar frmlistar = new PROYECTO.frmListar();
+            frmlistar.MdiParent = this;
+            frmlistar.Show();
+        }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e) {
+            PERSONA.CLIENTE.frmListar listar = new PERSONA.CLIENTE.frmListar();
+            listar.MdiParent = this;
+            listar.Show();
+        }
+
+        private void listarToolStripMenuItem3_Click(object sender, EventArgs e) {
+            PERSONA.EMPLEADO.frmListar listar = new PERSONA.EMPLEADO.frmListar();
+            listar.MdiParent = this;
+            listar.Show();
+        }
+
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e) {
+            PERSONA.PersonaDeInteres.frmListar listar = new PERSONA.PersonaDeInteres.frmListar();
+            listar.MdiParent = this;
+            listar.Show();
+        }
+
+        private void listarToolStripMenuItem4_Click(object sender, EventArgs e) {
+            AUTH.frmListar listar = new AUTH.frmListar();
+            listar.MdiParent = this;
+            listar.Show();
+        }
     }
 }

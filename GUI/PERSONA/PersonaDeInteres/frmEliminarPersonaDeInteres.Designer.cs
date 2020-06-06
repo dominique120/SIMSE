@@ -33,7 +33,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(172, 57);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Eliminar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -53,7 +53,7 @@
             this.cboPerInte.Location = new System.Drawing.Point(9, 30);
             this.cboPerInte.Name = "cboPerInte";
             this.cboPerInte.Size = new System.Drawing.Size(243, 21);
-            this.cboPerInte.TabIndex = 19;
+            this.cboPerInte.TabIndex = 0;
             // 
             // frmEliminarPersonaDeInteres
             // 

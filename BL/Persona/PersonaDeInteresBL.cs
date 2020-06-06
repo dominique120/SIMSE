@@ -46,5 +46,8 @@ namespace BL.Persona {
         public Boolean EliminarPersonaDeInteres(int idPersona) {
             return perintado.EliminarPersonaDeInteres(idPersona);
         }
+        public DataTable ListarPersonasDeInteresFull() {
+            return perintado.ListarPersonasDeInteresFull();
+        }
     }
 }

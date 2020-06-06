@@ -15,6 +15,21 @@ namespace ADO {
 
         Boolean success = false;
 
+        public DataTable ListarClientesFull() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarClientesFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Clientes");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando clientes: " + ex.Message);
+            }
+            return dts.Tables["Clientes"];
+        }
+
         public Boolean ClienteNew(ClienteBE cliBE) {
             con.ConnectionString = conection.GetCon();
             cmd.Connection = con;

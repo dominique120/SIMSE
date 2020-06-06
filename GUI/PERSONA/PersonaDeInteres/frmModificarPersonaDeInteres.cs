@@ -31,7 +31,6 @@ namespace GUI.PERSONA.PersonaDeInteres {
 
             //Listar Proyecto
             try {
-
                 cboProyecto.DataSource = perinteBL.ListarProyecto();
                 cboProyecto.DisplayMember = "nom_proyecto";
                 cboProyecto.ValueMember = "id_proyecto";
@@ -73,6 +72,10 @@ namespace GUI.PERSONA.PersonaDeInteres {
             } else {
                 MessageBox.Show(this, "Ocurrió un error.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

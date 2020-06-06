@@ -2,6 +2,7 @@
 using BE.PERSONA;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,9 @@ namespace BL.Persona
 
         public Boolean NuevoEmpleado(EmpleadoBE empbe) {
             return empado.NuevoEmpleado(empbe);
+        }
+        public DataTable ListarEmpleadosFull() {
+            return empado.ListarEmpleadosFull();
         }
 
         public bool RevisarEstado(int idEmpleado) {

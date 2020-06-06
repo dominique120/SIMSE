@@ -17,6 +17,21 @@ namespace ADO
 
         Boolean success = false;
 
+        public DataTable ListarEmpleadosFull() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarEMpleadoFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Empleados");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando empleados: " + ex.Message);
+            }
+            return dts.Tables["Empleados"];
+        }
+
         public Boolean NuevoEmpleado(EmpleadoBE empBE)
         {
             con.ConnectionString = conection.GetCon();

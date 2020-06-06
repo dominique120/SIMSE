@@ -40,7 +40,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(11, 56);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 9;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -60,7 +60,7 @@
             this.cboCliente.Location = new System.Drawing.Point(11, 28);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(243, 21);
-            this.cboCliente.TabIndex = 7;
+            this.cboCliente.TabIndex = 0;
             // 
             // gbPrincipal
             // 
@@ -71,7 +71,7 @@
             this.gbPrincipal.Location = new System.Drawing.Point(11, 85);
             this.gbPrincipal.Name = "gbPrincipal";
             this.gbPrincipal.Size = new System.Drawing.Size(252, 78);
-            this.gbPrincipal.TabIndex = 6;
+            this.gbPrincipal.TabIndex = 2;
             this.gbPrincipal.TabStop = false;
             this.gbPrincipal.Text = "Principal";
             // 
@@ -80,14 +80,14 @@
             this.txtDocumento.Location = new System.Drawing.Point(74, 45);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento.TabIndex = 2;
+            this.txtDocumento.TabIndex = 1;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(75, 19);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(168, 20);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 0;
             // 
             // label2
             // 
@@ -112,7 +112,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(18, 170);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(236, 23);
-            this.btnEliminar.TabIndex = 10;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -128,6 +128,8 @@
             this.Controls.Add(this.cboCliente);
             this.Controls.Add(this.gbPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEliminarCliente";
             this.Text = "Eliminar Cliente";
             this.Load += new System.EventHandler(this.frmEliminarCliente_Load);

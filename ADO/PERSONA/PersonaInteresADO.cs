@@ -16,6 +16,21 @@ namespace ADO {
 
         Boolean success = false;
 
+        public DataTable ListarPersonasDeInteresFull() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarPersonasDeInteresFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "PersonasDeInteres");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las personas de interés: " + ex.Message);
+            }
+            return dts.Tables["PersonasDeInteres"];
+        }
+
         public Boolean PersonaDeInteresNew(PersonaDeInteresBE PerIntBE) {
             con.ConnectionString = conection.GetCon();
             cmd.Connection = con;
