@@ -147,11 +147,6 @@ namespace ADO.PersonaUTIL.Direcciones {
             return dts.Tables["DireccionesTipos"];
         }
 
-
-
-
-
-
         Boolean success = false;
         public Boolean DireccionNew(DireccionBE dirBE) {
             con.ConnectionString = conection.GetCon();
@@ -186,7 +181,40 @@ namespace ADO.PersonaUTIL.Direcciones {
                 cmd.Parameters.Clear();
             }
             return success;
+        }
 
+        public DataTable ListarDireccionesFull() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarDireccionesFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Direcciones");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las direcciones: " + ex.Message);
+            }
+            return dts.Tables["Direcciones"];
+        }
+
+        public DataTable ListarDireccionesFullPorId(int idPersona) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarDireccionesFullPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", idPersona);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Direcciones");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las direcciones: " + ex.Message);
+            }
+            return dts.Tables["Direcciones"];
         }
     }
 }

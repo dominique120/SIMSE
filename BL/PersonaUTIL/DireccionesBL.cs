@@ -48,5 +48,12 @@ namespace BL.UTIL {
         public DataTable ListarRegionesPorIdPais(int idPais) {
             return dir.ListarRegionesPorIdPais(idPais);
         }
+
+        public DataTable ListarDireccionesFull() {
+            return dir.ListarDireccionesFull();
+        }
+        public DataTable ListarDireccionesFullPorId(int idPersona) {
+            return dir.ListarDireccionesFullPorId(idPersona);
+        }
     }
 }
