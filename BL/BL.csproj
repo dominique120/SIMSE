@@ -48,6 +48,7 @@
     <Compile Include="MarketingUTIL\PrimerInteresBL.cs" />
     <Compile Include="Marketing\FichaMarketingBL.cs" />
     <Compile Include="PersonaUTIL\NewIdBL.cs" />
+    <Compile Include="PersonaUTIL\PersonaBL.cs" />
     <Compile Include="Persona\ClienteBL.cs" />
     <Compile Include="Persona\EmpleadoBL.cs" />
     <Compile Include="Persona\PersonaDeInteresBL.cs" />

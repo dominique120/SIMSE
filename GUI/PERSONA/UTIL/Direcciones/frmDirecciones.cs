@@ -1,4 +1,5 @@
 ﻿using BL.UTIL;
+using GUI.PERSONA.UTIL.Direcciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace GUI.PERSONA.UTIL {
         }
         DireccionesBL dirs = new DireccionesBL();
 
-        private void frmDirecciones_Load(object sender, EventArgs e) {
+        public void frmDirecciones_Load(object sender, EventArgs e) {
             DataTable src = dirs.ListarDireccionesFull();
             dtgDirecciones.DataSource = src;
             cboPersonas.DataSource = src;
@@ -27,6 +28,11 @@ namespace GUI.PERSONA.UTIL {
         private void btnBuscar_Click(object sender, EventArgs e) {
             int idPersona = int.Parse(cboPersonas.SelectedValue.ToString());
             dtgDirecciones.DataSource = dirs.ListarDireccionesFullPorId(idPersona);
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e) {
+            frmNewDireccion newdir = new frmNewDireccion();
+            newdir.Show();
         }
     }
 }

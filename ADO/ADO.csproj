@@ -53,6 +53,7 @@
     <Compile Include="MarketingUTIL\PersonaFuenteADO.cs" />
     <Compile Include="MarketingUTIL\PrimerInteresADO.cs" />
     <Compile Include="MARKETING\FichaMarketingADO.cs" />
+    <Compile Include="PERSONA\PersonaADO.cs" />
     <Compile Include="PERSONA\PersonaInteresADO.cs" />
     <Compile Include="PersonaUTIL\NewIdADO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

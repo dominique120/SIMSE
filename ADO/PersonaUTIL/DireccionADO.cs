@@ -13,7 +13,6 @@ namespace ADO.PersonaUTIL.Direcciones {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-
         public DataTable  ListarDistritos() {
             DataSet dts = new DataSet();
             try {

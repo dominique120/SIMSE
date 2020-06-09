@@ -142,7 +142,7 @@ namespace GUI.PERSONA.CLIENTE {
                 strInserted += " y una ficha marketing con id " + idCliente;
             }
 
-            MessageBox.Show(this, strInserted, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(this, strInserted, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
             return;
         }
