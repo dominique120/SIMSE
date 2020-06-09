@@ -77,5 +77,46 @@ namespace ADO.PersonaUTIL {
             return success;
 
         }
+        public DataTable ListarTelefonosFull()
+        {
+            DataSet dts = new DataSet();
+            try
+            {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.LestarTelefonosFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Telefonos");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error mostrando los telefonos: " + ex.Message);
+            }
+            return dts.Tables["Telefonos"];
+        }
+
+        public DataTable ListarTelefonosFullPorId(int idPersona)
+        {
+            DataSet dts = new DataSet();
+            try
+            {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.LestarTelefonosFullPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", idPersona);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Telefonos");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error mostrando los emails: " + ex.Message);
+            }
+            return dts.Tables["Telefonos"];
+        }
     }
 }

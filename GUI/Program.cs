@@ -15,7 +15,7 @@ namespace GUI {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDirecciones());
+            Application.Run(new frmMain());
         }
     }
 }

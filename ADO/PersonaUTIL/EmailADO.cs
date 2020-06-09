@@ -58,5 +58,46 @@ namespace ADO.PersonaUTIL {
             return success;
 
         }
+        public DataTable ListarEmailsFull()
+        {
+            DataSet dts = new DataSet();
+            try
+            {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarEmailsFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Emails");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error mostrando los emails: " + ex.Message);
+            }
+            return dts.Tables["Emails"];
+        }
+
+        public DataTable ListarEmailsFullPorId(int idPersona)
+        {
+            DataSet dts = new DataSet();
+            try
+            {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarEmailsFullPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", idPersona);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Emails");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error mostrando los emails: " + ex.Message);
+            }
+            return dts.Tables["Emails"];
+        }
     }
 }

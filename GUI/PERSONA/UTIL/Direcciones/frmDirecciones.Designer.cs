@@ -35,12 +35,18 @@
             // 
             // dtgDirecciones
             // 
+            this.dtgDirecciones.AllowUserToAddRows = false;
+            this.dtgDirecciones.AllowUserToDeleteRows = false;
             this.dtgDirecciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgDirecciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgDirecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDirecciones.Location = new System.Drawing.Point(12, 52);
             this.dtgDirecciones.Name = "dtgDirecciones";
+            this.dtgDirecciones.ReadOnly = true;
+            this.dtgDirecciones.RowHeadersVisible = false;
+            this.dtgDirecciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgDirecciones.Size = new System.Drawing.Size(1349, 582);
             this.dtgDirecciones.TabIndex = 0;
             // 

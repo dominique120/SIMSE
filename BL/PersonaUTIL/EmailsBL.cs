@@ -19,6 +19,13 @@ namespace BL.UTIL {
         public Boolean EmailNew(EmailBE emailbe) {
             return email.EmailNew(emailbe);
         }
-
+        public DataTable ListarEmailsFull()
+        {
+            return email.ListarEmailsFull();
+        }
+        public DataTable ListarEmailsFullPorId(int idPersona)
+        {
+            return email.ListarEmailsFullPorId(idPersona);
+        }
     }
 }

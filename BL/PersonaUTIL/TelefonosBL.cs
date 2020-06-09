@@ -23,5 +23,13 @@ namespace BL.UTIL {
         public Boolean TelefonoNew(TelefonoBE telbe) {
             return telado.TelefonoNew(telbe);
         }
+        public DataTable ListarTelefonosFull()
+        {
+            return tel.ListarTelefonosFull();
+        }
+        public DataTable ListarTelefonosFullPorId(int idPersona)
+        {
+            return tel.ListarTelefonosFullPorId(idPersona);
+        }
     }
 }
