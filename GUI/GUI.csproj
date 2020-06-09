@@ -162,11 +162,23 @@
     <Compile Include="PERSONA\UTIL\Direcciones\frmNewDireccion.Designer.cs">
       <DependentUpon>frmNewDireccion.cs</DependentUpon>
     </Compile>
-    <Compile Include="PERSONA\UTIL\frmDirecciones.cs">
+    <Compile Include="PERSONA\UTIL\Direcciones\frmDirecciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PERSONA\UTIL\frmDirecciones.Designer.cs">
+    <Compile Include="PERSONA\UTIL\Direcciones\frmDirecciones.Designer.cs">
       <DependentUpon>frmDirecciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\UTIL\Emails\frmEmails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\UTIL\Emails\frmEmails.Designer.cs">
+      <DependentUpon>frmEmails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\UTIL\Telefonos\frmTelefonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\UTIL\Telefonos\frmTelefonos.Designer.cs">
+      <DependentUpon>frmTelefonos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -242,8 +254,14 @@
     <EmbeddedResource Include="PERSONA\UTIL\Direcciones\frmNewDireccion.resx">
       <DependentUpon>frmNewDireccion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PERSONA\UTIL\frmDirecciones.resx">
+    <EmbeddedResource Include="PERSONA\UTIL\Direcciones\frmDirecciones.resx">
       <DependentUpon>frmDirecciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\UTIL\Emails\frmEmails.resx">
+      <DependentUpon>frmEmails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\UTIL\Telefonos\frmTelefonos.resx">
+      <DependentUpon>frmTelefonos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

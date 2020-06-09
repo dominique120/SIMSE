@@ -133,5 +133,23 @@ namespace GUI {
             listar.MdiParent = this;
             listar.Show();
         }
+
+        private void direccionesToolStripMenuItem_Click(object sender, EventArgs e) {
+            PERSONA.UTIL.frmDirecciones direcciones = new PERSONA.UTIL.frmDirecciones();
+            direcciones.MdiParent = this;
+            direcciones.Show();
+        }
+
+        private void telefonosToolStripMenuItem_Click(object sender, EventArgs e) {
+            PERSONA.UTIL.Telefonos.frmTelefonos tel = new PERSONA.UTIL.Telefonos.frmTelefonos();
+            tel.MdiParent = this;
+            tel.Show();
+        }
+
+        private void emailsToolStripMenuItem_Click(object sender, EventArgs e) {
+            PERSONA.UTIL.Emails.frmEmails em = new PERSONA.UTIL.Emails.frmEmails();
+            em.MdiParent = this;
+            em.Show();
+        }
     }
 }
