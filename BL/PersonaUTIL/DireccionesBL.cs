@@ -13,6 +13,10 @@ namespace BL.UTIL {
     public class DireccionesBL {
         DireccionADO dir = new DireccionADO();
 
+        public Boolean ModificarDireccion(DireccionBE dirBE) {
+            return dir.ModificarDireccion(dirBE);
+        }
+
         public DataTable ListarPaises() {
             return dir.ListarPaises();
         }
@@ -31,6 +35,13 @@ namespace BL.UTIL {
 
         public DataTable ListarDireccionesTipos() {
             return dir.ListarDireccionesTipos();
+        }
+        public Boolean EliminarDireccion(int idDireccion) {
+            return dir.EliminarDireccion(idDireccion);
+        }
+
+        public DireccionBE SelectDireccion(int idDireccion) {
+            return dir.SelectDireccion(idDireccion);
         }
 
         public Boolean DireccionNew(DireccionBE dirbe) {
@@ -51,6 +62,9 @@ namespace BL.UTIL {
 
         public DataTable ListarDireccionesFull() {
             return dir.ListarDireccionesFull();
+        }
+        public DataTable ListarPersonasConDirecciones() {
+            return dir.ListarPersonasConDirecciones();
         }
         public DataTable ListarDireccionesFullPorId(int idPersona) {
             return dir.ListarDireccionesFullPorId(idPersona);

@@ -185,5 +185,15 @@ namespace ADO.AUTH {
             return dts.Tables["Credenciales"];
         }
 
+        public bool IsAvailable() {
+            con.ConnectionString = conection.GetCon();
+            try {
+                con.Open();
+                con.Close();
+            } catch (SqlException) {
+                return false;
+            }
+            return true;
+        }
     }
 }

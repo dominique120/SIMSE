@@ -17,7 +17,14 @@ namespace GUI.AUTH {
         }
 
         private void Login_Load(object sender, EventArgs e) {
-            //test database connection
+            AuthBL abl = new AuthBL();
+            if (abl.IsAvailable() == true) {
+                return;
+            } else {
+                MessageBox.Show(this, "No hay conexión a la base de datos. Comuníquese con el encargado de IT", "Alerta",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e) {

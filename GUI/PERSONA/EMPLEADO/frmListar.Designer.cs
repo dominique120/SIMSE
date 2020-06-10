@@ -29,9 +29,17 @@
             // 
             // dtgEmpleados
             // 
+            this.dtgEmpleados.AllowUserToAddRows = false;
+            this.dtgEmpleados.AllowUserToDeleteRows = false;
+            this.dtgEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgEmpleados.Location = new System.Drawing.Point(12, 12);
             this.dtgEmpleados.Name = "dtgEmpleados";
+            this.dtgEmpleados.ReadOnly = true;
+            this.dtgEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgEmpleados.Size = new System.Drawing.Size(1006, 426);
             this.dtgEmpleados.TabIndex = 0;
             // 
@@ -41,7 +49,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 450);
             this.Controls.Add(this.dtgEmpleados);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListar";

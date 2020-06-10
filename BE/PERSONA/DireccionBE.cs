@@ -17,6 +17,9 @@ namespace BE.PERSONA {
         private string dir_linea_2;
         private string dir_codigo_postal;
 
+        public DireccionBE() {
+        }
+
         public DireccionBE(byte tipo_direccion, int id_persona, short dir_pais, int dir_provincia, int dir_ciudad, int dir_distrito, string dir_linea_1, string dir_linea_2, string dir_codigo_postal) {
             this.tipo_direccion = tipo_direccion;
             this.id_persona = id_persona;

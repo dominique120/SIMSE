@@ -118,5 +118,70 @@ namespace ADO.PersonaUTIL {
             }
             return dts.Tables["Telefonos"];
         }
+
+        public Boolean EliminarTelefono(int idTelefono) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.EliminarTelefono";
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", idTelefono);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public TelefonoBE SelectTelefono(int id_telefono) {
+            DataSet dts = new DataSet();
+            TelefonoBE telBE = new TelefonoBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.SelectTelefono";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_telefono", id_telefono);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+
+                    telBE.Campo_1 = dtr["campo_1"].ToString();
+                    telBE.Campo_2 = dtr["campo_2"].ToString();
+                    telBE.Campo_3 = dtr["campo_3"].ToString();
+                    telBE.Codigo_pais = dtr["codigo_pais"].ToString();
+                    telBE.Tipo_telefono = short.Parse(dtr["tipo_telefono"].ToString());
+                    telBE.Id_telefono = int.Parse(dtr["id_telefono"].ToString());
+                    telBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
+                    telBE.Ext = dtr["ext"].ToString();
+
+                } else {
+                    throw new Exception("Error al buscar al empleado.");
+                }
+                dtr.Close();
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las direcciones: " + ex.Message);
+            } finally {
+                con.Close();
+            }
+            return telBE;
+        }
     }
 }

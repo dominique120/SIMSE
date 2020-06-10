@@ -197,6 +197,21 @@ namespace ADO.PersonaUTIL.Direcciones {
             return dts.Tables["Direcciones"];
         }
 
+        public DataTable ListarPersonasConDirecciones() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarPersonasConDirecciones";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "PersonasConDirecciones");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las Personas Co nDirecciones: " + ex.Message);
+            }
+            return dts.Tables["PersonasConDirecciones"];
+        }
+
         public DataTable ListarDireccionesFullPorId(int idPersona) {
             DataSet dts = new DataSet();
             try {
@@ -214,6 +229,110 @@ namespace ADO.PersonaUTIL.Direcciones {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
             }
             return dts.Tables["Direcciones"];
+        }
+
+        public DireccionBE SelectDireccion(int idDireccion) {
+            DataSet dts = new DataSet();
+            DireccionBE dirBE = new DireccionBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.SelectDireccion";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_direccion", idDireccion);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    dirBE.Tipo_direccion = byte.Parse(dtr["tipo_direccion"].ToString());
+                    dirBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
+                    dirBE.Dir_pais = short.Parse(dtr["dir_pais"].ToString() );
+                    dirBE.Dir_provincia = int.Parse(dtr["dir_provincia"].ToString());
+                    dirBE.Dir_ciudad = int.Parse(dtr["dir_ciudad"].ToString());
+                    dirBE.Dir_distrito = int.Parse(dtr["dir_distrito"].ToString());
+                    dirBE.Dir_linea_1 = dtr["dir_linea_1"].ToString();
+                    dirBE.Dir_linea_2 = dtr["dir_linea_2"].ToString();
+                    dirBE.Dir_codigo_postal = dtr["dir_codigo_postal"].ToString();
+
+                } else {
+                    throw new Exception("Error al buscar al empleado.");
+                }
+                dtr.Close();
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando las direcciones: " + ex.Message);
+            } finally {
+                con.Close();
+            }
+            return dirBE;
+        }
+
+        public Boolean ModificarDireccion(DireccionBE dirBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.ActualizarDireccion";
+
+            try {
+                
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_direccion", dirBE.Id_direccion);
+                cmd.Parameters.AddWithValue("@tipo_direccion", dirBE.Tipo_direccion);
+                cmd.Parameters.AddWithValue("@id_persona", dirBE.Id_persona);
+                cmd.Parameters.AddWithValue("@dir_pais", dirBE.Dir_pais);
+
+                cmd.Parameters.AddWithValue("@dir_provincia", dirBE.Dir_provincia);
+                cmd.Parameters.AddWithValue("@dir_ciudad", dirBE.Dir_ciudad);
+                cmd.Parameters.AddWithValue("@dir_distrito", dirBE.Dir_distrito);
+                cmd.Parameters.AddWithValue("@dir_linea_1", dirBE.Dir_linea_1);
+
+                cmd.Parameters.AddWithValue("@dir_linea_2", dirBE.Dir_linea_2);
+                cmd.Parameters.AddWithValue("@dir_codigo_postal", dirBE.Dir_codigo_postal);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public Boolean EliminarDireccion(int idDireccion) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.EliminarDireccion";
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_direccion", idDireccion);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
         }
     }
 }

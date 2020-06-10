@@ -14,6 +14,12 @@ namespace BL.UTIL {
         public DataTable ListarTelefonos() {
             return tel.ListarTelefonos();
         }
+        public Boolean EliminarTelefono(int idTelefono) {
+            return tel.EliminarTelefono(idTelefono);
+        }
+        public TelefonoBE SelectTelefono(int id_telefono) {
+            return tel.SelectTelefono(id_telefono);
+        }
 
         public DataTable ListarTelefonosTipos() {
             return tel.ListarTelefonosTipos();

@@ -15,6 +15,9 @@ namespace BE.PERSONA {
         private string campo_3;
         private string ext;
 
+        public TelefonoBE() {
+        }
+
         public TelefonoBE( short tipo_telefono, int id_persona, string codigo_pais, string campo_1, string campo_2, string campo_3, string ext) {
             
             this.tipo_telefono = tipo_telefono;

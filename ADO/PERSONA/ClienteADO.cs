@@ -76,7 +76,7 @@ namespace ADO {
                 success = true;
             } catch (SqlException x) {
                 success = false;
-                throw new Exception(x.Message);
+                throw new Exception("No se pudo eliminar la persona, tiene data relacionada a ella" + x.Message);
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
