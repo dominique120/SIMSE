@@ -208,7 +208,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 4;
-            this.label10.Text = "Ouesto";
+            this.label10.Text = "Puesto";
             // 
             // label5
             // 

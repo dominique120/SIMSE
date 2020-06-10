@@ -62,6 +62,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(152, 20);
             this.txtUser.TabIndex = 0;
+            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             // 
             // txtPassword
             // 
@@ -70,6 +71,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(152, 20);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             // 
             // btnIngresar
             // 
@@ -80,6 +82,7 @@
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            this.btnIngresar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             // 
             // btnSalir
             // 

@@ -23,7 +23,7 @@ namespace ADO.PersonaUTIL {
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "EmailsTipos");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando los tipos de emails: " + ex.Message);
+                throw new Exception("Error mostrando los tipos de email: " + ex.Message);
             }
             return dts.Tables["EmailsTipos"];
         }
@@ -95,9 +95,101 @@ namespace ADO.PersonaUTIL {
             }
             catch (Exception ex)
             {
-                throw new Exception("Error mostrando los emails: " + ex.Message);
+                throw new Exception("Error mostrando los email: " + ex.Message);
             }
             return dts.Tables["Emails"];
+        }
+
+        public EmailBE SelectEmail(int id_email) {
+            DataSet dts = new DataSet();
+            EmailBE emBE = new EmailBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.SelectEmail";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_email", id_email);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+
+                    emBE.Direccion_email = dtr["direccion_email"].ToString();
+                    emBE.Id_email = int.Parse(dtr["id_email"].ToString());
+                    emBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
+                    emBE.Tipo_email = short.Parse(dtr["tipo_email"].ToString());
+
+                } else {
+                    throw new Exception("Error al buscar el email.");
+                }
+                dtr.Close();
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando los emails: " + ex.Message);
+            } finally {
+                con.Close();
+            }
+            return emBE;
+        }
+
+        public bool ModificarEmail(EmailBE emailBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.ModificarEmail";
+
+            try {
+                cmd.Parameters.Clear();
+
+                cmd.Parameters.AddWithValue("@tipo_email", emailBE.Tipo_email);
+                cmd.Parameters.AddWithValue("@id_email", emailBE.Id_email);
+                cmd.Parameters.AddWithValue("@id_persona", emailBE.Id_persona);
+                cmd.Parameters.AddWithValue("@direccion_email", emailBE.Direccion_email);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public Boolean EliminarEmail(int idEmail) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.EliminarEmail";
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_email", idEmail);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
         }
     }
 }

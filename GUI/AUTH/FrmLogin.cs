@@ -35,16 +35,27 @@ namespace GUI.AUTH {
             AuthBL authBL = new AuthBL();
             AuthBE authBE = new AuthBE(txtUser.Text.Trim(), txtPassword.Text.Trim());
 
-            if(authBL.Authenticate(authBE) == true) {
-                frmMain frmmain = new frmMain();
-                frmLogin frmlogin = new frmLogin();
-                frmmain.Show();
-                this.Hide();
-                //frmlogin.Close();
-            } else {
-                MessageBox.Show(this, "Error de autenticación ", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try {
+                if (authBL.Authenticate(authBE) == true) {
+                    frmMain frmmain = new frmMain();
+                    frmLogin frmlogin = new frmLogin();
+                    frmmain.Show();
+                    this.Hide();
+                    //frmlogin.Close();
+                } else {
+                    MessageBox.Show(this, "Error de autenticación ", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            } catch (Exception ex){
+                MessageBox.Show(this, "Error de autenticación: "+ ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+        }
+
+        private void frmLogin_KeyPress(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar == 13) {
+                btnIngresar.PerformClick();
+            }
         }
     }
 }

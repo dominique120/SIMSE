@@ -67,7 +67,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEliminarPersonaDeInteres";
-            this.Text = "Eliminar Persona De Interes";
+            this.Text = "Eliminar Persona De Interés";
             this.Load += new System.EventHandler(this.frmEliminarPersonaDeInteres_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

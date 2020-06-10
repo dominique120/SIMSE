@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUI.AUTH;
-using GUI.PERSONA.UTIL;
-using GUI.PERSONA.UTIL.Telefonos;
 
 namespace GUI {
     static class Program {
@@ -16,7 +14,7 @@ namespace GUI {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTelefonos());
+            Application.Run(new frmLogin());
         }
     }
 }

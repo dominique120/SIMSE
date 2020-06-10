@@ -151,5 +151,11 @@ namespace GUI {
             em.MdiParent = this;
             em.Show();
         }
+
+        private void eliminarToolStripMenuItem5_Click(object sender, EventArgs e) {
+            AUTH.frmEliminarCredencial credencial = new AUTH.frmEliminarCredencial();
+            credencial.MdiParent = this;
+            credencial.Show();
+        }
     }
 }

@@ -29,9 +29,14 @@
             // 
             // dtgCredenciales
             // 
+            this.dtgCredenciales.AllowUserToAddRows = false;
+            this.dtgCredenciales.AllowUserToDeleteRows = false;
+            this.dtgCredenciales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgCredenciales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCredenciales.Location = new System.Drawing.Point(12, 12);
             this.dtgCredenciales.Name = "dtgCredenciales";
+            this.dtgCredenciales.ReadOnly = true;
+            this.dtgCredenciales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgCredenciales.Size = new System.Drawing.Size(776, 426);
             this.dtgCredenciales.TabIndex = 0;
             // 

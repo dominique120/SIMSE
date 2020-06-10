@@ -135,7 +135,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmModificarTelefono";
-            this.Text = "Modificar Telefono";
+            this.Text = "Modificar Teléfono";
             this.Load += new System.EventHandler(this.frmModificarTelefono_Load);
             this.gbTelefono.ResumeLayout(false);
             this.gbTelefono.PerformLayout();

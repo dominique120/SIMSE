@@ -248,7 +248,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewDireccion";
-            this.Text = "Nueva Direccion";
+            this.Text = "Nueva Dirección";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmNewDireccion_Load);
             this.gbDireccion.ResumeLayout(false);

@@ -42,7 +42,22 @@ namespace GUI.PERSONA.UTIL.Telefonos {
         }
 
         private void button1_Click(object sender, EventArgs e) {
+            try {
+                telBE.Codigo_pais = txtCP.Text;
+                telBE.Campo_1 = txtTelC1.Text;
+                telBE.Campo_2 = txtTelC2.Text;
+                telBE.Campo_3 = txtTelC3.Text;
+                telBE.Ext = txtTelCext.Text;
+                telBE.Tipo_telefono = short.Parse(cboTelTipo.SelectedValue.ToString());
 
+                if (telBL.ModificarTelefono(telBE) == true) {
+                    MessageBox.Show(this, "Se modifico el registro", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else {
+                    throw new Exception("No se actualizo el registro");
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("Se ha producido el error: " + ex.Message);
+            }
         }
     }
 }

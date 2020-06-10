@@ -20,6 +20,9 @@ namespace BL.UTIL {
         public TelefonoBE SelectTelefono(int id_telefono) {
             return tel.SelectTelefono(id_telefono);
         }
+        public Boolean ModificarTelefono(TelefonoBE telBE) {
+            return tel.ModificarTelefono(telBE);
+        }
 
         public DataTable ListarTelefonosTipos() {
             return tel.ListarTelefonosTipos();

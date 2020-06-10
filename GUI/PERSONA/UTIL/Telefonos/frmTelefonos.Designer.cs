@@ -63,7 +63,7 @@
             // btnModificar
             // 
             this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar.Location = new System.Drawing.Point(996, 12);
+            this.btnModificar.Location = new System.Drawing.Point(986, 12);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 6;
@@ -74,7 +74,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.Location = new System.Drawing.Point(915, 12);
+            this.btnEliminar.Location = new System.Drawing.Point(905, 12);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 7;
@@ -85,7 +85,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevo.Location = new System.Drawing.Point(834, 13);
+            this.btnNuevo.Location = new System.Drawing.Point(824, 13);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 8;
@@ -107,14 +107,14 @@
             this.dtgTelefonos.ReadOnly = true;
             this.dtgTelefonos.RowHeadersVisible = false;
             this.dtgTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgTelefonos.Size = new System.Drawing.Size(1059, 473);
+            this.dtgTelefonos.Size = new System.Drawing.Size(1049, 463);
             this.dtgTelefonos.TabIndex = 4;
             // 
             // frmTelefonos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 537);
+            this.ClientSize = new System.Drawing.Size(1073, 527);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboPersonas);
             this.Controls.Add(this.btnBuscar);
@@ -122,9 +122,11 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtgTelefonos);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(710, 225);
             this.Name = "frmTelefonos";
-            this.Text = "Telefonos";
+            this.Text = "Control de Teléfonos";
             this.Load += new System.EventHandler(this.frmTelefonos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgTelefonos)).EndInit();
             this.ResumeLayout(false);

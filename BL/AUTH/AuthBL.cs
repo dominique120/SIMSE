@@ -38,6 +38,10 @@ namespace BL.AUTH {
             return authado.CredentialActivate(authBE);
         }
 
+        public Boolean EliminarCredencial(string usuario) {
+            return authado.EliminarCredencial(usuario);
+        }
+
         public bool Authenticate(AuthBE authBE) {
             string EnteredPwd = authBE.Password;
             string EnteredUsr = authBE.Usuario;

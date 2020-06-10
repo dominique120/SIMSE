@@ -17,13 +17,17 @@ namespace GUI.PERSONA.UTIL.Telefonos {
         }
         TelefonosBL tel = new TelefonosBL();
 
-        private void frmTelefonos_Load(object sender, EventArgs e)
-        {
+        public void cargar() {
             DataTable src = tel.ListarTelefonosFull();
             dtgTelefonos.DataSource = src;
             cboPersonas.DataSource = src;
             cboPersonas.DisplayMember = "Nombre";
             cboPersonas.ValueMember = "Id Persona";
+        }
+
+        private void frmTelefonos_Load(object sender, EventArgs e)
+        {
+            cargar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -35,17 +39,20 @@ namespace GUI.PERSONA.UTIL.Telefonos {
         private void btnNuevo_Click(object sender, EventArgs e) {
             frmNuevoTelefono newtel = new frmNuevoTelefono();
             newtel.ShowDialog();
+            cargar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e) {
-            DialogResult lt = MessageBox.Show(this, "Desea eliminar esta dirección?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            TelefonosBL telsBE = new TelefonosBL();
+            DialogResult lt = MessageBox.Show(this, "Desea eliminar este telefoneo?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            TelefonosBL telsBL = new TelefonosBL();
             if (lt == DialogResult.Yes) {
-                if (telsBE.EliminarTelefono(int.Parse(dtgTelefonos.CurrentRow.Cells[0].Value.ToString())) == true) {
-                    MessageBox.Show(this, "Se elimino correctamente la dirección", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (telsBL.EliminarTelefono(int.Parse(dtgTelefonos.CurrentRow.Cells[0].Value.ToString())) == true) {
+                    
+                    MessageBox.Show(this, "Se elimino correctamente el telefoneo", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cargar();
                 }
             } else {
-                MessageBox.Show(this, "Ocurrió un error al eliminar la dirección", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Ocurrió un error al eliminar el telefoneo", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -54,6 +61,7 @@ namespace GUI.PERSONA.UTIL.Telefonos {
                 frmModificarTelefono modtel = new frmModificarTelefono();
                 modtel.Id_telefono = int.Parse(dtgTelefonos.CurrentRow.Cells[0].Value.ToString());
                 modtel.ShowDialog();
+                cargar();
             } catch (Exception z) {
                 throw new Exception(z.Message);
             }

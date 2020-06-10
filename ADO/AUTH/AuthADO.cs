@@ -53,6 +53,32 @@ namespace ADO.AUTH {
             return authBE;
         }
 
+        public Boolean EliminarCredencial(string usuario) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.EliminarCredencial";
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
         public Boolean CredentialNew(AuthBE authBE) {
             con.ConnectionString = conection.GetCon();
             cmd.Connection = con;

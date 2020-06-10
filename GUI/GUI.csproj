@@ -55,6 +55,12 @@
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="AUTH\frmEliminarCredencial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AUTH\frmEliminarCredencial.Designer.cs">
+      <DependentUpon>frmEliminarCredencial.cs</DependentUpon>
+    </Compile>
     <Compile Include="AUTH\frmListar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,18 @@
     <Compile Include="PERSONA\UTIL\Emails\frmEmails.Designer.cs">
       <DependentUpon>frmEmails.cs</DependentUpon>
     </Compile>
+    <Compile Include="PERSONA\UTIL\Emails\frmModificarEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\UTIL\Emails\frmModificarEmail.Designer.cs">
+      <DependentUpon>frmModificarEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PERSONA\UTIL\Emails\frmNewEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PERSONA\UTIL\Emails\frmNewEmail.Designer.cs">
+      <DependentUpon>frmNewEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\UTIL\Telefonos\frmModificarTelefono.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +241,9 @@
     </Compile>
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AUTH\frmEliminarCredencial.resx">
+      <DependentUpon>frmEliminarCredencial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AUTH\frmListar.resx">
       <DependentUpon>frmListar.cs</DependentUpon>
@@ -283,6 +304,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\UTIL\Emails\frmEmails.resx">
       <DependentUpon>frmEmails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\UTIL\Emails\frmModificarEmail.resx">
+      <DependentUpon>frmModificarEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PERSONA\UTIL\Emails\frmNewEmail.resx">
+      <DependentUpon>frmNewEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERSONA\UTIL\Telefonos\frmModificarTelefono.resx">
       <DependentUpon>frmModificarTelefono.cs</DependentUpon>

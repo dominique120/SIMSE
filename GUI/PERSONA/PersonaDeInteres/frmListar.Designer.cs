@@ -52,7 +52,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListar";
-            this.Text = "Listar Personas de Interes";
+            this.Text = "Listar Personas de Interés";
             this.Load += new System.EventHandler(this.frmListar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPerInteres)).EndInit();
             this.ResumeLayout(false);

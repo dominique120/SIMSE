@@ -87,13 +87,13 @@ namespace ADO.PersonaUTIL {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.LestarTelefonosFull";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Telefonos");
+                adapter.Fill(dts, "Teléfonos");
             }
             catch (Exception ex)
             {
-                throw new Exception("Error mostrando los telefonos: " + ex.Message);
+                throw new Exception("Error mostrando los teléfonos: " + ex.Message);
             }
-            return dts.Tables["Telefonos"];
+            return dts.Tables["Teléfonos"];
         }
 
         public DataTable ListarTelefonosFullPorId(int idPersona)
@@ -110,13 +110,13 @@ namespace ADO.PersonaUTIL {
                 cmd.Parameters.AddWithValue("@id_persona", idPersona);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Telefonos");
+                adapter.Fill(dts, "Teléfonos");
             }
             catch (Exception ex)
             {
                 throw new Exception("Error mostrando los emails: " + ex.Message);
             }
-            return dts.Tables["Telefonos"];
+            return dts.Tables["Teléfonos"];
         }
 
         public Boolean EliminarTelefono(int idTelefono) {
@@ -127,12 +127,46 @@ namespace ADO.PersonaUTIL {
 
             try {
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_persona", idTelefono);
+                cmd.Parameters.AddWithValue("@id_telefono", idTelefono);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
 
                 success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public Boolean ModificarTelefono(TelefonoBE telBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.ModificarTelefono";
+
+            try {
+                cmd.Parameters.Clear();
+
+                cmd.Parameters.AddWithValue("@id_telefono", telBE.Id_telefono);
+                cmd.Parameters.AddWithValue("@tipo_telefono", telBE.Tipo_telefono);
+                cmd.Parameters.AddWithValue("@codigo_pais", telBE.Codigo_pais);
+                cmd.Parameters.AddWithValue("@campo_1", telBE.Campo_1);
+                cmd.Parameters.AddWithValue("@campo_2", telBE.Campo_2);
+                cmd.Parameters.AddWithValue("@campo_3", telBE.Campo_3);
+                cmd.Parameters.AddWithValue("@ext", telBE.Ext);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
@@ -173,11 +207,11 @@ namespace ADO.PersonaUTIL {
                     telBE.Ext = dtr["ext"].ToString();
 
                 } else {
-                    throw new Exception("Error al buscar al empleado.");
+                    throw new Exception("Error al buscar el teléfono.");
                 }
                 dtr.Close();
             } catch (Exception ex) {
-                throw new Exception("Error mostrando las direcciones: " + ex.Message);
+                throw new Exception("Error mostrando los teléfonos: " + ex.Message);
             } finally {
                 con.Close();
             }

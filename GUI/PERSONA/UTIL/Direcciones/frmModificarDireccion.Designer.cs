@@ -224,7 +224,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmModificarDireccion";
-            this.Text = "Modificar Direccion";
+            this.Text = "Modificar Dirección";
             this.Load += new System.EventHandler(this.frmModificarDireccion_Load);
             this.gbDireccion.ResumeLayout(false);
             this.gbDireccion.PerformLayout();

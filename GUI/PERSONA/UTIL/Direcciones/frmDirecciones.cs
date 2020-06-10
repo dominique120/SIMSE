@@ -17,13 +17,16 @@ namespace GUI.PERSONA.UTIL {
         }
         DireccionesBL dirs = new DireccionesBL();
 
-        public void frmDirecciones_Load(object sender, EventArgs e) {
+        public void cargar() {
             DataTable direciones = dirs.ListarDireccionesFull();
             DataTable personas = dirs.ListarPersonasConDirecciones();
             dtgDirecciones.DataSource = direciones;
             cboPersonas.DataSource = personas;
             cboPersonas.DisplayMember = "Nombre";
             cboPersonas.ValueMember = "Id Persona";
+        }
+        public void frmDirecciones_Load(object sender, EventArgs e) {
+            cargar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e) {
@@ -34,6 +37,7 @@ namespace GUI.PERSONA.UTIL {
         private void btnNuevo_Click(object sender, EventArgs e) {
             frmNewDireccion newdir = new frmNewDireccion();
             newdir.ShowDialog();
+            cargar();
         }
 
         private void btnModificar_Click(object sender, EventArgs e) {
@@ -41,6 +45,7 @@ namespace GUI.PERSONA.UTIL {
                 frmModificarDireccion moddir = new frmModificarDireccion();
                 moddir.Id_direccion = int.Parse(dtgDirecciones.CurrentRow.Cells[0].Value.ToString());
                 moddir.ShowDialog();
+                cargar();
             } catch (Exception z) {
                 throw new Exception(z.Message);
             }
@@ -52,6 +57,7 @@ namespace GUI.PERSONA.UTIL {
             if (lt == DialogResult.Yes) {
                 if (dirs.EliminarDireccion(int.Parse(dtgDirecciones.CurrentRow.Cells[0].Value.ToString())) == true) {
                     MessageBox.Show(this, "Se elimino correctamente la dirección", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cargar();
                 }
             } else {
                 MessageBox.Show(this, "Ocurrió un error al eliminar la dirección", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);

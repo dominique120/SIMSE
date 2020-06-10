@@ -13,7 +13,7 @@ namespace ADO.PersonaUTIL.Direcciones {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable  ListarDistritos() {
+        public DataTable ListarDistritos() {
             DataSet dts = new DataSet();
             try {
                 con.ConnectionString = conection.GetCon();
@@ -29,7 +29,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             return dts.Tables["Distritos"];
         }
 
-        public DataTable  ListarDistritosPorIdCiudad(int idCiudad) {
+        public DataTable ListarDistritosPorIdCiudad(int idCiudad) {
             DataSet dts = new DataSet();
             try {
                 con.ConnectionString = conection.GetCon();
@@ -77,7 +77,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "Regiones");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando las regiones: " + ex.Message);
+                throw new Exception("Error mostrando las ciudades: " + ex.Message);
             }
             return dts.Tables["Regiones"];
         }
@@ -207,7 +207,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "PersonasConDirecciones");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando las Personas Co nDirecciones: " + ex.Message);
+                throw new Exception("Error mostrando las personas con direcciones: " + ex.Message);
             }
             return dts.Tables["PersonasConDirecciones"];
         }
@@ -249,8 +249,9 @@ namespace ADO.PersonaUTIL.Direcciones {
                 if (dtr.HasRows == true) {
                     dtr.Read();
                     dirBE.Tipo_direccion = byte.Parse(dtr["tipo_direccion"].ToString());
+                    dirBE.Id_direccion = int.Parse(dtr["id_direccion"].ToString());
                     dirBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
-                    dirBE.Dir_pais = short.Parse(dtr["dir_pais"].ToString() );
+                    dirBE.Dir_pais = short.Parse(dtr["dir_pais"].ToString());
                     dirBE.Dir_provincia = int.Parse(dtr["dir_provincia"].ToString());
                     dirBE.Dir_ciudad = int.Parse(dtr["dir_ciudad"].ToString());
                     dirBE.Dir_distrito = int.Parse(dtr["dir_distrito"].ToString());
@@ -259,7 +260,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                     dirBE.Dir_codigo_postal = dtr["dir_codigo_postal"].ToString();
 
                 } else {
-                    throw new Exception("Error al buscar al empleado.");
+                    throw new Exception("Error al buscar la dirección.");
                 }
                 dtr.Close();
             } catch (Exception ex) {
@@ -274,30 +275,27 @@ namespace ADO.PersonaUTIL.Direcciones {
             con.ConnectionString = conection.GetCon();
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.ActualizarDireccion";
+            cmd.CommandText = "PERSONA.ModificarDireccion";
 
             try {
-                
                 cmd.Parameters.Clear();
+
                 cmd.Parameters.AddWithValue("@id_direccion", dirBE.Id_direccion);
                 cmd.Parameters.AddWithValue("@tipo_direccion", dirBE.Tipo_direccion);
                 cmd.Parameters.AddWithValue("@id_persona", dirBE.Id_persona);
                 cmd.Parameters.AddWithValue("@dir_pais", dirBE.Dir_pais);
-
                 cmd.Parameters.AddWithValue("@dir_provincia", dirBE.Dir_provincia);
                 cmd.Parameters.AddWithValue("@dir_ciudad", dirBE.Dir_ciudad);
                 cmd.Parameters.AddWithValue("@dir_distrito", dirBE.Dir_distrito);
                 cmd.Parameters.AddWithValue("@dir_linea_1", dirBE.Dir_linea_1);
-
                 cmd.Parameters.AddWithValue("@dir_linea_2", dirBE.Dir_linea_2);
                 cmd.Parameters.AddWithValue("@dir_codigo_postal", dirBE.Dir_codigo_postal);
-
                 con.Open();
                 cmd.ExecuteNonQuery();
 
                 success = true;
 
-            } catch (SqlException x) {
+            } catch (Exception x) {
                 success = false;
                 throw new Exception(x.Message);
             } finally {

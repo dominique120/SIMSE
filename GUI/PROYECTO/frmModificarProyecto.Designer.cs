@@ -73,7 +73,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 13);
             this.label16.TabIndex = 0;
-            this.label16.Text = "Direccion";
+            this.label16.Text = "Dirección";
             // 
             // groupBox3
             // 

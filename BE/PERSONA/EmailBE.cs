@@ -11,6 +11,9 @@ namespace BE.PERSONA {
         private int id_persona;
         private string direccion_email;
 
+        public EmailBE() {
+        }
+
         public EmailBE( short tipo_email, int id_persona, string direccion_email) {
             this.tipo_email = tipo_email;
             this.id_persona = id_persona;

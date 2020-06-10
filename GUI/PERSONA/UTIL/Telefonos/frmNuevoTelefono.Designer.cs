@@ -156,7 +156,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNuevoTelefono";
-            this.Text = "Nuevo Telefono";
+            this.Text = "Nuevo Teléfono";
             this.Load += new System.EventHandler(this.frmNuevoTelefono_Load);
             this.gbTelefono.ResumeLayout(false);
             this.gbTelefono.PerformLayout();

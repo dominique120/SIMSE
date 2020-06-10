@@ -26,9 +26,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboPersonas = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.dtgEmail = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmail)).BeginInit();
             this.SuspendLayout();
@@ -60,32 +60,38 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // button3
+            // btnModificar
             // 
-            this.button3.Location = new System.Drawing.Point(703, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.Location = new System.Drawing.Point(969, 12);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 6;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // button2
+            // btnEliminar
             // 
-            this.button2.Location = new System.Drawing.Point(622, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.Location = new System.Drawing.Point(888, 12);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // button1
+            // btnNew
             // 
-            this.button1.Location = new System.Drawing.Point(541, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNew.Location = new System.Drawing.Point(807, 13);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 8;
+            this.btnNew.Text = "Nuevo";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // dtgEmail
             // 
@@ -101,23 +107,26 @@
             this.dtgEmail.ReadOnly = true;
             this.dtgEmail.RowHeadersVisible = false;
             this.dtgEmail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgEmail.Size = new System.Drawing.Size(776, 386);
+            this.dtgEmail.Size = new System.Drawing.Size(1042, 477);
             this.dtgEmail.TabIndex = 4;
             // 
             // frmEmails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1066, 541);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboPersonas);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dtgEmail);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(710, 400);
             this.Name = "frmEmails";
-            this.Text = "frmEmails";
+            this.Text = "Control de Emails";
             this.Load += new System.EventHandler(this.frmEmails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmail)).EndInit();
             this.ResumeLayout(false);
@@ -130,9 +139,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboPersonas;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridView dtgEmail;
     }
 }

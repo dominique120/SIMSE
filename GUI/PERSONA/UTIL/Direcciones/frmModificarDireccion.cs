@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,7 +20,6 @@ namespace GUI.PERSONA.UTIL.Direcciones {
         }
 
         DireccionesBL dirs = new DireccionesBL();
-        PersonaBL perBL = new PersonaBL();
         DireccionBE dirBE = new DireccionBE();
 
         private int id_direccion;
@@ -106,29 +106,24 @@ namespace GUI.PERSONA.UTIL.Direcciones {
 
         private void btnGuardar_Click(object sender, EventArgs e) {
             try {
-                DireccionesBL dirbl;
-                DireccionBE dirbe = new DireccionBE(
-                    byte.Parse(cboDirTipo.SelectedValue.ToString()),
-                    Id_direccion,
-                    short.Parse(cboDirPais.SelectedValue.ToString()),
-                    int.Parse(cboDirProvincia.SelectedValue.ToString()),
-                    int.Parse(cboDirCiudad.SelectedValue.ToString()),
-                    int.Parse(cboDirDistrito.SelectedValue.ToString()),
-                    txtDirLinea1.Text.Trim(),
-                    txtDirLinea2.Text.Trim(),
-                    txtDirPostal.Text.Trim()
-                );
+                dirBE.Dir_pais = short.Parse(cboDirPais.SelectedValue.ToString());
+                dirBE.Dir_provincia = int.Parse(cboDirProvincia.SelectedValue.ToString());
+                dirBE.Dir_ciudad = int.Parse(cboDirCiudad.SelectedValue.ToString());
+                dirBE.Dir_distrito = int.Parse(cboDirDistrito.SelectedValue.ToString());
 
+                dirBE.Tipo_direccion = byte.Parse(cboDirTipo.SelectedValue.ToString());
 
-            dirbl = new DireccionesBL();
-
-            if (dirbl.ModificarDireccion(dirbe) == true) {
-                MessageBox.Show(this, "Se guardo correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } else {
-                MessageBox.Show(this, "Ocurrió un error", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            } catch (Exception exc) {
-                throw new Exception("Ocurrió un error. Posiblemente un campo sea invalido: " + exc.Message);
+                dirBE.Dir_linea_1 = txtDirLinea1.Text.Trim();
+                dirBE.Dir_linea_2 = txtDirLinea2.Text.Trim();
+                dirBE.Dir_codigo_postal = txtDirPostal.Text.Trim();
+                
+                if (dirs.ModificarDireccion(dirBE) == true) {
+                    MessageBox.Show(this, "Se modifico el registro", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else {
+                    throw new Exception("No se actualizo el registro");
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("Se ha producido el error: " + ex.Message);
             }
         }
     }

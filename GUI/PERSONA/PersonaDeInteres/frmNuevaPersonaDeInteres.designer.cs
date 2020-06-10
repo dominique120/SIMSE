@@ -137,7 +137,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNuevaPersonaDeInteres";
-            this.Text = "Nueva Persona De Interes";
+            this.Text = "Nueva Persona De Interés";
             this.Load += new System.EventHandler(this.frmNuevaPersonaDeInteres_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

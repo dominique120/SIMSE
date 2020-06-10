@@ -165,7 +165,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmModificarPersonaDeInteres";
-            this.Text = "Modificar Persona De Interes";
+            this.Text = "Modificar Persona De Interés";
             this.Load += new System.EventHandler(this.frmModificarPersonaDeInteres_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

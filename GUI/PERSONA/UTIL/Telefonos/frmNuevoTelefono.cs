@@ -36,11 +36,11 @@ namespace GUI.PERSONA.UTIL.Telefonos {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            int idCliente = int.Parse(cboPersonas.SelectedValue.ToString());
+            int idPersona = int.Parse(cboPersonas.SelectedValue.ToString());
 
             TelefonoBE telbe = new TelefonoBE(
                            short.Parse(cboTelTipo.SelectedValue.ToString()),
-                           idCliente,
+                           idPersona,
                            txtCP.Text.Trim(),
                            txtTelC1.Text.Trim(),
                            txtTelC2.Text.Trim(),
@@ -54,7 +54,6 @@ namespace GUI.PERSONA.UTIL.Telefonos {
                 MessageBox.Show(this, "Se guardo correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else {
                 MessageBox.Show(this, "Ocurrió un error", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
     }
