@@ -21,6 +21,14 @@ namespace GUI.PERSONA.UTIL.Telefonos {
         TelefonosBL telBL = new TelefonosBL();
         TelefonoBE telBE = new TelefonoBE();
 
+        private void OnlyNumbers(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == false) {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void frmModificarTelefono_Load(object sender, EventArgs e) {
             try {
                 //tipo telefono

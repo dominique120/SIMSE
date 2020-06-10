@@ -22,6 +22,22 @@ namespace GUI.PERSONA.EMPLEADO {
             InitializeComponent();
         }
 
+        private void OnlyLetters(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == true) {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void OnlyNumbers(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == false) {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void frmModificarEmpleado_Load(object sender, EventArgs e) {
             try { 
                 cboBuscarEmpleado.DataSource = personaFuenteBL.ListarEmpleados(); ;

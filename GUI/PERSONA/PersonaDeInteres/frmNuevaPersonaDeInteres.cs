@@ -23,6 +23,14 @@ namespace GUI.PERSONA.PersonaDeInteres {
         PersonaDeInteresBL puest = new PersonaDeInteresBL();
         PersonaDeInteresBL proy = new PersonaDeInteresBL();
 
+        private void OnlyLetters(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == true) {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void frmNuevaPersonaDeInteres_Load(object sender, EventArgs e) {
             //informacion
             try { //Listar Puestos

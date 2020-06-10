@@ -116,9 +116,11 @@
             // txtRuc
             // 
             this.txtRuc.Location = new System.Drawing.Point(109, 19);
+            this.txtRuc.MaxLength = 11;
             this.txtRuc.Name = "txtRuc";
             this.txtRuc.Size = new System.Drawing.Size(109, 20);
             this.txtRuc.TabIndex = 0;
+            this.txtRuc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // label10
             // 
@@ -178,9 +180,11 @@
             // txtDocumento
             // 
             this.txtDocumento.Location = new System.Drawing.Point(77, 122);
+            this.txtDocumento.MaxLength = 8;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
             this.txtDocumento.TabIndex = 4;
+            this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // txtSApellido
             // 
@@ -188,6 +192,7 @@
             this.txtSApellido.Name = "txtSApellido";
             this.txtSApellido.Size = new System.Drawing.Size(100, 20);
             this.txtSApellido.TabIndex = 3;
+            this.txtSApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters);
             // 
             // txtApellido
             // 
@@ -195,6 +200,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 2;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters);
             // 
             // label9
             // 
@@ -211,6 +217,7 @@
             this.txtSNombre.Name = "txtSNombre";
             this.txtSNombre.Size = new System.Drawing.Size(100, 20);
             this.txtSNombre.TabIndex = 1;
+            this.txtSNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters);
             // 
             // label8
             // 
@@ -227,6 +234,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters);
             // 
             // label7
             // 

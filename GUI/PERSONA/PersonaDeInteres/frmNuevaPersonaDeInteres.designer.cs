@@ -63,9 +63,11 @@
             // txtNombrePersona
             // 
             this.txtNombrePersona.Location = new System.Drawing.Point(95, 27);
+            this.txtNombrePersona.MaxLength = 11;
             this.txtNombrePersona.Name = "txtNombrePersona";
             this.txtNombrePersona.Size = new System.Drawing.Size(143, 20);
             this.txtNombrePersona.TabIndex = 0;
+            this.txtNombrePersona.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters);
             // 
             // label2
             // 

@@ -62,6 +62,22 @@ namespace GUI.PERSONA.EMPLEADO
             return idPersona;
         }
 
+        private void OnlyLetters(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == true) {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void OnlyNumbers(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == false) {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void frmNuevoEmpleado_Load(object sender, EventArgs e) {
             //informacion
             try { //Listar Puestos

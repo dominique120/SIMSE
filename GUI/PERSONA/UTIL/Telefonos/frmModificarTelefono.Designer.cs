@@ -56,37 +56,47 @@
             // txtTelCext
             // 
             this.txtTelCext.Location = new System.Drawing.Point(208, 19);
+            this.txtTelCext.MaxLength = 4;
             this.txtTelCext.Name = "txtTelCext";
             this.txtTelCext.Size = new System.Drawing.Size(30, 20);
             this.txtTelCext.TabIndex = 4;
+            this.txtTelCext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // txtTelC3
             // 
             this.txtTelC3.Location = new System.Drawing.Point(172, 19);
+            this.txtTelC3.MaxLength = 4;
             this.txtTelC3.Name = "txtTelC3";
             this.txtTelC3.Size = new System.Drawing.Size(30, 20);
             this.txtTelC3.TabIndex = 3;
+            this.txtTelC3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // txtTelC2
             // 
             this.txtTelC2.Location = new System.Drawing.Point(136, 19);
+            this.txtTelC2.MaxLength = 4;
             this.txtTelC2.Name = "txtTelC2";
             this.txtTelC2.Size = new System.Drawing.Size(30, 20);
             this.txtTelC2.TabIndex = 2;
+            this.txtTelC2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // txtTelC1
             // 
             this.txtTelC1.Location = new System.Drawing.Point(100, 19);
+            this.txtTelC1.MaxLength = 4;
             this.txtTelC1.Name = "txtTelC1";
             this.txtTelC1.Size = new System.Drawing.Size(30, 20);
             this.txtTelC1.TabIndex = 1;
+            this.txtTelC1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // txtCP
             // 
             this.txtCP.Location = new System.Drawing.Point(64, 19);
+            this.txtCP.MaxLength = 4;
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(30, 20);
             this.txtCP.TabIndex = 0;
+            this.txtCP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyNumbers);
             // 
             // label12
             // 

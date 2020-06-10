@@ -20,6 +20,22 @@ namespace GUI.PERSONA.CLIENTE {
             InitializeComponent();
         }
 
+        private void OnlyLetters(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == true) {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void OnlyNumbers(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == false) {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void frmModificarCliente_Load(object sender, EventArgs e) {
             try {
                 cboCliente.DataSource = cliBL.ListarClientes();

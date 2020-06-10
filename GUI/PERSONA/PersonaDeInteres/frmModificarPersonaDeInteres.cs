@@ -18,6 +18,14 @@ namespace GUI.PERSONA.PersonaDeInteres {
             InitializeComponent();
         }
 
+        private void OnlyLetters(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == true) {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void frmModificarPersonaDeInteres_Load(object sender, EventArgs e) {
             //informacion
             try { //Listar Puestos

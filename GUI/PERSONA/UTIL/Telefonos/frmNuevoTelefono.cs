@@ -20,6 +20,14 @@ namespace GUI.PERSONA.UTIL.Telefonos {
         TelefonosBL tels = new TelefonosBL();
         PersonaBL perBL = new PersonaBL();
 
+        private void OnlyNumbers(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == false) {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void frmNuevoTelefono_Load(object sender, EventArgs e) {
             try {
                 //tipo telefono

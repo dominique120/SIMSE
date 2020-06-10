@@ -27,7 +27,23 @@ namespace GUI.PERSONA.CLIENTE {
 
         ContactoInicialBL contactoinicial = new ContactoInicialBL();
         PersonaFuenteBL personafuente = new PersonaFuenteBL();
-        PrimerInteresBL primerinteres = new PrimerInteresBL(); 
+        PrimerInteresBL primerinteres = new PrimerInteresBL();
+
+        private void OnlyLetters(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == true) {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void OnlyNumbers(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar != 8) {
+                if (char.IsDigit(e.KeyChar) == false) {
+                    e.Handled = true;
+                }
+            }
+        }
 
         public void frmNuevoCliente_Load(object sender, EventArgs e) {
             //informacion direccion
