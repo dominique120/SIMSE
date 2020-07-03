@@ -23,7 +23,7 @@ namespace ADO
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarEMpleadoFull";
+                cmd.CommandText = "PERSONA.ListarEmpleadoFull";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dts, "Empleados");
             } catch (Exception ex) {
