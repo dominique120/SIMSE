@@ -108,7 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Consultas\BuscarProyecto.aspx" />
     <Content Include="Consultas\ConsultasIndex.aspx" />
+    <Content Include="Consultas\ListarTipodePlanos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -120,6 +122,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="favicon.ico" />
+    <Content Include="Images\grubal.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -257,12 +260,26 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Consultas\BuscarProyecto.aspx.cs">
+      <DependentUpon>BuscarProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\BuscarProyecto.aspx.designer.cs">
+      <DependentUpon>BuscarProyecto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultasIndex.aspx.cs">
       <DependentUpon>ConsultasIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultasIndex.aspx.designer.cs">
       <DependentUpon>ConsultasIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ListarTipodePlanos.aspx.cs">
+      <DependentUpon>ListarTipodePlanos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\ListarTipodePlanos.aspx.designer.cs">
+      <DependentUpon>ListarTipodePlanos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
