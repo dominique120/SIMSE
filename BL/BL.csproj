@@ -43,11 +43,6 @@
   <ItemGroup>
     <Compile Include="AUTH\AuthBL.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Documento\EntregaFinalBL.cs" />
-    <Compile Include="Documento\ListaDeMaterialesBL.cs" />
-    <Compile Include="Documento\PlanosBL.cs" />
-    <Compile Include="Documento\ReportesTecnicosBL.cs" />
-    <Compile Include="Documento\ReporteSupervisionBL.cs" />
     <Compile Include="MarketingUTIL\ContactoInicialBL.cs" />
     <Compile Include="MarketingUTIL\PersonaFuenteBL.cs" />
     <Compile Include="MarketingUTIL\PrimerInteresBL.cs" />

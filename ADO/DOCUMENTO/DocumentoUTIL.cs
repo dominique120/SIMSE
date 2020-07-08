@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ADO.DOCUMENTO {
-    public class DocumentoUTIL {
+    class DocumentoUTIL {
 
         Conection conection = new Conection();
         SqlConnection con = new SqlConnection();

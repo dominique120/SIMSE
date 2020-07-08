@@ -48,9 +48,8 @@
     <Compile Include="AUTH\AuthADO.cs" />
     <Compile Include="DOCUMENTO\DocumentoUTIL.cs" />
     <Compile Include="DOCUMENTO\EntregaFinalADO.cs" />
-    <Compile Include="DOCUMENTO\ListaDeMaterialesADO.cs" />
     <Compile Include="DOCUMENTO\PlanosADO.cs" />
-    <Compile Include="DOCUMENTO\ReporteSupervisionADO.cs" />
+    <Compile Include="DOCUMENTO\ReporteSupervision.cs" />
     <Compile Include="DOCUMENTO\ReporteTecnicoADO.cs" />
     <Compile Include="PERSONA\ClienteADO.cs" />
     <Compile Include="Conection.cs" />

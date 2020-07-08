@@ -85,6 +85,14 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="grubalDataSet.cs">
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="grubalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\CLIENTE\frmEliminarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +339,17 @@
     <EmbeddedResource Include="PROYECTO\frmNuevoProyecto.resx">
       <DependentUpon>frmNuevoProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="grubalDataSet.xsc">
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="grubalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>grubalDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="grubalDataSet.xss">
+      <DependentUpon>grubalDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
