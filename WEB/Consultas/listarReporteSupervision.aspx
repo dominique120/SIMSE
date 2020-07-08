@@ -1,43 +1,54 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Consultas/MPConsultas.master" AutoEventWireup="true" CodeBehind="listarReporteSupervision.aspx.cs" Inherits="WEB.Consultas.listarReporteSupervision" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="contenidoPrincipal" runat="server">
 
-    <h2> Listar reporte supervision</h2>
+    <h2> Listar Reporte Supervision</h2>
 <table style="width: 70%">
     <tr>
-        <td style="width: 139px">Seleccione Proyecto:</td>
+        <td style="width: 139px">Proyecto:</td>
         <td>
-            <asp:DropDownList ID="DropDownList1" runat="server" Width="250px">
+            <asp:DropDownList ID="cboProyecto" runat="server" Width="250px">
+            </asp:DropDownList>
+        </td>
+    </tr>
+        <tr>
+        <td style="width: 139px">Empleado</td>
+        <td>
+            <asp:DropDownList ID="cboEmpleado" runat="server" Width="250px">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
         <td style="width: 139px">&nbsp;</td>
         <td>
-            <asp:Button ID="Button1" runat="server" Text="Buscar" />
+            <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" />
         </td>
     </tr>
 </table>
 <p> 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" Height="217px" Width="409px">
+    <asp:GridView ID="grvReportes" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Height="217px" Width="683px">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="nom_proyecto" HeaderText="Nombre de Proyecto" />
-            <asp:BoundField DataField="Supervisor" HeaderText="Supervisor" />
+            <asp:BoundField DataField="id_documento" HeaderText="Id Documento" />
+            <asp:BoundField DataField="supervisor" HeaderText="Supervisor" />
             <asp:BoundField DataField="fecha_reporte" DataFormatString="{0:d}" HeaderText="Fecha de Reporte">
             <ItemStyle HorizontalAlign="Right" />
             </asp:BoundField>
             <asp:BoundField DataField="detalles_reporte" HeaderText="Detalles de Reporte" />
+            <asp:BoundField DataField="path_scan_reporte" HeaderText="Path" />
         </Columns>
-        <FooterStyle BackColor="#CCCC99" />
-        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-        <RowStyle BackColor="#F7F7DE" />
-        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-        <SortedAscendingCellStyle BackColor="#FBFBF2" />
-        <SortedAscendingHeaderStyle BackColor="#848384" />
-        <SortedDescendingCellStyle BackColor="#EAEAD3" />
-        <SortedDescendingHeaderStyle BackColor="#575357" />
+        <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
 </p>
-<p> &nbsp;</p>
+    <p> 
+        <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+</p>
 </asp:Content>

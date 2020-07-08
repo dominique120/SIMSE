@@ -7,13 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ADO.DOCUMENTO {
-    class PlanosADO {
+    public class PlanosADO {
         Conection conection = new Conection();
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        Boolean success = false;
-        public DataTable ListarReporteSupervisionFull() {
+        public DataTable ListarPlanosFull() {
             DataSet dts = new DataSet();
             try {
                 con.ConnectionString = conection.GetCon();
@@ -26,6 +25,41 @@ namespace ADO.DOCUMENTO {
                 throw new Exception("Error mostrando los Planos: " + ex.Message);
             }
             return dts.Tables["Planos"];
+        }
+
+        public DataTable ListarPlanosPorProyectoTipo(int id_proyecto, int id_tipo) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarPlanosPorProyectoTipo";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+                cmd.Parameters.AddWithValue("@id_tipo", id_tipo);
+
+                SqlDataAdapter adapter;
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Planos");
+                return dts.Tables["Planos"];
+            } catch (SqlException ex) {
+                throw new Exception("Error mostrando Planos: " + ex.Message);
+            }
+        }
+
+        public DataTable ListarTiposDePlano() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarTiposPlano";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "TiposPlanos");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando los Tipos de Plano: " + ex.Message);
+            }
+            return dts.Tables["TiposPlanos"];
         }
     }
 }
