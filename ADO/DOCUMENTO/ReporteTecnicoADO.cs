@@ -23,6 +23,10 @@ namespace ADO.DOCUMENTO {
                 adapter.Fill(dts, "ReporteTecnico");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando Reportes Técnicos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["ReporteTecnico"];
         }
@@ -44,6 +48,10 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["ReporteTecnico"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando Reportes de Técnicos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
         }
     }
