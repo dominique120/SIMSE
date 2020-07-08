@@ -61,7 +61,7 @@
 
             </div>
             <div id="pie">
-                <span>&copy; <%: DateTime.Now.Year %> - Dominique Verellen - Edson Rivera - Julio Grnada - Richard Galindo</span>
+                <span>&copy; <%: DateTime.Now.Year %> - Dominique Verellen - Edson Rivera - Julio Granada - Richard Galindo</span>
             </div>
         </div>
        

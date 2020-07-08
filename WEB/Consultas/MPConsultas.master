@@ -8,7 +8,7 @@
         <li> <a href="listarPlano.aspx">Listar Planos</a></li>
         <li> <a href="ListarMateriales.aspx">Listar Materiales</a></li>
         <li> <a href="listarReporteTecnico.aspx">Listar Reporte técnico</a></li>
-        <li> <a href="listarReporteSupervision.aspx">Listar Reporte Supervisión</a></li>
+        <li> <a href="listarReporteSupervision.aspx">Listar Reporte Supervision</a></li>
         <li> <a href="listarEntregaFinal.aspx">Listar Entrega Final</a></li>
     </ul>
 
