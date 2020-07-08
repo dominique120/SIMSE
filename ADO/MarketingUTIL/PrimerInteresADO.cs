@@ -23,6 +23,10 @@ namespace ADO.MarketingUTIL {
                 adapter.Fill(dts, "PrimerInteres");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de Primer Interés: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["PrimerInteres"];
         }

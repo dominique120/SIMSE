@@ -27,6 +27,10 @@ namespace ADO {
                 adapter.Fill(dts, "PersonasDeInteres");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las personas de interés: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["PersonasDeInteres"];
         }
@@ -72,6 +76,10 @@ namespace ADO {
                 adapter.Fill(dts, "Puestos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los puestos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Puestos"];
         }
@@ -87,6 +95,10 @@ namespace ADO {
                 adapter.Fill(dts, "Proyecto");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando proyecto: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Proyecto"];
         }
@@ -102,6 +114,10 @@ namespace ADO {
                 adapter.Fill(dts, "PersonasDeInteres");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando PersonasDeInteres: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["PersonasDeInteres"];
         }
@@ -124,6 +140,10 @@ namespace ADO {
 
             } catch (Exception ex) {
                 throw new Exception("Error generando nuevo Id de persona: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return newid;
         }

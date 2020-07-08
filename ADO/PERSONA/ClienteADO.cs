@@ -26,6 +26,10 @@ namespace ADO {
                 adapter.Fill(dts, "Clientes");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando clientes: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Clientes"];
         }
@@ -126,6 +130,10 @@ namespace ADO {
                 adapter.Fill(dts, "Clientes");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los clientes: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Clientes"];
         }

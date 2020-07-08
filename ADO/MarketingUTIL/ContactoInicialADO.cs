@@ -23,6 +23,10 @@ namespace ADO.MarketingUTIL {
                 adapter.Fill(dts, "ContactoInicial");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de Contactos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["ContactoInicial"];
         }

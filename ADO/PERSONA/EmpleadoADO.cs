@@ -28,6 +28,10 @@ namespace ADO
                 adapter.Fill(dts, "Empleados");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando empleados: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Empleados"];
         }

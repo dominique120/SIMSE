@@ -23,6 +23,10 @@ namespace ADO.DOCUMENTO {
                 adapter.Fill(dts, "Planos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los Planos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Planos"];
         }
@@ -44,6 +48,10 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["Planos"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando Planos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
         }
 
@@ -58,6 +66,10 @@ namespace ADO.DOCUMENTO {
                 adapter.Fill(dts, "TiposPlanos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los Tipos de Plano: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["TiposPlanos"];
         }

@@ -24,6 +24,10 @@ namespace ADO.PersonaUTIL {
                 adapter.Fill(dts, "EmailsTipos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de email: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["EmailsTipos"];
         }
@@ -73,6 +77,10 @@ namespace ADO.PersonaUTIL {
             catch (Exception ex)
             {
                 throw new Exception("Error mostrando los emails: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Emails"];
         }
@@ -96,6 +104,10 @@ namespace ADO.PersonaUTIL {
             catch (Exception ex)
             {
                 throw new Exception("Error mostrando los email: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Emails"];
         }

@@ -32,7 +32,9 @@ namespace ADO.DOCUMENTO {
             } catch (Exception ex) {
                 throw new Exception("Error generando nuevo Id de documento: " + ex.Message);
             } finally {
-                con.Close();
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return newid;
         }

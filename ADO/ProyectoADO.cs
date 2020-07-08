@@ -29,6 +29,10 @@ namespace ADO
                 adapter.Fill(dts, "Proyectos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando proyecto: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Proyectos"];
         }
@@ -78,6 +82,10 @@ namespace ADO
                 adapter.Fill(dts, "Divisiones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las divisiones: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Divisiones"];
         }

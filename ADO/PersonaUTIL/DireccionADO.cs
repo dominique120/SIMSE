@@ -25,6 +25,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Distritos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los distritos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Distritos"];
         }
@@ -44,6 +48,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Distritos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los distritos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Distritos"];
         }
@@ -59,6 +67,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Ciudades");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los ciudades: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Ciudades"];
         }
@@ -78,6 +90,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Regiones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las ciudades: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Regiones"];
         }
@@ -93,6 +109,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Regiones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los regiones: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Regiones"];
         }
@@ -112,6 +132,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Regiones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las regiones: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Regiones"];
         }
@@ -127,6 +151,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Países");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los países: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Países"];
         }
@@ -142,6 +170,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "DireccionesTipos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de dirección: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["DireccionesTipos"];
         }
@@ -193,6 +225,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Direcciones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Direcciones"];
         }
@@ -208,6 +244,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "PersonasConDirecciones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las personas con direcciones: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["PersonasConDirecciones"];
         }
@@ -227,6 +267,10 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Direcciones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Direcciones"];
         }

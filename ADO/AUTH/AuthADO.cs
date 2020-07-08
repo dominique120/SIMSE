@@ -207,6 +207,10 @@ namespace ADO.AUTH {
                 adapter.Fill(dts, "Credenciales");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las credenciales: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Credenciales"];
         }

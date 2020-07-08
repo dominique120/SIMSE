@@ -24,6 +24,10 @@ namespace ADO.DOCUMENTO {
                 adapter.Fill(dts, "ReporteSupervision");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando Reportes de Supervision: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["ReporteSupervision"];
         }
@@ -45,6 +49,10 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["ReporteSupervision"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando Reportes de Supervision: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
         }
     }

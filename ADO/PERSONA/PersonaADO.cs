@@ -23,6 +23,10 @@ namespace ADO.PERSONA {
                 adapter.Fill(dts, "Personas");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las personas: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Personas"];
         }

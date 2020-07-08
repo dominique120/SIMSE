@@ -23,6 +23,10 @@ namespace ADO.MarketingUTIL {
                 adapter.Fill(dts, "Fuente");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las personas fuente: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Fuente"];
         }

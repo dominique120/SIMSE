@@ -24,6 +24,10 @@ namespace ADO.PersonaUTIL {
                 adapter.Fill(dts, "Teléfonos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los teléfonos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Teléfonos"];
         }
@@ -39,6 +43,10 @@ namespace ADO.PersonaUTIL {
                 adapter.Fill(dts, "TelefonosTipos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de teléfonos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["TelefonosTipos"];
         }
@@ -92,6 +100,10 @@ namespace ADO.PersonaUTIL {
             catch (Exception ex)
             {
                 throw new Exception("Error mostrando los teléfonos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Teléfonos"];
         }
@@ -115,6 +127,10 @@ namespace ADO.PersonaUTIL {
             catch (Exception ex)
             {
                 throw new Exception("Error mostrando los emails: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["Teléfonos"];
         }

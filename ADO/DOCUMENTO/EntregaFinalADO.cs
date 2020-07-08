@@ -23,6 +23,10 @@ namespace ADO.DOCUMENTO {
                 adapter.Fill(dts, "EntregaFinal");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las Entregas Finales: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
             return dts.Tables["EntregaFinal"];
         }
@@ -44,6 +48,10 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["EntregasFinales"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando las Entregas Finales: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
         }
     }

@@ -28,6 +28,10 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["ListaMateriales"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando las Listas de Materiales: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
         }
     }
