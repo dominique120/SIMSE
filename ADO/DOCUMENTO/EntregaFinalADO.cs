@@ -12,7 +12,6 @@ namespace ADO.DOCUMENTO {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        Boolean success = false;
         public DataTable ListarEntregaFinalFull() {
             DataSet dts = new DataSet();
             try {
