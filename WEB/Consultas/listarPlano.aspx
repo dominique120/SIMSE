@@ -25,7 +25,7 @@
         </tr>
     </table>
     <br />
-    <asp:GridView ID="grvPlanos" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" Height="236px" Width="675px" GridLines="None">
+    <asp:GridView ID="grvPlanos" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" Height="236px" Width="858px" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="id_documento" HeaderText="Id Documento" />
@@ -43,7 +43,6 @@
             </asp:BoundField>
             <asp:BoundField DataField="dibujadoPor" HeaderText="Dibujado Por" />
             <asp:BoundField DataField="revisadoPor" HeaderText="Revisado Por" />
-            <asp:BoundField DataField="path_plano" HeaderText="Path Plano" />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

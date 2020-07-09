@@ -25,7 +25,9 @@
                 <asp:BoundField DataField="fecha_pedida" DataFormatString="{0:d}" HeaderText="Fecha Pedida">
                 <ItemStyle HorizontalAlign="Right" />
                 </asp:BoundField>
-                <asp:BoundField DataField="fecha_aprobada" DataFormatString="{0:d}" HeaderText="Fecha Aprobada" />
+                <asp:BoundField DataField="fecha_aprobada" DataFormatString="{0:d}" HeaderText="Fecha Aprobada" >
+                <ItemStyle HorizontalAlign="Right" />
+                </asp:BoundField>
                 <asp:BoundField DataField="aprobadoPor" HeaderText="Aprobado Por" />
                 <asp:BoundField DataField="ingresadoPor" HeaderText="Ingresado Por" />
                 <asp:BoundField DataField="aprobado" HeaderText="Aprobado" />
