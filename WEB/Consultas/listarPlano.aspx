@@ -1,6 +1,6 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Consultas/MPConsultas.master" AutoEventWireup="true" CodeBehind="listarPlano.aspx.cs" Inherits="WEB.Consultas.listarPlano" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-
+        <div id="resultados">
     <h2>Listar Planos</h2>
     <table style="width: 70%">
         <tr>
@@ -58,5 +58,5 @@
     </asp:GridView>
     <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     <br />
-
+</div>
 </asp:Content>

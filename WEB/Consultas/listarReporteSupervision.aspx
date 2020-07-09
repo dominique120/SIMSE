@@ -1,6 +1,6 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Consultas/MPConsultas.master" AutoEventWireup="true" CodeBehind="listarReporteSupervision.aspx.cs" Inherits="WEB.Consultas.listarReporteSupervision" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-
+        <div id="resultados">
     <h2> Listar Reporte Supervision</h2>
 <table style="width: 70%">
     <tr>
@@ -51,4 +51,5 @@
     <p> 
         <asp:Label ID="lblMensaje" runat="server"></asp:Label>
 </p>
+            </div>
 </asp:Content>
