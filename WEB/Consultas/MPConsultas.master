@@ -6,10 +6,10 @@
     <ul id="menuContextual">
         
         <li> <a href="listarPlano.aspx">Listar Planos</a></li>
-        <li> <a href="ListarMateriales.aspx">Listar Materiales</a></li>
-        <li> <a href="listarReporteTecnico.aspx">Listar Reporte técnico</a></li>
-        <li> <a href="listarReporteSupervision.aspx">Listar Reporte Supervision</a></li>
-        <li> <a href="listarEntregaFinal.aspx">Listar Entrega Final</a></li>
+        <li> <a href="ListarMateriales.aspx">Listar Listas de Materiales</a></li>
+        <li> <a href="listarReporteTecnico.aspx">Listar Reportes técnicos</a></li>
+        <li> <a href="listarReporteSupervision.aspx">Listar Reportes de Supervision</a></li>
+        <li> <a href="listarEntregaFinal.aspx">Listar Entregas Finales</a></li>
     </ul>
 
 </asp:Content>
