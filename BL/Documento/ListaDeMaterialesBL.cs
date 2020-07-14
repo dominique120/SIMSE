@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ADO.DOCUMENTO;
+using BE.DOCUMENTO;
 
 namespace BL.Documento {
     public class ListaDeMaterialesBL {
@@ -12,6 +13,10 @@ namespace BL.Documento {
 
         public DataTable ListarMaterialesPorProyecto(int id_proyecto) {
             return lmat.ListarMaterialesPorProyecto(id_proyecto);
+        }
+
+        public String ListaMaterialesConDetallesNew(ListaDeMaterialesBE matBE) {
+            return lmat.ListaMaterialesConDetallesNew(matBE);
         }
     }
 }

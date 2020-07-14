@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ADO.DOCUMENTO;
+using BE.DOCUMENTO;
+
 namespace BL.Documento {
     public class ReportesTecnicosBL {
 
@@ -16,5 +18,18 @@ namespace BL.Documento {
         public DataTable ListarReporteTecnicoFull() {
             return rtec.ListarReporteTecnicoFull();
         }
+
+        public Boolean ReporteTecnicoNew(ReporteTecnicoBE rtBE) {
+            return rtec.ReporteTecnicoNew(rtBE);
+        }
+
+        public Boolean EliminarReporteTecnico(int idDocumento) {
+            return rtec.EliminarReporteTecnico(idDocumento);
+        }
+
+        public Boolean ModificarReporteTecnico(ReporteTecnicoBE rtBE) {
+            return rtec.ModificarReporteTecnico(rtBE);
+        }
+
     }
 }

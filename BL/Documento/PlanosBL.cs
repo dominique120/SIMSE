@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ADO.DOCUMENTO;
+using BE.DOCUMENTO;
+
 namespace BL.Documento {
 
     public class PlanosBL {
@@ -22,5 +24,18 @@ namespace BL.Documento {
         public DataTable ListarTiposDePlano() {
             return pla.ListarTiposDePlano();
         }
+
+        public Boolean PlanoNew(PlanoBE plBE) {
+            return pla.PlanoNew(plBE);
+        }
+
+        public Boolean EliminarPlano(int idPlano) {
+            return pla.EliminarPlano(idPlano);
+        }
+
+        public Boolean ModificarPlano(PlanoBE plBE) {
+            return pla.ModificarPlano(plBE);
+        }
+
     }
 }

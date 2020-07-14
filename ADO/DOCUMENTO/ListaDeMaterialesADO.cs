@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.DOCUMENTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -28,6 +29,42 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["ListaMateriales"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando las Listas de Materiales: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+        }
+
+        public String ListaMaterialesConDetallesNew(ListaDeMaterialesBE matBE) {
+            try {
+                con.ConnectionString = conection.GetCon();
+
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListaMaterialesNew";
+                cmd.Parameters.Clear();
+
+                cmd.Parameters.Add(new SqlParameter("@id_documento", matBE.Id_documento));
+                cmd.Parameters.Add(new SqlParameter("@proyecto", matBE.Proyecto));
+                cmd.Parameters.Add(new SqlParameter("@pedido_por", matBE.Pedido_por));
+                cmd.Parameters.Add(new SqlParameter("@fecha_pedida", matBE.Fecha_pedida));
+                cmd.Parameters.Add(new SqlParameter("@fecha_aprobada", matBE.Fecha_aprobada));
+
+                cmd.Parameters.Add(new SqlParameter("@aprobado", matBE.Aprobado));
+                cmd.Parameters.Add(new SqlParameter("@aprobado_por", matBE.Aprobado_por));
+                cmd.Parameters.Add(new SqlParameter("@ingresado_por", matBE.Ingresado_por));
+
+                cmd.Parameters["@rnid"].Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(new SqlParameter("@detalles", SqlDbType.Structured));
+                cmd.Parameters["@detalles"].Value = matBE.DetalleDeListaMateriales;
+
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return cmd.Parameters["@rnid"].Value.ToString();
+            } catch (Exception) {
+                return String.Empty;
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();

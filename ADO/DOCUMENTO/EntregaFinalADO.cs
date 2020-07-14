@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.DOCUMENTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -53,6 +54,95 @@ namespace ADO.DOCUMENTO {
                     con.Close();
                 }
             }
+        }
+
+
+        public Boolean EntregaFinalNew(EntregaFinalBE eBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "DOCUMENTO.EntregaFinalNew";
+            bool success;
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_proyecto", eBE.Id_proyecto);
+                cmd.Parameters.AddWithValue("@id_encargado", eBE.Id_encargado);
+                cmd.Parameters.AddWithValue("@fecha", eBE.Fecha);
+                cmd.Parameters.AddWithValue("@path_scan_reporte", eBE.Path_scan_reporte);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public Boolean EliminarEntregaFinal(int idDocumento) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "DOCUMENTO.EliminarEntregaFinal";
+            bool success;
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception("No se pudo eliminar el documento, tiene data relacionada a ella" + x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public Boolean ModificarEntregaFinal(EntregaFinalBE eBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "DOCUMENTO.ActualizarEntregaFinal";
+            bool success;
+
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", eBE.Id_documento);
+                cmd.Parameters.AddWithValue("@id_proyecto", eBE.Id_proyecto);
+                cmd.Parameters.AddWithValue("@id_encargado", eBE.Id_encargado);
+                cmd.Parameters.AddWithValue("@fecha", eBE.Fecha);
+                cmd.Parameters.AddWithValue("@path_scan_reporte", eBE.Path_scan_reporte);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return success;
         }
     }
 }

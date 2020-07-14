@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ADO.DOCUMENTO;
+using BE.DOCUMENTO;
 
 namespace BL.Documento {
     public class ReporteSupervisionBL {
@@ -15,6 +16,18 @@ namespace BL.Documento {
 
         public DataTable ListarReporteSupervisionFull() {
             return rsupADO.ListarReporteSupervisionFull();
+        }
+
+        public Boolean ReporteSupervisionNew(ReporteSupervisionBE rsBE) {
+            return rsupADO.ReporteSupervisionNew(rsBE);
+        }
+
+        public Boolean EliminarReporteSupervision(int idDocumento) {
+            return rsupADO.EliminarReporteSupervision(idDocumento);
+        }
+
+        public Boolean ModificarReporteSupervision(ReporteSupervisionBE rsBE) {
+            return rsupADO.ModificarReporteSupervision(rsBE);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ADO.DOCUMENTO;
+using BE.DOCUMENTO;
 
 namespace BL.Documento {
     public class EntregaFinalBL {
@@ -15,6 +16,18 @@ namespace BL.Documento {
 
         public DataTable ListarEntregaFinalFull() {
             return entregaFinal.ListarEntregaFinalFull();
+        }
+
+        public Boolean EntregaFinalNew(EntregaFinalBE eBE) {
+            return entregaFinal.EntregaFinalNew(eBE);
+        }
+
+        public Boolean EliminarEntregaFinal(int idDocumento) {
+            return entregaFinal.EliminarEntregaFinal(idDocumento);
+        }
+
+        public Boolean ModificarEntregaFinal(EntregaFinalBE eBE) {
+            return entregaFinal.ModificarEntregaFinal(eBE);
         }
 
     }

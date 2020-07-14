@@ -42,6 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AUTH\AuthBE.cs" />
+    <Compile Include="DOCUMENTO\Cotizacion.cs" />
+    <Compile Include="DOCUMENTO\EntregaFinal.cs" />
+    <Compile Include="DOCUMENTO\ListaDeMateriales.cs" />
+    <Compile Include="DOCUMENTO\PlanoBE.cs" />
+    <Compile Include="DOCUMENTO\ReporteSupervision.cs" />
+    <Compile Include="DOCUMENTO\ReporteTecnico.cs" />
     <Compile Include="MARKETING\EnvioBE.cs" />
     <Compile Include="MARKETING\FichaMarketingBE.cs" />
     <Compile Include="PERSONA\EmailBE.cs" />
