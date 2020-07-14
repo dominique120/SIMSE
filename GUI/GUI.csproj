@@ -79,12 +79,6 @@
     <Compile Include="AUTH\frmNewUser.Designer.cs">
       <DependentUpon>frmNewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="DOCUMENTO\PLANOS\frmEliminarPlano.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DOCUMENTO\PLANOS\frmEliminarPlano.Designer.cs">
-      <DependentUpon>frmEliminarPlano.cs</DependentUpon>
-    </Compile>
     <Compile Include="DOCUMENTO\PLANOS\frmListarPlanos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AUTH\frmNewUser.resx">
       <DependentUpon>frmNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\PLANOS\frmListarPlanos.resx">
+      <DependentUpon>frmListarPlanos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\PLANOS\frmNuevoPlano.resx">
+      <DependentUpon>frmNuevoPlano.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
