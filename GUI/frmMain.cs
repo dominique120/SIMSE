@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -156,6 +156,10 @@ namespace GUI {
             AUTH.frmEliminarCredencial credencial = new AUTH.frmEliminarCredencial();
             credencial.MdiParent = this;
             credencial.Show();
+        }
+
+        private void nuevoToolStripMenuItem6_Click(object sender, EventArgs e) {
+
         }
     }
 }

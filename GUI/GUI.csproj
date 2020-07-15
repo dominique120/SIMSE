@@ -79,6 +79,24 @@
     <Compile Include="AUTH\frmNewUser.Designer.cs">
       <DependentUpon>frmNewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="DOCUMENTO\ENTREGAFINAL\frmListarEntregaFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\ENTREGAFINAL\frmListarEntregaFinal.Designer.cs">
+      <DependentUpon>frmListarEntregaFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\ENTREGAFINAL\frmModificarEntregaFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\ENTREGAFINAL\frmModificarEntregaFinal.Designer.cs">
+      <DependentUpon>frmModificarEntregaFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\ENTREGAFINAL\frmNuevoEntregaFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\ENTREGAFINAL\frmNuevoEntregaFinal.Designer.cs">
+      <DependentUpon>frmNuevoEntregaFinal.cs</DependentUpon>
+    </Compile>
     <Compile Include="DOCUMENTO\PLANOS\frmListarPlanos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +114,42 @@
     </Compile>
     <Compile Include="DOCUMENTO\PLANOS\frmNuevoPlano.Designer.cs">
       <DependentUpon>frmNuevoPlano.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTESUPERVISION\frmListarReporteSupervision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTESUPERVISION\frmListarReporteSupervision.Designer.cs">
+      <DependentUpon>frmListarReporteSupervision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTESUPERVISION\frmModificarReporteSupervision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTESUPERVISION\frmModificarReporteSupervision.Designer.cs">
+      <DependentUpon>frmModificarReporteSupervision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTESUPERVISION\frmNuevoReporteSupervision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTESUPERVISION\frmNuevoReporteSupervision.Designer.cs">
+      <DependentUpon>frmNuevoReporteSupervision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTETECNICO\frmListarReporteTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTETECNICO\frmListarReporteTecnico.Designer.cs">
+      <DependentUpon>frmListarReporteTecnico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTETECNICO\frmModificarReporteTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTETECNICO\frmModificarReporteTecnico.Designer.cs">
+      <DependentUpon>frmModificarReporteTecnico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTETECNICO\frmNuevoReporteTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOCUMENTO\REPORTETECNICO\frmNuevoReporteTecnico.Designer.cs">
+      <DependentUpon>frmNuevoReporteTecnico.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -264,11 +318,41 @@
     <EmbeddedResource Include="AUTH\frmNewUser.resx">
       <DependentUpon>frmNewUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\ENTREGAFINAL\frmListarEntregaFinal.resx">
+      <DependentUpon>frmListarEntregaFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\ENTREGAFINAL\frmModificarEntregaFinal.resx">
+      <DependentUpon>frmModificarEntregaFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\ENTREGAFINAL\frmNuevoEntregaFinal.resx">
+      <DependentUpon>frmNuevoEntregaFinal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DOCUMENTO\PLANOS\frmListarPlanos.resx">
       <DependentUpon>frmListarPlanos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\PLANOS\frmModificarPlano.resx">
+      <DependentUpon>frmModificarPlano.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DOCUMENTO\PLANOS\frmNuevoPlano.resx">
       <DependentUpon>frmNuevoPlano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\REPORTESUPERVISION\frmListarReporteSupervision.resx">
+      <DependentUpon>frmListarReporteSupervision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\REPORTESUPERVISION\frmModificarReporteSupervision.resx">
+      <DependentUpon>frmModificarReporteSupervision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\REPORTESUPERVISION\frmNuevoReporteSupervision.resx">
+      <DependentUpon>frmNuevoReporteSupervision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\REPORTETECNICO\frmListarReporteTecnico.resx">
+      <DependentUpon>frmListarReporteTecnico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\REPORTETECNICO\frmModificarReporteTecnico.resx">
+      <DependentUpon>frmModificarReporteTecnico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOCUMENTO\REPORTETECNICO\frmNuevoReporteTecnico.resx">
+      <DependentUpon>frmNuevoReporteTecnico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
