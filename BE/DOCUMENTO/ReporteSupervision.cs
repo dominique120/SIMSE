@@ -29,5 +29,8 @@ namespace BE.DOCUMENTO {
             this.Detalles_reporte = detalles_reporte;
             this.Path_scan_reporte = path_scan_reporte;
         }
+
+        public ReporteSupervisionBE() {
+        }
     }
 }

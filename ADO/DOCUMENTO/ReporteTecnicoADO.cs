@@ -146,5 +146,43 @@ namespace ADO.DOCUMENTO {
             }
             return success;
         }
+
+        public ReporteTecnicoBE ListarReporteTecnicoPorId(int idDocumento) {
+            ReporteTecnicoBE rpBE = new ReporteTecnicoBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarReporteTecnicoPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    rpBE.Id_documento = int.Parse(dtr["id_documento"].ToString());
+                    rpBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
+                    rpBE.Id_tecnico = int.Parse(dtr["id_tecnico"].ToString());
+                    rpBE.Fecha_reporte = Convert.ToDateTime(dtr["fecha_reporte"]);
+                    rpBE.Detalles_reporte = dtr["detalles_reporte"].ToString();
+                    rpBE.Path_scan_reporte = dtr["path_scan_reporte"].ToString();
+                } else {
+                    throw new Exception("Error al buscar el documento.");
+                }
+                dtr.Close();
+
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return rpBE;
+        }
     }
 }

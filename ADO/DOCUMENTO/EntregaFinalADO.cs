@@ -144,5 +144,42 @@ namespace ADO.DOCUMENTO {
             }
             return success;
         }
+
+        public EntregaFinalBE ListarEntregaPorId(int idDocumento) {
+            EntregaFinalBE entBE = new EntregaFinalBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarEntregaFinalPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    entBE.Id_documento = int.Parse(dtr["id_documento"].ToString());
+                    entBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
+                    entBE.Id_encargado = int.Parse(dtr["id_encargado"].ToString());
+                    entBE.Path_scan_reporte = dtr["path_scan_reporte"].ToString();
+                    entBE.Fecha = Convert.ToDateTime(dtr["fecha"]);
+                } else {
+                    throw new Exception("Error al buscar el documento.");
+                }
+                dtr.Close();
+
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return entBE;
+        }
     }
 }

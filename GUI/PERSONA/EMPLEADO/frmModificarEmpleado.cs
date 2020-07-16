@@ -41,7 +41,7 @@ namespace GUI.PERSONA.EMPLEADO {
         private void frmModificarEmpleado_Load(object sender, EventArgs e) {
             try { 
                 cboBuscarEmpleado.DataSource = personaFuenteBL.ListarEmpleados(); ;
-                cboBuscarEmpleado.DisplayMember = "fullnom";
+                cboBuscarEmpleado.DisplayMember = "Nombre Completo";
                 cboBuscarEmpleado.ValueMember = "id_persona";
 
             } catch (Exception ex) {

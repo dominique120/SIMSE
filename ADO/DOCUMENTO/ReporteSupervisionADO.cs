@@ -12,7 +12,6 @@ namespace ADO.DOCUMENTO {
         Conection conection = new Conection();
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
-
         
         public DataTable ListarReporteSupervisionFull() {
             DataSet dts = new DataSet();
@@ -43,6 +42,30 @@ namespace ADO.DOCUMENTO {
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
                 cmd.Parameters.AddWithValue("@id_supervisor", id_supervisor);
+
+                SqlDataAdapter adapter;
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "ReporteSupervision");
+                return dts.Tables["ReporteSupervision"];
+            } catch (SqlException ex) {
+                throw new Exception("Error mostrando Reportes de Supervision: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+        }
+
+        public DataTable ListarReporteSupervisionProyecto(int id_proyecto) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarReporteSupervisionPorProyecto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+
 
                 SqlDataAdapter adapter;
                 adapter = new SqlDataAdapter(cmd);
@@ -146,6 +169,46 @@ namespace ADO.DOCUMENTO {
                 cmd.Parameters.Clear();
             }
             return success;
+        }
+
+
+
+        public ReporteSupervisionBE ListarReporteSupervisionPorId(int idDocumento) {
+            ReporteSupervisionBE rpBE = new ReporteSupervisionBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarReporteSupervisionPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    rpBE.Id_documento = int.Parse(dtr["id_documento"].ToString());
+                    rpBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
+                    rpBE.Id_supervisor = int.Parse(dtr["id_supervisor"].ToString());
+                    rpBE.Fecha_reporte = Convert.ToDateTime(dtr["fecha_reporte"]);
+                    rpBE.Detalles_reporte = dtr["detalles_reporte"].ToString();
+                    rpBE.Path_scan_reporte = dtr["path_scan_reporte"].ToString();
+                } else {
+                    throw new Exception("Error al buscar el documento.");
+                }
+                dtr.Close();
+
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return rpBE;
         }
     }
 }

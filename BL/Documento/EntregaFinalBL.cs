@@ -17,6 +17,9 @@ namespace BL.Documento {
         public DataTable ListarEntregaFinalFull() {
             return entregaFinal.ListarEntregaFinalFull();
         }
+        public EntregaFinalBE ListarEntregaPorId(int idDocumento) {
+            return entregaFinal.ListarEntregaPorId(idDocumento);
+        }
 
         public Boolean EntregaFinalNew(EntregaFinalBE eBE) {
             return entregaFinal.EntregaFinalNew(eBE);

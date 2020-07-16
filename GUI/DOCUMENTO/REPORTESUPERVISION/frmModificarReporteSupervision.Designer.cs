@@ -29,117 +29,166 @@
     private void InitializeComponent()
     {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDocumento = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboBuscar = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtDetalles = new System.Windows.Forms.TextBox();
+            this.cboProyecto = new System.Windows.Forms.ComboBox();
+            this.txtPathRep = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtpFechaReporte = new System.Windows.Forms.DateTimePicker();
+            this.cboSupervisor = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.txtDocumento);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtDetalles);
+            this.groupBox1.Controls.Add(this.cboProyecto);
+            this.groupBox1.Controls.Add(this.txtPathRep);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.dtpFechaReporte);
+            this.groupBox1.Controls.Add(this.cboSupervisor);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(46, 69);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 7;
+            this.groupBox1.Size = new System.Drawing.Size(310, 245);
+            this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Principal";
             // 
-            // txtNombre
+            // txtDetalles
             // 
-            this.txtNombre.Location = new System.Drawing.Point(83, 24);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 2;
+            this.txtDetalles.Location = new System.Drawing.Point(97, 129);
+            this.txtDetalles.Multiline = true;
+            this.txtDetalles.Name = "txtDetalles";
+            this.txtDetalles.Size = new System.Drawing.Size(207, 100);
+            this.txtDetalles.TabIndex = 6;
             // 
-            // txtDocumento
+            // cboProyecto
             // 
-            this.txtDocumento.Location = new System.Drawing.Point(83, 53);
-            this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento.TabIndex = 2;
+            this.cboProyecto.FormattingEnabled = true;
+            this.cboProyecto.Location = new System.Drawing.Point(97, 19);
+            this.cboProyecto.Name = "cboProyecto";
+            this.cboProyecto.Size = new System.Drawing.Size(207, 21);
+            this.cboProyecto.TabIndex = 10;
             // 
-            // label3
+            // txtPathRep
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Documento:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre:";
-            // 
-            // cboBuscar
-            // 
-            this.cboBuscar.FormattingEnabled = true;
-            this.cboBuscar.Location = new System.Drawing.Point(46, 31);
-            this.cboBuscar.Name = "cboBuscar";
-            this.cboBuscar.Size = new System.Drawing.Size(171, 21);
-            this.cboBuscar.TabIndex = 5;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(223, 29);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 4;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.txtPathRep.Location = new System.Drawing.Point(97, 103);
+            this.txtPathRep.Name = "txtPathRep";
+            this.txtPathRep.Size = new System.Drawing.Size(207, 20);
+            this.txtPathRep.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 12);
+            this.label1.Location = new System.Drawing.Point(35, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 9;
             this.label1.Text = "Proyecto:";
+            // 
+            // dtpFechaReporte
+            // 
+            this.dtpFechaReporte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaReporte.Location = new System.Drawing.Point(97, 73);
+            this.dtpFechaReporte.Name = "dtpFechaReporte";
+            this.dtpFechaReporte.Size = new System.Drawing.Size(109, 20);
+            this.dtpFechaReporte.TabIndex = 4;
+            // 
+            // cboSupervisor
+            // 
+            this.cboSupervisor.FormattingEnabled = true;
+            this.cboSupervisor.Location = new System.Drawing.Point(97, 46);
+            this.cboSupervisor.Name = "cboSupervisor";
+            this.cboSupervisor.Size = new System.Drawing.Size(207, 21);
+            this.cboSupervisor.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Detalles:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 103);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Path Reporte:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Supervisor:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Fechan Reporte:";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(247, 263);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frmModificarReporteSupervision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 210);
+            this.ClientSize = new System.Drawing.Size(331, 299);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cboBuscar);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnGuardar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmModificarReporteSupervision";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modificar Reporte Supervision";
+            this.Text = "Modificar Reporte de Supervision";
+            this.Load += new System.EventHandler(this.frmModificarReporteSupervision_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
     }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.GroupBox groupBox1;
-    private System.Windows.Forms.TextBox txtNombre;
-    private System.Windows.Forms.TextBox txtDocumento;
-    private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.ComboBox cboBuscar;
-    private System.Windows.Forms.Button btnBuscar;
-    private System.Windows.Forms.Label label1;
-  }
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtDetalles;
+        private System.Windows.Forms.ComboBox cboProyecto;
+        private System.Windows.Forms.TextBox txtPathRep;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtpFechaReporte;
+        private System.Windows.Forms.ComboBox cboSupervisor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnGuardar;
+    }
 }

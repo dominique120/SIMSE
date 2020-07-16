@@ -157,5 +157,29 @@ namespace GUI {
             credencial.MdiParent = this;
             credencial.Show();
         }
+
+        private void planosToolStripMenuItem_Click(object sender, EventArgs e) {
+            GUI.DOCUMENTO.PLANOS.frmListarPlanos planos = new DOCUMENTO.PLANOS.frmListarPlanos();
+            planos.MdiParent = this;
+            planos.Show();
+        }
+
+        private void reporteTecnicoToolStripMenuItem_Click(object sender, EventArgs e) {
+            GUI.DOCUMENTO.REPORTETECNICO.frmListarReporteTecnico tecnico = new DOCUMENTO.REPORTETECNICO.frmListarReporteTecnico();
+            tecnico.MdiParent = this;
+            tecnico.Show();
+        }
+
+        private void reporteSupervisionToolStripMenuItem_Click(object sender, EventArgs e) {
+            GUI.DOCUMENTO.REPORTESUPERVISION.frmListarReporteSupervision supervision = new DOCUMENTO.REPORTESUPERVISION.frmListarReporteSupervision();
+            supervision.MdiParent = this;
+            supervision.Show();
+        }
+
+        private void entregaFinalToolStripMenuItem_Click(object sender, EventArgs e) {
+            GUI.DOCUMENTO.ENTREGAFINAL.frmListarEntregaFinal entF = new DOCUMENTO.ENTREGAFINAL.frmListarEntregaFinal();
+            entF.MdiParent = this;
+            entF.Show();
+        }
     }
 }

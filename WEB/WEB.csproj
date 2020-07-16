@@ -80,6 +80,8 @@
     <Content Include="imagenes\asp.net.png" />
     <Content Include="imagenes\logo.jpg" />
     <Content Include="imagenes\visualStudio.png" />
+    <Content Include="Registros\Materiales.aspx" />
+    <Content Include="Registros\OrdenCompra.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -137,11 +139,33 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\Materiales.aspx.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\Materiales.aspx.designer.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\MPRegistros.master.cs">
+      <DependentUpon>MPRegistros.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\MPRegistros.master.designer.cs">
+      <DependentUpon>MPRegistros.master</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\OrdenCompra.aspx.cs">
+      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\OrdenCompra.aspx.designer.cs">
+      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DemoMaster.master" />
     <Content Include="Consultas\MPConsultas.master" />
     <None Include="packages.config" />
+    <Content Include="Registros\MPRegistros.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

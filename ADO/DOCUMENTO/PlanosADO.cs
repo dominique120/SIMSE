@@ -56,6 +56,30 @@ namespace ADO.DOCUMENTO {
             }
         }
 
+
+        public DataTable ListarPlanosPorProyecto(int id_proyecto) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarPlanosPorProyecto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+
+                SqlDataAdapter adapter;
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Planos");
+                return dts.Tables["Planos"];
+            } catch (SqlException ex) {
+                throw new Exception("Error mostrando Planos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+        }
+
         public DataTable ListarTiposDePlano() {
             DataSet dts = new DataSet();
             try {
@@ -149,6 +173,7 @@ namespace ADO.DOCUMENTO {
 
             try {
                 cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", plBE.Id_documento);
                 cmd.Parameters.AddWithValue("@id_proyecto", plBE.Id_proyecto);
                 cmd.Parameters.AddWithValue("@revision", plBE.Revision);
                 cmd.Parameters.AddWithValue("@tipo_plano", plBE.Tipo_plano);
@@ -176,6 +201,50 @@ namespace ADO.DOCUMENTO {
                 cmd.Parameters.Clear();
             }
             return success;
+        }
+
+
+        public PlanoBE ListarPlanoPorId(int idDocumento) {
+            PlanoBE plaBE = new PlanoBE();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarPlanosPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    plaBE.Id_documento = int.Parse(dtr["id_documento"].ToString());
+                    plaBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
+                    plaBE.Revision = dtr["revision"].ToString();
+                    plaBE.Tipo_plano = int.Parse(dtr["tipo_plano"].ToString());
+                    plaBE.Dibujado_por = int.Parse(dtr["dibujado_por"].ToString());
+                    plaBE.Revisado_por = int.Parse(dtr["revisado_por"].ToString());
+                    plaBE.Nom_plano = dtr["nom_plano"].ToString();
+                    plaBE.Fecha_creacion = Convert.ToDateTime(dtr["fecha_creacion"]);
+                    plaBE.Fecha_revision = Convert.ToDateTime(dtr["fecha_revision"]);
+                    plaBE.Fecha_envio = Convert.ToDateTime(dtr["fecha_envio"]);
+                    plaBE.Path_plano = dtr["path_plano"].ToString();
+                } else {
+                    throw new Exception("Error al buscar el documento.");
+                }
+                dtr.Close();
+
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
+            return plaBE;
         }
     }
 }

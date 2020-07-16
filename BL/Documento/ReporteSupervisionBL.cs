@@ -17,6 +17,12 @@ namespace BL.Documento {
         public DataTable ListarReporteSupervisionFull() {
             return rsupADO.ListarReporteSupervisionFull();
         }
+        public ReporteSupervisionBE ListarReporteSupervisionPorId(int idDocumento) {
+            return rsupADO.ListarReporteSupervisionPorId(idDocumento);
+        }
+        public DataTable ListarReporteSupervisionProyecto(int id_proyecto) {
+            return rsupADO.ListarReporteSupervisionProyecto(id_proyecto);
+        }
 
         public Boolean ReporteSupervisionNew(ReporteSupervisionBE rsBE) {
             return rsupADO.ReporteSupervisionNew(rsBE);

@@ -17,6 +17,14 @@ namespace BL.Documento {
             return pla.ListarPlanosFull();
         }
 
+        public PlanoBE ListarPlanoPorId(int idDocumento) {
+            return pla.ListarPlanoPorId(idDocumento);
+        }
+
+        public DataTable ListarPlanosPorProyecto(int id_proyecto) {
+            return pla.ListarPlanosPorProyecto(id_proyecto);
+        }
+
         public DataTable ListarPlanosPorProyectoTipo(int id_proyecto, int id_tipo) {
             return pla.ListarPlanosPorProyectoTipo(id_proyecto, id_tipo);
         }

@@ -44,5 +44,8 @@ namespace BE.DOCUMENTO {
             this.Fecha_envio = fecha_envio;
             this.Path_plano = path_plano;
         }
+
+        public PlanoBE() {
+        }
     }
 }

@@ -34,6 +34,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.cboProyecto = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgLRS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,62 +47,79 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgLRS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgLRS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgLRS.Location = new System.Drawing.Point(12, 90);
+            this.dtgLRS.Location = new System.Drawing.Point(12, 41);
             this.dtgLRS.Name = "dtgLRS";
             this.dtgLRS.ReadOnly = true;
             this.dtgLRS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgLRS.Size = new System.Drawing.Size(763, 348);
+            this.dtgLRS.Size = new System.Drawing.Size(960, 508);
             this.dtgLRS.TabIndex = 0;
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(456, 48);
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.Location = new System.Drawing.Point(685, 12);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(559, 48);
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.Location = new System.Drawing.Point(788, 12);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(668, 48);
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.Location = new System.Drawing.Point(897, 12);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // cboProyecto
             // 
             this.cboProyecto.FormattingEnabled = true;
-            this.cboProyecto.Location = new System.Drawing.Point(28, 48);
+            this.cboProyecto.Location = new System.Drawing.Point(127, 12);
             this.cboProyecto.Name = "cboProyecto";
-            this.cboProyecto.Size = new System.Drawing.Size(121, 21);
+            this.cboProyecto.Size = new System.Drawing.Size(244, 21);
             this.cboProyecto.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 32);
+            this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Filtrar Por Proyecto:";
             // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(388, 10);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 7;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // frmListarReporteSupervision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboProyecto);
             this.Controls.Add(this.btnEliminar);
@@ -110,9 +128,11 @@
             this.Controls.Add(this.dtgLRS);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(718, 396);
             this.Name = "frmListarReporteSupervision";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listar Reporte Supervision";
+            this.Text = "Listar Reportes de Supervision";
+            this.Load += new System.EventHandler(this.frmListarReporteSupervision_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgLRS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,5 +147,6 @@
     private System.Windows.Forms.Button btnEliminar;
     private System.Windows.Forms.ComboBox cboProyecto;
     private System.Windows.Forms.Label label1;
-  }
+        private System.Windows.Forms.Button btnFiltrar;
+    }
 }

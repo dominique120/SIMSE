@@ -18,6 +18,9 @@ namespace BL.Documento {
         public DataTable ListarReporteTecnicoFull() {
             return rtec.ListarReporteTecnicoFull();
         }
+        public ReporteTecnicoBE ListarReporteTecnicoPorId(int idDocumento) {
+            return rtec.ListarReporteTecnicoPorId(idDocumento);
+        }
 
         public Boolean ReporteTecnicoNew(ReporteTecnicoBE rtBE) {
             return rtec.ReporteTecnicoNew(rtBE);

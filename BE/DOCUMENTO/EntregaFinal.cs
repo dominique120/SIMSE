@@ -13,6 +13,9 @@ namespace BE.DOCUMENTO {
         private string path_scan_reporte;
         private DateTime fecha;
 
+        public EntregaFinalBE() {
+        }
+
         public EntregaFinalBE(int id_documento, int id_proyecto, int id_encargado, string path_scan_reporte, DateTime fecha) {
             this.id_documento = id_documento;
             this.id_proyecto = id_proyecto;
