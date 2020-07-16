@@ -167,8 +167,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNuevoPlano";
-            this.Text = "frmNuevoPlano";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nuevo Plano";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

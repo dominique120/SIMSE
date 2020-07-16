@@ -34,9 +34,17 @@
             // 
             // dtgPlanos
             // 
+            this.dtgPlanos.AllowUserToAddRows = false;
+            this.dtgPlanos.AllowUserToDeleteRows = false;
+            this.dtgPlanos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgPlanos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgPlanos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgPlanos.Location = new System.Drawing.Point(12, 90);
             this.dtgPlanos.Name = "dtgPlanos";
+            this.dtgPlanos.ReadOnly = true;
+            this.dtgPlanos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgPlanos.Size = new System.Drawing.Size(763, 348);
             this.dtgPlanos.TabIndex = 0;
             // 
@@ -95,8 +103,11 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtgPlanos);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListarPlanos";
-            this.Text = "frmListarPlanos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listar Planos";
             ((System.ComponentModel.ISupportInitialize)(this.dtgPlanos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

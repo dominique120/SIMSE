@@ -172,8 +172,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNuevoEntregaFinal";
-            this.Text = "frmNuevoEntregaFinal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nuevo Entrega Final";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -39,11 +39,19 @@
             // 
             // dtgLRT
             // 
+            this.dtgLRT.AllowUserToAddRows = false;
+            this.dtgLRT.AllowUserToDeleteRows = false;
+            this.dtgLRT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgLRT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgLRT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgLRT.Location = new System.Drawing.Point(12, 76);
             this.dtgLRT.Name = "dtgLRT";
+            this.dtgLRT.ReadOnly = true;
+            this.dtgLRT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgLRT.Size = new System.Drawing.Size(763, 348);
-            this.dtgLRT.TabIndex = 1;
+            this.dtgLRT.TabIndex = 0;
             // 
             // btnNuevo
             // 
@@ -100,8 +108,11 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtgLRT);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListarReporteTecnico";
-            this.Text = "frmListarReporteTecnico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listar Reporte Tecnico";
             ((System.ComponentModel.ISupportInitialize)(this.dtgLRT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

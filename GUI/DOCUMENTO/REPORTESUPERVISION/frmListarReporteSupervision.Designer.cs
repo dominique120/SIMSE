@@ -39,11 +39,19 @@
             // 
             // dtgLRS
             // 
+            this.dtgLRS.AllowUserToAddRows = false;
+            this.dtgLRS.AllowUserToDeleteRows = false;
+            this.dtgLRS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgLRS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgLRS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgLRS.Location = new System.Drawing.Point(12, 90);
             this.dtgLRS.Name = "dtgLRS";
+            this.dtgLRS.ReadOnly = true;
+            this.dtgLRS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgLRS.Size = new System.Drawing.Size(763, 348);
-            this.dtgLRS.TabIndex = 1;
+            this.dtgLRS.TabIndex = 0;
             // 
             // btnNuevo
             // 
@@ -100,8 +108,11 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtgLRS);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListarReporteSupervision";
-            this.Text = "frmListarReporteSupervision";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listar Reporte Supervision";
             ((System.ComponentModel.ISupportInitialize)(this.dtgLRS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

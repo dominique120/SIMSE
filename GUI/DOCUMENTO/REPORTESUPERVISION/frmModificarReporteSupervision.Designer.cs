@@ -119,8 +119,11 @@
             this.Controls.Add(this.cboBuscar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmModificarReporteSupervision";
-            this.Text = "frmModificarReporteSupervision";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modificar Reporte Supervision";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

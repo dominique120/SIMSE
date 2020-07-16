@@ -29,8 +29,10 @@
     private void InitializeComponent()
     {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPathRep = new System.Windows.Forms.TextBox();
+            this.dtpFecRep = new System.Windows.Forms.DateTimePicker();
             this.cboTecnico = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.dtpFecRep = new System.Windows.Forms.DateTimePicker();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Principal";
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(56, 22);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(152, 20);
+            this.txtNombre.TabIndex = 6;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -76,6 +83,14 @@
             this.txtPathRep.Name = "txtPathRep";
             this.txtPathRep.Size = new System.Drawing.Size(128, 20);
             this.txtPathRep.TabIndex = 3;
+            // 
+            // dtpFecRep
+            // 
+            this.dtpFecRep.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecRep.Location = new System.Drawing.Point(99, 82);
+            this.dtpFecRep.Name = "dtpFecRep";
+            this.dtpFecRep.Size = new System.Drawing.Size(109, 20);
+            this.dtpFecRep.TabIndex = 4;
             // 
             // cboTecnico
             // 
@@ -147,21 +162,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // dtpFecRep
-            // 
-            this.dtpFecRep.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecRep.Location = new System.Drawing.Point(99, 82);
-            this.dtpFecRep.Name = "dtpFecRep";
-            this.dtpFecRep.Size = new System.Drawing.Size(109, 20);
-            this.dtpFecRep.TabIndex = 4;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(56, 22);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(152, 20);
-            this.txtNombre.TabIndex = 6;
-            // 
             // frmNuevoReporteTecnico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,8 +172,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNuevoReporteTecnico";
-            this.Text = "frmNuevoReporteTecnico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nuevo Reporte Tecnico";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

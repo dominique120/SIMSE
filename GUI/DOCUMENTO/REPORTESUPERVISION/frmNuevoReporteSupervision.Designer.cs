@@ -30,7 +30,9 @@
     {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtPathRep = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.dtpFecRep = new System.Windows.Forms.DateTimePicker();
             this.cboSupervisor = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.dtpFecRep = new System.Windows.Forms.DateTimePicker();
-            this.txtPathRep = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,12 +70,27 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Nombre:";
             // 
+            // txtPathRep
+            // 
+            this.txtPathRep.Location = new System.Drawing.Point(77, 112);
+            this.txtPathRep.Name = "txtPathRep";
+            this.txtPathRep.Size = new System.Drawing.Size(131, 20);
+            this.txtPathRep.TabIndex = 3;
+            // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(56, 29);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(150, 20);
             this.txtNombre.TabIndex = 3;
+            // 
+            // dtpFecRep
+            // 
+            this.dtpFecRep.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecRep.Location = new System.Drawing.Point(97, 82);
+            this.dtpFecRep.Name = "dtpFecRep";
+            this.dtpFecRep.Size = new System.Drawing.Size(109, 20);
+            this.dtpFecRep.TabIndex = 4;
             // 
             // cboSupervisor
             // 
@@ -147,21 +162,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // dtpFecRep
-            // 
-            this.dtpFecRep.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecRep.Location = new System.Drawing.Point(97, 82);
-            this.dtpFecRep.Name = "dtpFecRep";
-            this.dtpFecRep.Size = new System.Drawing.Size(109, 20);
-            this.dtpFecRep.TabIndex = 4;
-            // 
-            // txtPathRep
-            // 
-            this.txtPathRep.Location = new System.Drawing.Point(77, 112);
-            this.txtPathRep.Name = "txtPathRep";
-            this.txtPathRep.Size = new System.Drawing.Size(131, 20);
-            this.txtPathRep.TabIndex = 3;
-            // 
             // frmNuevoReporteSupervision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,8 +172,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNuevoReporteSupervision";
-            this.Text = "frmNuevoReporteSupervision";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nuevo Reporte Supervision";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

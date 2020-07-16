@@ -114,8 +114,11 @@
             this.Controls.Add(this.cboBuscar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmModificarPlano";
-            this.Text = "frmModificarPlano";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modificar Plano";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

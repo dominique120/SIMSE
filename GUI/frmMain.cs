@@ -157,9 +157,5 @@ namespace GUI {
             credencial.MdiParent = this;
             credencial.Show();
         }
-
-        private void nuevoToolStripMenuItem6_Click(object sender, EventArgs e) {
-
-        }
     }
 }
