@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenu" runat="server">
 
      <ul id="menuContextual">
-                 <li> <a href="OrdenCompra.aspx">Cotización</a></li>
-                <li> <a href="Materiales.aspx">Lista de Materiales</a></li>
+                 <li> <a href="Cotizacion.aspx">Cotización</a></li>
+                <li> <a href="ListaMateriales.aspx">Lista de Materiales</a></li>
     </ul>
 
 

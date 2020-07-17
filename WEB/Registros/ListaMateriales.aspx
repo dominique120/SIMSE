@@ -96,7 +96,7 @@
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:ButtonField ButtonType="Image" CommandName="Eliminar" ImageUrl="~/imagenes/Cancelar.png" Text="Eliminar" />
-                            <asp:BoundField DataField="id_item" HeaderText="Articulo" />
+                            <asp:BoundField DataField="nom_item" HeaderText="Articulo" />
                             <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
                         </Columns>
                         <FooterStyle BackColor="#CCCC99" />

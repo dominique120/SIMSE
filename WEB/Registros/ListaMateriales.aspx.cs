@@ -26,6 +26,7 @@ namespace WEB.Registros {
         DataColumn id_lista;
         DataColumn cantidad;
         DataColumn id_item;
+        DataColumn nom_item;
 
         protected void Page_Load(object sender, EventArgs e) {
 
@@ -131,6 +132,9 @@ namespace WEB.Registros {
             cantidad.DataType = Type.GetType("System.Int16");
             detalles.Columns.Add(cantidad);
 
+            DataColumn nom_item = new DataColumn("nom_item");
+            nom_item.DataType = Type.GetType("System.String");
+            detalles.Columns.Add(nom_item);
 
             //definimos la PK
             detalles.PrimaryKey = new DataColumn[] { detalles.Columns["id_detalle_lista"] };
@@ -194,7 +198,6 @@ namespace WEB.Registros {
                         cboAprobado.SelectedIndex = 0;
                         cboIngresadoPor.SelectedIndex = 0;
                         CrearTabla();
-
                     }
                 }
                 //Si no hay detalles, no se puede registrar la  orden 
@@ -223,6 +226,7 @@ namespace WEB.Registros {
                 //dr["nombre"] = cboProducto.SelectedValue.ToString();
                 dr["id_item"] = Convert.ToInt16(cboProducto.SelectedValue);
                 dr["cantidad"] = Convert.ToInt16(txtCantidad.Text);
+                dr["nom_item"] = cboProducto.SelectedItem.ToString();
 
                 detalles.Rows.Add(dr);
 

@@ -29,6 +29,7 @@ namespace WEB.Registros
         DataColumn precio;
         DataColumn cantidad;
         DataColumn descuento;
+        DataColumn nom_item;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -139,6 +140,10 @@ namespace WEB.Registros
             descuento.DataType = Type.GetType("System.Double");
             detalles.Columns.Add(descuento);
 
+            DataColumn nom_item = new DataColumn("nom_item");
+            nom_item.DataType = Type.GetType("System.String");
+            detalles.Columns.Add(nom_item);
+
 
             //definimos la PK
             detalles.PrimaryKey = new DataColumn[] { detalles.Columns["id_detalle_lista"] };
@@ -246,6 +251,7 @@ namespace WEB.Registros
                 dr["id_item"] = Convert.ToInt16(cboProducto.SelectedValue);
                 dr["cantidad"] = Convert.ToInt16(txtCantidad.Text);
                 dr["descuento"] = Convert.ToInt16(txtDescuento.Text);
+                dr["nom_item"] = cboProducto.SelectedItem.ToString();
 
                 detalles.Rows.Add(dr);
 
