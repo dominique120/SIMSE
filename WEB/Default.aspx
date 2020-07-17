@@ -92,6 +92,7 @@
                
                 <tr>
                          <td class="auto-style7">
+                             <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                              </td>
                          
                 </tr>

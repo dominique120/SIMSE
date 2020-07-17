@@ -76,6 +76,7 @@
     <Content Include="Consultas\listarPlano.aspx" />
     <Content Include="Consultas\listarReporteSupervision.aspx" />
     <Content Include="Consultas\listarReporteTecnico.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Overview.aspx" />
     <Content Include="imagenes\asp.net.png" />
     <Content Include="imagenes\Cancelar.png" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="Consultas\MPConsultas.master.designer.cs">
       <DependentUpon>MPConsultas.master</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Overview.aspx.cs">
       <DependentUpon>Overview.aspx</DependentUpon>

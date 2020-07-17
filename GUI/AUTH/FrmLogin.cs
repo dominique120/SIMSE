@@ -16,6 +16,8 @@ namespace GUI.AUTH {
             InitializeComponent();
         }
 
+        int tries = 0;
+
         private void Login_Load(object sender, EventArgs e) {
             AuthBL abl = new AuthBL();
             if (abl.IsAvailable() == true) {
@@ -30,11 +32,11 @@ namespace GUI.AUTH {
         private void btnSalir_Click(object sender, EventArgs e) {
             this.Close();
         }
-
+    
         private void btnIngresar_Click(object sender, EventArgs e) {
             AuthBL authBL = new AuthBL();
             AuthBE authBE = new AuthBE(txtUser.Text.Trim(), txtPassword.Text.Trim());
-
+            tries += 1;
             try {
                 if (authBL.Authenticate(authBE) == true) {
                     frmMain frmmain = new frmMain();
@@ -47,6 +49,10 @@ namespace GUI.AUTH {
                 }
 
             } catch (Exception ex){
+                if (tries == 3) {
+                    MessageBox.Show(this, "Ya no tiene mas intentos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
                 MessageBox.Show(this, "Error de autenticación: "+ ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
