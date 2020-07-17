@@ -137,28 +137,28 @@
                 TargetControlID="btnPopupDetalle" PopupControlID="PanelDetalle">
             </ajaxToolkit:ModalPopupExtender>
 
-            <asp:Panel ID="PanelDetalle" runat="server" CssClass="auto-style19" align="center" Style="display: table" Width="403px">
+            <asp:Panel ID="PanelDetalle" runat="server" CssClass="auto-style19" align="center" Style="display: table; background-color: white;" Width="403px">
 
-                <table style="border: Solid 3px #D55500;"
+                <table style="border: Solid 3px cadetblue;"
                     cellpadding="0" cellspacing="0">
-                    <tr style="background-color: darkred">
+                    <tr style="background-color: darkcyan">
                         <td colspan="2" style="height: 10%; color: White; font-weight: bold; font-size: larger"
                             align="center">Registrar Detalle
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" class="auto-style5"></td>
+                        <td align="right" class="auto-style5" style="width: 204px"></td>
                         <td align="left" class="auto-style6"></td>
                     </tr>
                     <tr>
-                        <td align="right" class="auto-style17">Seleccione Producto:</td>
+                        <td align="right" class="auto-style17" style="width: 204px">Seleccione Producto:</td>
                         <td align="left" class="auto-style18">
                             <asp:DropDownList ID="cboProducto" runat="server" Width="192px" CssClass="DropDownList">
                             </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" class="auto-style7" style="height: 26px">Cantidad Pedida:
+                        <td align="right" class="auto-style7" style="height: 26px; width: 204px;">Cantidad Pedida:
                         </td>
                         <td align="left" class="auto-style8" style="height: 26px">
                             <asp:TextBox ID="txtCantidad" runat="server" Width="70px"></asp:TextBox>
@@ -172,15 +172,15 @@
                     </tr>
 
                     <tr>
-                        <td class="auto-style8">&nbsp;</td>
+                        <td class="auto-style8" style="width: 204px">&nbsp;</td>
                         <td class="auto-style8">&nbsp;</td>
                     </tr>
 
                     <tr>
-                        <td class="auto-style22">
-                            <asp:Button ID="btnGrabarDetalle" runat="server" Text="Grabar" Width="100px" CssClass="boton2" OnClick="btnGrabarDetalle_Click" />
+                        <td class="auto-style22" style="text-align: center; width: 204px;">
+                            <asp:Button ID="btnGrabarDetalle" runat="server" Text="Grabar"  Width="100px" CssClass="boton2" OnClick="btnGrabarDetalle_Click" />
                         </td>
-                        <td class="auto-style22">
+                        <td class="auto-style22" style="text-align: center">
                             <asp:Button ID="btnCancelarDetalle" runat="server" Text="Cancelar" Width="100px" CssClass="boton-new" OnClick="btnCancelarDetalle_Click" />
                         </td>
                     </tr>
@@ -196,7 +196,7 @@
                 PopupControlID="pnlMensaje" BackgroundCssClass="FondoAplicacion" OkControlID="btnAceptar" />
 
             <asp:Panel ID="pnlMensaje" runat="server" CssClass="CajaDialogo" Style="display: normal;" Width="500">
-                <table border="0" width="500px" style="margin: 0px; padding: 0px; background-color: darkred; color: #FFFFFF;">
+                <table border="0" width="500px" style="margin: 0px; padding: 0px; background-color: darkcyan; color: #FFFFFF;">
                     <tr>
                         <td align="center" class="auto-style11">
                             <asp:Label ID="lblTitulo" runat="server" Text="Mensaje" />
