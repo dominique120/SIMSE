@@ -43,8 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>C:\Users\USUARIO\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
@@ -76,11 +76,12 @@
     <Content Include="Consultas\listarPlano.aspx" />
     <Content Include="Consultas\listarReporteSupervision.aspx" />
     <Content Include="Consultas\listarReporteTecnico.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="Overview.aspx" />
     <Content Include="imagenes\asp.net.png" />
     <Content Include="imagenes\Cancelar.png" />
     <Content Include="imagenes\logo.jpg" />
     <Content Include="imagenes\visualStudio.png" />
+    <Content Include="Default.aspx" />
     <Content Include="Registros\ListaMateriales.aspx" />
     <Content Include="Registros\Cotizacion.aspx" />
     <Content Include="Web.config" />
@@ -128,16 +129,23 @@
     <Compile Include="Consultas\MPConsultas.master.designer.cs">
       <DependentUpon>MPConsultas.master</DependentUpon>
     </Compile>
+    <Compile Include="Overview.aspx.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Overview.aspx.designer.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMaster.master.cs">
+      <DependentUpon>DemoMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DemoMaster.master.cs">
-      <DependentUpon>DemoMaster.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registros\ListaMateriales.aspx.cs">

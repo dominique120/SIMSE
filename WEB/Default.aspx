@@ -1,23 +1,110 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DemoMaster.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WEB.Default" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="contenidoMenu" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-    <div id="inicio" >
-    <h2>Descripción</h2>
-    <p>La empresa ha solicitado un proyecto en el cual se pide digitalizar la información y procesos empresariales que actualmente mantiene maneja en papel. Para esto pide que se desarrolle y que se implemente una base de datos que pueda contener toda la información que maneja la empresa.</p>
-    
-    <h2>Objetivos</h2>
-        <p>Los objetivos que se desean lograr se pueden resumir en lo siguiente:<br>
-        - Facilitar el traslado de la información a la base de datos.<br >
-	    - Digitalizar todos los procesos empresariales con interacción a la base de datos.<br >
-	    - Implementar un sistema de copias de seguridad en las instalaciones y en la nube.<br >
-	    - Implementar un sistema de permisos y restricciones para usuarios(aplicaciones).<br >
-	    - Generar la debida documentación para base de datos.<br >
-	    - Diseñar y optimizar la base de datos para maximizar la vida de la misma y reducir los costos de mantenimiento por malas prácticas.
-</p>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WEB.Login" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Login</title>
+    <style type="text/css">
+
+        #ventanaLogin{
+        }
+
+        .lblUsuario{
+
+        }
+
+        .auto-style1 {
+            width: 473px;
+        }
+        .auto-style7 {
+            width: 473px;
+            height: 25px;
+        }
+        .auto-style8 {
+            height: 10%;
+            width: 473px;
+        }
+        .btnIngresar {
+            width: 473px;
+            height: 73px;
+        }
+        .auto-style9 {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <div id="ventanaLogin">
+            <table style="border: Solid 3px #1a79ca; background-color:#e6e0e3"
+                cellpadding="0" cellspacing="0" border="0"  >
 
 
-    </div>
-</asp:Content>
+                <tr style="background-color: #1a79ca">
+                    <td colspan="2" style="color: White; font-weight: bold; font-size: larger"
+                        align="center" class="auto-style8">
+                        INGRESAR
+                    </td>
+                </tr>
+
+                 <tr>
+                         <td class="auto-style7">
+                             </td>
+                         
+                </tr>
+
+                <tr>
+                    
+                      <td align="center" class="lblUsuario"  style="font-weight: bold; font-family:'Meiryo UI'">
+                          Usuario:
+                          </td>
+                </tr>
+                
+                <tr>
+                    
+                    <td align="center" class="auto-style1">
+                        <asp:TextBox ID="txtUsuario" runat="server" Width="200px" Height="30px" CssClass="auto-style9"></asp:TextBox>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                        
+                         <td class="auto-style7">
+                             </td>
+                </tr>
+                <tr>
+                         
+                         <td align="center" class="password" style="font-weight: bold; font-family:'Meiryo UI'" >
+                             Password: 
+
+                             &nbsp;</td>
+                </tr>
+
+                <tr>
+                    
+                    <td align="center" class="txtPassword">
+                        <asp:TextBox ID="txtPassword" runat="server" Width="200px" Height="30px" TextMode="Password">*</asp:TextBox>
+                        &nbsp;</td>
+                </tr>
+
+               
+               
+                <tr>
+                         <td class="auto-style7">
+                             </td>
+                         
+                </tr>
+              
+                <tr>
+                    
+                    <td class="btnIngresar" align="center">
+                        <asp:Button ID="btnIngresar" runat="server"  Text="Iniciar Sesión" Width="300px" Height="40px" CssClass="boton2" OnClick="btnIngresar_Click" />
+                    </td>
+                </tr>
+              
+            </table>
+        </div>
+    </form>
+</body>
+</html>

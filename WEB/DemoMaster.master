@@ -26,7 +26,7 @@
             <div id="contenidoCabecera">
                 <div id="barraHorizontal">
                     <ul>
-                        <li><a href="/Default.aspx">Inicio</a></li>
+                        <li><a href="/Overview.aspx">Inicio</a></li>
                         <li><a href="/Consultas/listarPlano.aspx">Consultas</a></li>
                          <li><a href="/Registros/Cotizacion.aspx">Registros</a></li>
 
