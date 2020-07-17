@@ -90,7 +90,7 @@
                         Ubicacion:
                     </td>
                     <td align="left" style="width: 601px">
-                        <asp:TextBox ID="txtPath" runat="server" Width="100px"></asp:TextBox>
+                        <asp:TextBox ID="txtPath" runat="server" Width="298px"></asp:TextBox>
                         &nbsp;</td>
             </tr>
 
@@ -193,6 +193,7 @@
                     </td>
                     <td align="left" class="auto-style8">
                         <asp:TextBox ID="txtCantidad" runat="server" Width="70px"></asp:TextBox>
+                        <ajaxToolkit:FilteredTextBoxExtender ID="txtCantidad_FilteredTextBoxExtender" runat="server" BehaviorID="txtCantidad_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="txtCantidad" />
                         &nbsp;</td>
                 </tr>
 
@@ -202,6 +203,7 @@
                     </td>
                     <td align="left" class="auto-style8">
                         <asp:TextBox ID="txtDescuento" runat="server" Width="96px"></asp:TextBox>
+                        <ajaxToolkit:FilteredTextBoxExtender ID="txtDescuento_FilteredTextBoxExtender" runat="server" BehaviorID="txtDescuento_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="txtDescuento" />
                         &nbsp;</td>
                 </tr>
 

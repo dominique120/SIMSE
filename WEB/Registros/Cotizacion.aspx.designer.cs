@@ -211,6 +211,15 @@ namespace WEB.Registros {
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
 
         /// <summary>
+        /// txtCantidad_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender txtCantidad_FilteredTextBoxExtender;
+
+        /// <summary>
         /// txtDescuento control.
         /// </summary>
         /// <remarks>
@@ -218,6 +227,15 @@ namespace WEB.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescuento;
+
+        /// <summary>
+        /// txtDescuento_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender txtDescuento_FilteredTextBoxExtender;
 
         /// <summary>
         /// lblMensajeDetalle control.

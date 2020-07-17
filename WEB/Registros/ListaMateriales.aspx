@@ -162,6 +162,7 @@
                         </td>
                         <td align="left" class="auto-style8" style="height: 26px">
                             <asp:TextBox ID="txtCantidad" runat="server" Width="70px"></asp:TextBox>
+                            <ajaxToolkit:FilteredTextBoxExtender ID="txtCantidad_FilteredTextBoxExtender" runat="server" BehaviorID="txtCantidad_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="txtCantidad" />
                             &nbsp;</td>
                     </tr>
 
