@@ -17,6 +17,9 @@ namespace BE.DOCUMENTO {
         private int ingresado_por;
         private DataTable detalleDeListaMateriales;
 
+        public ListaDeMaterialesBE() {
+        }
+
         public ListaDeMaterialesBE(int id_documento, int proyecto, int pedido_por, DateTime fecha_pedida, DateTime fecha_aprobada, bool aprobado, int aprobado_por, int ingresado_por, DataTable detalleDeListaMateriales) {
             this.id_documento = id_documento;
             this.proyecto = proyecto;

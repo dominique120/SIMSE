@@ -78,10 +78,11 @@
     <Content Include="Consultas\listarReporteTecnico.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="imagenes\asp.net.png" />
+    <Content Include="imagenes\Cancelar.png" />
     <Content Include="imagenes\logo.jpg" />
     <Content Include="imagenes\visualStudio.png" />
-    <Content Include="Registros\Materiales.aspx" />
-    <Content Include="Registros\OrdenCompra.aspx" />
+    <Content Include="Registros\ListaMateriales.aspx" />
+    <Content Include="Registros\Cotizacion.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,12 +140,12 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registros\Materiales.aspx.cs">
-      <DependentUpon>Materiales.aspx</DependentUpon>
+    <Compile Include="Registros\ListaMateriales.aspx.cs">
+      <DependentUpon>ListaMateriales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\Materiales.aspx.designer.cs">
-      <DependentUpon>Materiales.aspx</DependentUpon>
+    <Compile Include="Registros\ListaMateriales.aspx.designer.cs">
+      <DependentUpon>ListaMateriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\MPRegistros.master.cs">
       <DependentUpon>MPRegistros.master</DependentUpon>
@@ -153,12 +154,12 @@
     <Compile Include="Registros\MPRegistros.master.designer.cs">
       <DependentUpon>MPRegistros.master</DependentUpon>
     </Compile>
-    <Compile Include="Registros\OrdenCompra.aspx.cs">
-      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+    <Compile Include="Registros\Cotizacion.aspx.cs">
+      <DependentUpon>Cotizacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\OrdenCompra.aspx.designer.cs">
-      <DependentUpon>OrdenCompra.aspx</DependentUpon>
+    <Compile Include="Registros\Cotizacion.aspx.designer.cs">
+      <DependentUpon>Cotizacion.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +175,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{D0325860-DB08-4E40-AF04-8496C1677A3C}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{F74A1A1F-F9D7-4D33-8B0D-91869DEF4DD3}</Project>
       <Name>BL</Name>

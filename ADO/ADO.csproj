@@ -54,6 +54,7 @@
     <Compile Include="DOCUMENTO\PlanosADO.cs" />
     <Compile Include="DOCUMENTO\ReporteSupervisionADO.cs" />
     <Compile Include="DOCUMENTO\ReporteTecnicoADO.cs" />
+    <Compile Include="INVENTARIO\ArticuloADO.cs" />
     <Compile Include="PERSONA\ClienteADO.cs" />
     <Compile Include="Conection.cs" />
     <Compile Include="PERSONA\EmpleadoADO.cs" />

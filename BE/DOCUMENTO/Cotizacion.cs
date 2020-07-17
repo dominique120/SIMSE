@@ -48,5 +48,8 @@ namespace BE.DOCUMENTO {
             this.Path_archivo = path_archivo;
             this.DetalleDeCotizacion = detalleDeCotizacion;
         }
+
+        public CotizacionBE() {
+        }
     }
 }

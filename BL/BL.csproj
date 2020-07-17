@@ -48,6 +48,7 @@
     <Compile Include="Documento\PlanosBL.cs" />
     <Compile Include="Documento\ReportesTecnicosBL.cs" />
     <Compile Include="Documento\ReporteSupervisionBL.cs" />
+    <Compile Include="Inventario\ArticuloBL.cs" />
     <Compile Include="MarketingUTIL\ContactoInicialBL.cs" />
     <Compile Include="MarketingUTIL\PersonaFuenteBL.cs" />
     <Compile Include="MarketingUTIL\PrimerInteresBL.cs" />

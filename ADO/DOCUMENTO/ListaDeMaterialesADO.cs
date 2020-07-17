@@ -36,7 +36,7 @@ namespace ADO.DOCUMENTO {
             }
         }
 
-        public String ListaMaterialesConDetallesNew(ListaDeMaterialesBE matBE) {
+        public int ListaMaterialesConDetallesNew(ListaDeMaterialesBE matBE) {
             try {
                 con.ConnectionString = conection.GetCon();
 
@@ -54,6 +54,7 @@ namespace ADO.DOCUMENTO {
                 cmd.Parameters.Add(new SqlParameter("@aprobado", matBE.Aprobado));
                 cmd.Parameters.Add(new SqlParameter("@aprobado_por", matBE.Aprobado_por));
                 cmd.Parameters.Add(new SqlParameter("@ingresado_por", matBE.Ingresado_por));
+                cmd.Parameters.Add(new SqlParameter("@rnid", SqlDbType.Int));
 
                 cmd.Parameters["@rnid"].Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(new SqlParameter("@detalles", SqlDbType.Structured));
@@ -62,9 +63,10 @@ namespace ADO.DOCUMENTO {
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                return cmd.Parameters["@rnid"].Value.ToString();
+                return Convert.ToInt32(cmd.Parameters["@rnid"].Value.ToString());
             } catch (Exception) {
-                return String.Empty;
+
+                return -1;
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();

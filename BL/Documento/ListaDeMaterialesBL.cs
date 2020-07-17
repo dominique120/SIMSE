@@ -15,7 +15,7 @@ namespace BL.Documento {
             return lmat.ListarMaterialesPorProyecto(id_proyecto);
         }
 
-        public String ListaMaterialesConDetallesNew(ListaDeMaterialesBE matBE) {
+        public int ListaMaterialesConDetallesNew(ListaDeMaterialesBE matBE) {
             return lmat.ListaMaterialesConDetallesNew(matBE);
         }
     }

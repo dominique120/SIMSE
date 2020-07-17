@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace BL.Documento {
     public class CotizacionBL {
         CotizacionADO cotADO = new CotizacionADO();
-        public String CotizacionConDetallesNew(CotizacionBE cotBE) {
+        public int CotizacionConDetallesNew(CotizacionBE cotBE) {
             return cotADO.CotizacionConDetallesNew(cotBE);
         }
 
