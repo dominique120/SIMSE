@@ -29,6 +29,7 @@
                         <li><a href="/Overview.aspx">Inicio</a></li>
                         <li><a href="/Consultas/listarPlano.aspx">Consultas</a></li>
                          <li><a href="/Registros/Cotizacion.aspx">Registros</a></li>
+                        <li><a href="/Default.aspx">Cerrar Sesión</a></li>
 
                     </ul>
                  </div>
