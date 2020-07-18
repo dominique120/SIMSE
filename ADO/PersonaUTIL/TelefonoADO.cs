@@ -28,6 +28,7 @@ namespace ADO.PersonaUTIL {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
                 }
+                cmd.Parameters.Clear();
             }
             return dts.Tables["Teléfonos"];
         }
@@ -47,6 +48,7 @@ namespace ADO.PersonaUTIL {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
                 }
+                cmd.Parameters.Clear();
             }
             return dts.Tables["TelefonosTipos"];
         }
@@ -92,6 +94,7 @@ namespace ADO.PersonaUTIL {
             {
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
+                cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.LestarTelefonosFull";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -103,6 +106,7 @@ namespace ADO.PersonaUTIL {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Teléfonos"];
@@ -130,7 +134,9 @@ namespace ADO.PersonaUTIL {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+
                 }
+                cmd.Parameters.Clear();
             }
             return dts.Tables["Teléfonos"];
         }
@@ -231,6 +237,7 @@ namespace ADO.PersonaUTIL {
             } finally {
                 con.Close();
             }
+            cmd.Parameters.Clear();
             return telBE;
         }
     }

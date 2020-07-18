@@ -30,6 +30,16 @@
             this.cboProyecto = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.id_documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom_tipo_plano = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dibujadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.revisadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom_plano = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_creacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_envio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.path_plano = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPlanos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +52,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgPlanos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgPlanos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgPlanos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_documento,
+            this.revision,
+            this.nom_tipo_plano,
+            this.dibujadoPor,
+            this.revisadoPor,
+            this.nom_plano,
+            this.fecha_creacion,
+            this.fecha_revision,
+            this.fecha_envio,
+            this.path_plano});
             this.dtgPlanos.Location = new System.Drawing.Point(12, 53);
             this.dtgPlanos.Name = "dtgPlanos";
             this.dtgPlanos.ReadOnly = true;
@@ -109,6 +130,76 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // id_documento
+            // 
+            this.id_documento.DataPropertyName = "id_documento";
+            this.id_documento.HeaderText = "Id Documento";
+            this.id_documento.Name = "id_documento";
+            this.id_documento.ReadOnly = true;
+            // 
+            // revision
+            // 
+            this.revision.DataPropertyName = "revision";
+            this.revision.HeaderText = "Revision";
+            this.revision.Name = "revision";
+            this.revision.ReadOnly = true;
+            // 
+            // nom_tipo_plano
+            // 
+            this.nom_tipo_plano.DataPropertyName = "nom_tipo_plano";
+            this.nom_tipo_plano.HeaderText = "Tipo de Plano";
+            this.nom_tipo_plano.Name = "nom_tipo_plano";
+            this.nom_tipo_plano.ReadOnly = true;
+            // 
+            // dibujadoPor
+            // 
+            this.dibujadoPor.DataPropertyName = "dibujadoPor";
+            this.dibujadoPor.HeaderText = "Dibujado Por";
+            this.dibujadoPor.Name = "dibujadoPor";
+            this.dibujadoPor.ReadOnly = true;
+            // 
+            // revisadoPor
+            // 
+            this.revisadoPor.DataPropertyName = "revisadoPor";
+            this.revisadoPor.HeaderText = "Revisado Por";
+            this.revisadoPor.Name = "revisadoPor";
+            this.revisadoPor.ReadOnly = true;
+            // 
+            // nom_plano
+            // 
+            this.nom_plano.DataPropertyName = "nom_plano";
+            this.nom_plano.HeaderText = "Nombre del Plano";
+            this.nom_plano.Name = "nom_plano";
+            this.nom_plano.ReadOnly = true;
+            // 
+            // fecha_creacion
+            // 
+            this.fecha_creacion.DataPropertyName = "fecha_creacion";
+            this.fecha_creacion.HeaderText = "Fecha Creacion";
+            this.fecha_creacion.Name = "fecha_creacion";
+            this.fecha_creacion.ReadOnly = true;
+            // 
+            // fecha_revision
+            // 
+            this.fecha_revision.DataPropertyName = "fecha_revision";
+            this.fecha_revision.HeaderText = "Fecha Revision";
+            this.fecha_revision.Name = "fecha_revision";
+            this.fecha_revision.ReadOnly = true;
+            // 
+            // fecha_envio
+            // 
+            this.fecha_envio.DataPropertyName = "fecha_envio";
+            this.fecha_envio.HeaderText = "Fecha de Envio";
+            this.fecha_envio.Name = "fecha_envio";
+            this.fecha_envio.ReadOnly = true;
+            // 
+            // path_plano
+            // 
+            this.path_plano.DataPropertyName = "path_plano";
+            this.path_plano.HeaderText = "Ubicacion";
+            this.path_plano.Name = "path_plano";
+            this.path_plano.ReadOnly = true;
+            // 
             // frmListarPlanos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,5 +234,15 @@
         private System.Windows.Forms.ComboBox cboProyecto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn revision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom_tipo_plano;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dibujadoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn revisadoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom_plano;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_creacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_revision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_envio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn path_plano;
     }
 }

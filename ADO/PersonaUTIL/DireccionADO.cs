@@ -28,6 +28,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Distritos"];
@@ -51,6 +52,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Distritos"];
@@ -70,6 +72,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Ciudades"];
@@ -93,6 +96,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Regiones"];
@@ -112,6 +116,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Regiones"];
@@ -135,6 +140,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Regiones"];
@@ -154,6 +160,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Países"];
@@ -173,6 +180,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["DireccionesTipos"];
@@ -219,6 +227,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             try {
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
+                cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.ListarDireccionesFull";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -227,6 +236,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
             } finally {
                 if (con.State == ConnectionState.Open) {
+                    cmd.Parameters.Clear();
                     con.Close();
                 }
             }
@@ -270,6 +280,7 @@ namespace ADO.PersonaUTIL.Direcciones {
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
+                    cmd.Parameters.Clear();
                 }
             }
             return dts.Tables["Direcciones"];
@@ -311,6 +322,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
             } finally {
                 con.Close();
+                cmd.Parameters.Clear();
             }
             return dirBE;
         }

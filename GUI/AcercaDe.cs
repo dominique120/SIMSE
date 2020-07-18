@@ -17,5 +17,9 @@ namespace GUI {
         private void btnCerrar_Click(object sender, EventArgs e) {
             this.Close();
         }
+
+        private void label5_Click(object sender, EventArgs e) {
+
+        }
     }
 }

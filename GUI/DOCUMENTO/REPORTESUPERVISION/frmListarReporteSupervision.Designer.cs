@@ -35,6 +35,12 @@
             this.cboProyecto = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.id_documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supervisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalles_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.path_scan_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgLRS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +53,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgLRS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgLRS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgLRS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_documento,
+            this.nom_proyecto,
+            this.supervisor,
+            this.fecha_reporte,
+            this.detalles_reporte,
+            this.path_scan_reporte});
             this.dtgLRS.Location = new System.Drawing.Point(12, 41);
             this.dtgLRS.Name = "dtgLRS";
             this.dtgLRS.ReadOnly = true;
@@ -114,6 +127,48 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // id_documento
+            // 
+            this.id_documento.DataPropertyName = "id_documento";
+            this.id_documento.HeaderText = "Id Documento";
+            this.id_documento.Name = "id_documento";
+            this.id_documento.ReadOnly = true;
+            // 
+            // nom_proyecto
+            // 
+            this.nom_proyecto.DataPropertyName = "nom_proyecto";
+            this.nom_proyecto.HeaderText = "Nombre del Proyecto";
+            this.nom_proyecto.Name = "nom_proyecto";
+            this.nom_proyecto.ReadOnly = true;
+            // 
+            // supervisor
+            // 
+            this.supervisor.DataPropertyName = "supervisor";
+            this.supervisor.HeaderText = "Supervisor";
+            this.supervisor.Name = "supervisor";
+            this.supervisor.ReadOnly = true;
+            // 
+            // fecha_reporte
+            // 
+            this.fecha_reporte.DataPropertyName = "fecha_reporte";
+            this.fecha_reporte.HeaderText = "Fecha del Reporte";
+            this.fecha_reporte.Name = "fecha_reporte";
+            this.fecha_reporte.ReadOnly = true;
+            // 
+            // detalles_reporte
+            // 
+            this.detalles_reporte.DataPropertyName = "detalles_reporte";
+            this.detalles_reporte.HeaderText = "Detalles";
+            this.detalles_reporte.Name = "detalles_reporte";
+            this.detalles_reporte.ReadOnly = true;
+            // 
+            // path_scan_reporte
+            // 
+            this.path_scan_reporte.DataPropertyName = "path_scan_reporte";
+            this.path_scan_reporte.HeaderText = "Ubicacion";
+            this.path_scan_reporte.Name = "path_scan_reporte";
+            this.path_scan_reporte.ReadOnly = true;
+            // 
             // frmListarReporteSupervision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,5 +203,11 @@
     private System.Windows.Forms.ComboBox cboProyecto;
     private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom_proyecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supervisor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_reporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalles_reporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn path_scan_reporte;
     }
 }

@@ -40,7 +40,7 @@
 
                 <tr>
                 <td class="auto-style16" style="width: 171px">
-                    Enviara:</td>
+                    Enviar a:</td>
                 <td class="auto-style15" colspan="2">
                     <asp:DropDownList ID="cboEnviar" runat="server"  Width="192px">
                     </asp:DropDownList>

@@ -18,6 +18,7 @@ namespace ADO.PersonaUTIL {
             try {
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
+                cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.ListarEmailsTipos";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -28,6 +29,7 @@ namespace ADO.PersonaUTIL {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
                 }
+                cmd.Parameters.Clear();
             }
             return dts.Tables["EmailsTipos"];
         }
@@ -69,6 +71,7 @@ namespace ADO.PersonaUTIL {
             {
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
+                cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "PERSONA.ListarEmailsFull";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -81,6 +84,7 @@ namespace ADO.PersonaUTIL {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
                 }
+                cmd.Parameters.Clear();
             }
             return dts.Tables["Emails"];
         }
@@ -108,6 +112,7 @@ namespace ADO.PersonaUTIL {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
                 }
+                cmd.Parameters.Clear();
             }
             return dts.Tables["Emails"];
         }
@@ -143,6 +148,7 @@ namespace ADO.PersonaUTIL {
                 throw new Exception("Error mostrando los emails: " + ex.Message);
             } finally {
                 con.Close();
+                cmd.Parameters.Clear();
             }
             return emBE;
         }

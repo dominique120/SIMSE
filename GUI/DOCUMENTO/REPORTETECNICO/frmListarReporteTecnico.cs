@@ -17,10 +17,10 @@ namespace GUI.DOCUMENTO.REPORTETECNICO {
         }
 
         ProyectoBL proBL = new ProyectoBL();
-        ReporteSupervisionBL rep = new ReporteSupervisionBL();
+        ReportesTecnicosBL rep = new ReportesTecnicosBL();
 
         public void cargar() {
-            DataTable reportes = rep.ListarReporteSupervisionProyecto(Convert.ToInt32(cboProyecto.SelectedValue.ToString()));
+            DataTable reportes = rep.ListarReporteTecnicoProyecto(Convert.ToInt32(cboProyecto.SelectedValue.ToString()));
             dtgLRS.DataSource = reportes;
         }
 
@@ -48,7 +48,7 @@ namespace GUI.DOCUMENTO.REPORTETECNICO {
             DialogResult lt = MessageBox.Show(this, "Desea eliminar este reporte?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (lt == DialogResult.Yes) {
-                if (rep.EliminarReporteSupervision(int.Parse(dtgLRS.CurrentRow.Cells[0].Value.ToString())) == true) {
+                if (rep.EliminarReporteTecnico(int.Parse(dtgLRS.CurrentRow.Cells[0].Value.ToString())) == true) {
                     MessageBox.Show(this, "Se elimino correctamente el registro", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cargar();
                 }

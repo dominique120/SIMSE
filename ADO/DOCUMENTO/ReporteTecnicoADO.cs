@@ -32,6 +32,30 @@ namespace ADO.DOCUMENTO {
             return dts.Tables["ReporteTecnico"];
         }
 
+        public DataTable ListarReporteTecnicoProyecto(int id_proyecto) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarReporteTecnicoPorProyecto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+
+
+                SqlDataAdapter adapter;
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "ReporteTecnico");
+                return dts.Tables["ReporteTecnico"];
+            } catch (SqlException ex) {
+                throw new Exception("Error mostrando Reportes de Tecnicos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+        }
+
         public DataTable ListarReporteTecnicoPorProyectoEmpleado(int id_proyecto, int id_tecnico) {
             DataSet dts = new DataSet();
             try {

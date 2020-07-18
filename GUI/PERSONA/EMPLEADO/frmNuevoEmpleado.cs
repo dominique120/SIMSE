@@ -39,7 +39,7 @@ namespace GUI.PERSONA.EMPLEADO
                                                 txtDocumento.Text.Trim(), txtRuc.Text.Trim(),
                                                 dtpFecNac.Value, dtpFecIni.Value,
                                                 txtNombre.Text.Trim(), txtSNombre.Text.Trim(),
-                                                txtApellido.Text.Trim(), txtSApellido.Text.Trim());
+                                                txtApellido.Text.Trim(), txtSApellido.Text.Trim(), false);
 
             try {
                 if (emBL.NuevoEmpleado(emBE) == true) {

@@ -56,6 +56,7 @@ namespace ADO
                 cmd.Parameters.AddWithValue("@primer_ape", empBE.Primer_ape);
                 cmd.Parameters.AddWithValue("@segundo_nom", empBE.Segundo_nom);
                 cmd.Parameters.AddWithValue("@segundo_ape", empBE.Segundo_ape);
+                cmd.Parameters.AddWithValue("@estado", empBE.Estado);
 
                 con.Open();
                 cmd.ExecuteNonQuery();

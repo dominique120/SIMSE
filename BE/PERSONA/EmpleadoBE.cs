@@ -28,7 +28,7 @@ namespace BE.PERSONA
             this.estado = estado;
         }
 
-        public EmpleadoBE(int id_persona, short puesto_empleado, string doc_oficial, string ruc_empleado, DateTime fecha_nacimiento, DateTime fecha_inicio, string primer_nom, string segundo_nom, string primer_ape, string segundo_ape) {
+        public EmpleadoBE(int id_persona, short puesto_empleado, string doc_oficial, string ruc_empleado, DateTime fecha_nacimiento, DateTime fecha_inicio, string primer_nom, string segundo_nom, string primer_ape, string segundo_ape, bool estado) {
             this.id_persona = id_persona;
             this.puesto_empleado = puesto_empleado;
             this.doc_oficial = doc_oficial;
@@ -39,6 +39,7 @@ namespace BE.PERSONA
             this.segundo_nom = segundo_nom;
             this.primer_ape = primer_ape;
             this.segundo_ape = segundo_ape;
+            this.estado = estado;
         }
 
         public int Id_persona { get => id_persona; set => id_persona = value; }

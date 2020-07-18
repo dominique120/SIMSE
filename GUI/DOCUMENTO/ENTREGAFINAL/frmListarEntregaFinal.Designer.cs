@@ -38,6 +38,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.id_documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom_proyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.path_scan_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEntregasFinales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +55,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgEntregasFinales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgEntregasFinales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgEntregasFinales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_documento,
+            this.nom_proyecto,
+            this.encargado,
+            this.path_scan_reporte,
+            this.fecha});
             this.dtgEntregasFinales.Location = new System.Drawing.Point(12, 58);
             this.dtgEntregasFinales.Name = "dtgEntregasFinales";
             this.dtgEntregasFinales.ReadOnly = true;
@@ -143,6 +154,41 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // id_documento
+            // 
+            this.id_documento.DataPropertyName = "id_documento";
+            this.id_documento.HeaderText = "Id Documento";
+            this.id_documento.Name = "id_documento";
+            this.id_documento.ReadOnly = true;
+            // 
+            // nom_proyecto
+            // 
+            this.nom_proyecto.DataPropertyName = "nom_proyecto";
+            this.nom_proyecto.HeaderText = "Nombre del Proyecto";
+            this.nom_proyecto.Name = "nom_proyecto";
+            this.nom_proyecto.ReadOnly = true;
+            // 
+            // encargado
+            // 
+            this.encargado.DataPropertyName = "encargado";
+            this.encargado.HeaderText = "Encargado";
+            this.encargado.Name = "encargado";
+            this.encargado.ReadOnly = true;
+            // 
+            // path_scan_reporte
+            // 
+            this.path_scan_reporte.DataPropertyName = "path_scan_reporte";
+            this.path_scan_reporte.HeaderText = "Ubicacion";
+            this.path_scan_reporte.Name = "path_scan_reporte";
+            this.path_scan_reporte.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "fecha";
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
             // frmListarEntregaFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,5 +229,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom_proyecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn encargado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn path_scan_reporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
     }
 }

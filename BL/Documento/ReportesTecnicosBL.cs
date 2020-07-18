@@ -15,6 +15,9 @@ namespace BL.Documento {
         public DataTable ListarReporteTecnicoPorProyectoEmpleado(int id_proyecto, int id_tecnico) {
             return rtec.ListarReporteTecnicoPorProyectoEmpleado(id_proyecto, id_tecnico);
         }
+        public DataTable ListarReporteTecnicoProyecto(int id_proyecto) {
+            return rtec.ListarReporteTecnicoProyecto(id_proyecto);
+        }
         public DataTable ListarReporteTecnicoFull() {
             return rtec.ListarReporteTecnicoFull();
         }

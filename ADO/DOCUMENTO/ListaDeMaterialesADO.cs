@@ -44,8 +44,7 @@ namespace ADO.DOCUMENTO {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "DOCUMENTO.ListaMaterialesNew";
                 cmd.Parameters.Clear();
-
-                cmd.Parameters.Add(new SqlParameter("@id_documento", matBE.Id_documento));
+                
                 cmd.Parameters.Add(new SqlParameter("@proyecto", matBE.Proyecto));
                 cmd.Parameters.Add(new SqlParameter("@pedido_por", matBE.Pedido_por));
                 cmd.Parameters.Add(new SqlParameter("@fecha_pedida", matBE.Fecha_pedida));
