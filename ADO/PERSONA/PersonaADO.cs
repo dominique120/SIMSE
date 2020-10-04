@@ -12,9 +12,18 @@ namespace ADO.PERSONA {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable ListarPersonasALL() {
-            DataSet dts = new DataSet();
+
+        // TODO: ListarPersonasALL returns an INT, it should return the contents of the selected table
+        public List<> ListarPersonasALL() {
+            grubalEntities db = new grubalEntities();
+            /*
             try {
+                var q = db.ListarPersonasALL();
+
+                foreach(var r in q) {
+
+                }
+
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -29,6 +38,7 @@ namespace ADO.PERSONA {
                 }
             }
             return dts.Tables["Personas"];
+            */
         }
     }
 }

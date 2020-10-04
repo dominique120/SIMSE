@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,9 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -45,7 +57,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ARTICULO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="AUTH\AuthADO.cs" />
+    <Compile Include="CLIENTE.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONTACTO_INICIAL.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COTIZACION.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CREDENTIAL.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CredentialSelect_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="crud_LISTA_DE_MATERIALESSelect_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DESPACHO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DETALLE_COTIZACION.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DETALLE_DE_ORDEN.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DETALLE_LISTA_DE_MATERIALES.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIRECCION.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIRECCION_CIUDAD.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIRECCION_DISTRITO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIRECCION_PAIS.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIRECCION_REGION.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIRECCION_TIPOS.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIRECTORIO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIVISION.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="DOCUMENTO\CotizacionADO.cs" />
     <Compile Include="DOCUMENTO\DocumentoUTIL.cs" />
     <Compile Include="DOCUMENTO\EntregaFinalADO.cs" />
@@ -54,7 +123,205 @@
     <Compile Include="DOCUMENTO\PlanosADO.cs" />
     <Compile Include="DOCUMENTO\ReporteSupervisionADO.cs" />
     <Compile Include="DOCUMENTO\ReporteTecnicoADO.cs" />
+    <Compile Include="EMAIL.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMAIL_TIPOS.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLEADO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ENTREGA_FINAL.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ENVIABLE.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ENVIO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ESPECIALIDADES_PROV.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FICHA_MARKETING.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="grubalData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grubalData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="grubalData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="grubalData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>grubalData.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ID_DOCUMENTO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ID_PERSONA.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="INVENTARIO\ArticuloADO.cs" />
+    <Compile Include="ListarArticulos_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarCiudadesPorIdRegion_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarCiudades_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarClientesFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarClientesPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarClientes_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarContactoInicial_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarCotizacionesPorProyecto_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarCredenciales_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarDireccionesTipos_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarDistritoPorIdPorCiudad_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarDistritos_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarDivisiones_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEmailsTipos_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEMpleadoFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEmpleadoPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEmpleados_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEntregaFinalFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEntregaFinalPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEntregasFinalesPorFecha_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarFichaMarketingPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarMaterialesPorProyecto_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPaises_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPersonasDeInteresFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPersonasDeInteresPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPersonasDeInteres_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPersonasFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPlanosFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPlanosPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPlanosPorProyectoTipo_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPlanosPorProyecto_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPrimerInteres_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarProyectoPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarProyectos_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarProyecto_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPuestos_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarRegionesPorIdPais_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarRegiones_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteSupervisionFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteSupervisionPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteSupervisionPorProyectoEmpleado_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteSupervisionPorProyecto_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteTecnicoFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteTecnicoPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteTecnicoPorProyectoEmpleado_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarReporteTecnicoPorProyecto_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarTelefonosPorPersona_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarTelefonosTipos_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarTiposPlano_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LISTA_DE_MATERIALES.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDEN.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA\ClienteADO.cs" />
     <Compile Include="Conection.cs" />
     <Compile Include="PERSONA\EmpleadoADO.cs" />
@@ -65,11 +332,59 @@
     <Compile Include="PERSONA\PersonaADO.cs" />
     <Compile Include="PERSONA\PersonaInteresADO.cs" />
     <Compile Include="PersonaUTIL\NewIdADO.cs" />
+    <Compile Include="PERSONA_DE_INTERES.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PLANO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PLANO_TIPO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRIMER_INTERES.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PersonaUTIL\DireccionADO.cs" />
     <Compile Include="PersonaUTIL\EmailADO.cs" />
     <Compile Include="PersonaUTIL\TelefonoADO.cs" />
+    <Compile Include="PROVEEDOR.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROYECTO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProyectoADO.cs" />
+    <Compile Include="PUESTO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTE_SUPERVISION.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTE_TECNICO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALARIO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALARIO_HISTORIAL.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectDireccion_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectEmail_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectTelefono_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELEFONO.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELEFONOS_TIPOS.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
@@ -77,5 +392,39 @@
       <Name>BE</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="grubalData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>grubalData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="grubalData.edmx.diagram">
+      <DependentUpon>grubalData.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="grubalData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>grubalData.edmx</DependentUpon>
+      <LastGenOutput>grubalData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="grubalData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>grubalData.edmx</DependentUpon>
+      <LastGenOutput>grubalData.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

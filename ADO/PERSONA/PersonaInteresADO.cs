@@ -16,23 +16,22 @@ namespace ADO {
 
         Boolean success = false;
 
-        public DataTable ListarPersonasDeInteresFull() {
-            DataSet dts = new DataSet();
+        public List<PersonaDeInteresBE> ListarPersonasDeInteresFull() {
+            grubalEntities db = new grubalEntities();
+            PersonaDeInteresBE p;
+            List<PersonaDeInteresBE> list = new List<PersonaDeInteresBE>();
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarPersonasDeInteresFull";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "PersonasDeInteres");
+                var q = db.ListarPersonasDeInteresFull();
+
+                // TODO: fix return type of project and title
+                foreach(var r in q) {
+                    p = new PersonaDeInteresBE(r.Id_Persona, r.Id_Directorio, r.Proyecto, r.Puesto, r.Nombre);
+                    list.Add(p);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las personas de interés: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-            }
-            return dts.Tables["PersonasDeInteres"];
+            } 
         }
 
         public Boolean PersonaDeInteresNew(PersonaDeInteresBE PerIntBE) {

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="56612af2155546b3b2040db5d78fdd96" Name="Diagram1" ZoomLevel="101">
+        <EntityTypeShape EntityType="grubalModel.COTIZACION" Width="1.5" PointX="13.5" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DETALLE_COTIZACION" Width="1.5" PointX="18.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DETALLE_LISTA_DE_MATERIALES" Width="1.5" PointX="18.75" PointY="52.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ENTREGA_FINAL" Width="1.5" PointX="10.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ID_DOCUMENTO" Width="1.5" PointX="11.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.LISTA_DE_MATERIALES" Width="1.5" PointX="10.5" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.PLANO" Width="1.5" PointX="13.5" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.PLANO_TIPO" Width="1.5" PointX="11.25" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.REPORTE_SUPERVISION" Width="1.5" PointX="13.5" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.REPORTE_TECNICO" Width="1.5" PointX="16.5" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ARTICULO" Width="1.5" PointX="16.5" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ESPECIALIDADES_PROV" Width="1.5" PointX="12" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.PROVEEDOR" Width="1.5" PointX="14.25" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.CONTACTO_INICIAL" Width="1.5" PointX="6" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ENVIABLE" Width="1.5" PointX="3" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ENVIO" Width="1.5" PointX="5.25" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.FICHA_MARKETING" Width="1.5" PointX="8.25" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.PRIMER_INTERES" Width="1.5" PointX="6" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.CLIENTE" Width="1.5" PointX="3" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.CREDENTIAL" Width="1.5" PointX="5.25" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIRECCION" Width="1.5" PointX="6" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIRECCION_CIUDAD" Width="1.5" PointX="1.5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIRECCION_DISTRITO" Width="1.5" PointX="3.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIRECCION_PAIS" Width="1.5" PointX="12" PointY="54.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIRECCION_REGION" Width="1.5" PointX="1.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIRECCION_TIPOS" Width="1.5" PointX="3.75" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.EMAIL" Width="1.5" PointX="3" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.EMAIL_TIPOS" Width="1.5" PointX="0.75" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.EMPLEADO" Width="1.5" PointX="3" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ID_PERSONA" Width="1.5" PointX="0.75" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.PERSONA_DE_INTERES" Width="1.5" PointX="12.75" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.PUESTO" Width="1.5" PointX="0.75" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.SALARIO" Width="1.5" PointX="5.25" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.SALARIO_HISTORIAL" Width="1.5" PointX="1.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.TELEFONO" Width="1.5" PointX="6" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.TELEFONOS_TIPOS" Width="1.5" PointX="3.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIRECTORIO" Width="1.5" PointX="9.875" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DIVISION" Width="1.5" PointX="6" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.PROYECTO" Width="1.5" PointX="8.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DESPACHO" Width="1.5" PointX="15.75" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.DETALLE_DE_ORDEN" Width="1.5" PointX="15.75" PointY="41.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grubalModel.ORDEN" Width="1.5" PointX="10.5" PointY="37" IsExpanded="true" />
+        <AssociationConnector Association="grubalModel.COTIZACION_di527283222989059352" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.COTIZACION_di826089389863905915" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.COTIZACION_di925073086564487159" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.COTIZACION_di932818648271472126" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DETALLE_COTIZACION_di865224565163495643" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DETALLE_COTIZACION_di341715108719625729" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DETALLE_LISTA_DE_MATERIALES_di620480967326311137" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ENTREGA_FINAL_di232325976733134302" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ENTREGA_FINAL_di912308838621409104" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ENTREGA_FINAL_di989182102208165609" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PLANO_di150313997730711592" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.REPORTE_SUPERVISION_di238825044680444810" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.REPORTE_TECNICO_di799794221774272777" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.LISTA_DE_MATERIALES_di122266009530568783" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.LISTA_DE_MATERIALES_di356423893142742785" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.LISTA_DE_MATERIALES_di504009126374334919" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.LISTA_DE_MATERIALES_di899256113539797941" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PLANO_di160748587571084080" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PLANO_di283300470603920993" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PLANO_di318664632775687620" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PLANO_di758866760134338666" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.REPORTE_SUPERVISION_di229658545525039104" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.REPORTE_SUPERVISION_di664973131199273109" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.REPORTE_TECNICO_di134621380803137180" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.REPORTE_TECNICO_di400980956978067312" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ARTICULO_di371848229937178812" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DETALLE_DE_ORDEN_di278699780666783552" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PROVEEDOR_di216337644696775146" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PROVEEDOR_di792057185871974458" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.FICHA_MARKETING_di558791770601873246" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ENVIO_di229384428341546681" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ENVIO_di151743796640637477" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ENVIO_di185213348618027480" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ENVIO_di305833549719105994" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.CLIENTE_di897762240761601750" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.FICHA_MARKETING_di703894815826762622" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.FICHA_MARKETING_di974271713885604592" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.CLIENTE_di580034509590523878" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ORDEN_di515979697883047412" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PROYECTO_di848816132698684417" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.CREDENTIAL_di812942026340741390" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DESPACHO_di610469071181268578" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_di322641349176215728" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_di533926506708651582" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_di575959424627584793" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_di692604909171146033" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_di718307637173077244" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_di902807976822553035" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_CIUDAD_di761482365400676984" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_DISTRITO_di109025777838528819" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECCION_REGION_di970857966258859341" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.EMAIL_di698457102724219721" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.EMAIL_di964249562258136287" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DESPACHO_di157285056340208552" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DESPACHO_di928059870244286030" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.EMPLEADO_di791796687138877387" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.EMPLEADO_di896042515299275493" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ORDEN_di355072658339544472" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.SALARIO_di849383795669487660" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PERSONA_DE_INTERES_di170282498324153899" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.TELEFONO_di262330606658297437" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PERSONA_DE_INTERES_di148671106597373809" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PERSONA_DE_INTERES_di246043275935061584" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PERSONA_DE_INTERES_di339265694402295726" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.TELEFONO_di882707195823454925" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DIRECTORIO_di462804962183061365" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.PROYECTO_di735337664180052701" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.ORDEN_di568623227228383235" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DESPACHO_di629199499433237483" ManuallyRouted="false" />
+        <AssociationConnector Association="grubalModel.DETALLE_DE_ORDEN_di126842074331262795" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
