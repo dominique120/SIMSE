@@ -14,9 +14,6 @@ namespace BL.Documento {
             return entregaFinal.ListarEntregasFinalesFechas(fecha_inicio, fecha_fin);
         }
 
-        public DataTable ListarEntregaFinalFull() {
-            return entregaFinal.ListarEntregaFinalFull();
-        }
         public EntregaFinalBE ListarEntregaPorId(int idDocumento) {
             return entregaFinal.ListarEntregaPorId(idDocumento);
         }

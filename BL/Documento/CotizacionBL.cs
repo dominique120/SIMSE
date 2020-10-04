@@ -13,10 +13,5 @@ namespace BL.Documento {
         public int CotizacionConDetallesNew(CotizacionBE cotBE) {
             return cotADO.CotizacionConDetallesNew(cotBE);
         }
-
-        public DataTable ListarCotizacionesPorProyecto(int id_proyecto) {
-            return cotADO.ListarCotizacionesPorProyecto(id_proyecto);
-        }
-
     }
 }

@@ -13,25 +13,6 @@ namespace ADO.DOCUMENTO {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable ListarEntregaFinalFull() {
-            DataSet dts = new DataSet();
-            try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DOCUMENTO.ListarEntregaFinalFull";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "EntregaFinal");
-            } catch (Exception ex) {
-                throw new Exception("Error mostrando las Entregas Finales: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-            }
-            return dts.Tables["EntregaFinal"];
-        }
-
         public DataTable ListarEntregasFinalesFechas(DateTime fecha_inicio, DateTime fecha_fin) {
             DataSet dts = new DataSet();
             try {

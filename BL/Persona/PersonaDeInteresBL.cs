@@ -11,10 +11,6 @@ using System.Data;
 namespace BL.Persona {
     public class PersonaDeInteresBL {
         PersonaInteresADO perintado = new PersonaInteresADO();
-        public Boolean PersonaDeInteresNew(PersonaDeInteresBE PerIntBE) {
-            return perintado.PersonaDeInteresNew(PerIntBE);
-        }
-
 
         PersonaInteresADO puest = new PersonaInteresADO();
 
@@ -27,7 +23,6 @@ namespace BL.Persona {
         public DataTable ListarProyecto() {
             return puest.ListarProyecto();
         }
-
 
         public Boolean InsertarPersonaInt(PersonaDeInteresBE objPersonaDeIntersBE) {
             return perintado.PersonaDeInteresNew(objPersonaDeIntersBE);

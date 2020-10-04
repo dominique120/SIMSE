@@ -13,25 +13,6 @@ namespace ADO.DOCUMENTO {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable ListarPlanosFull() {
-            DataSet dts = new DataSet();
-            try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DOCUMENTO.ListarPlanosFull";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Planos");
-            } catch (Exception ex) {
-                throw new Exception("Error mostrando los Planos: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-            }
-            return dts.Tables["Planos"];
-        }
-
         public DataTable ListarPlanosPorProyectoTipo(int id_proyecto, int id_tipo) {
             DataSet dts = new DataSet();
             try {
@@ -55,7 +36,6 @@ namespace ADO.DOCUMENTO {
                 }
             }
         }
-
 
         public DataTable ListarPlanosPorProyecto(int id_proyecto) {
             DataSet dts = new DataSet();

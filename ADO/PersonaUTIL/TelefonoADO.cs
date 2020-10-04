@@ -13,26 +13,6 @@ namespace ADO.PersonaUTIL {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable ListarTelefonos() {
-            DataSet dts = new DataSet();
-            try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarTelefonos";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Teléfonos");
-            } catch (Exception ex) {
-                throw new Exception("Error mostrando los teléfonos: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
-            return dts.Tables["Teléfonos"];
-        }
-
         public DataTable ListarTelefonosTipos() {
             DataSet dts = new DataSet();
             try {

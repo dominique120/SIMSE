@@ -18,24 +18,9 @@ namespace BL.Documento {
         public DataTable ListarReporteTecnicoProyecto(int id_proyecto) {
             return rtec.ListarReporteTecnicoProyecto(id_proyecto);
         }
-        public DataTable ListarReporteTecnicoFull() {
-            return rtec.ListarReporteTecnicoFull();
-        }
-        public ReporteTecnicoBE ListarReporteTecnicoPorId(int idDocumento) {
-            return rtec.ListarReporteTecnicoPorId(idDocumento);
-        }
-
-        public Boolean ReporteTecnicoNew(ReporteTecnicoBE rtBE) {
-            return rtec.ReporteTecnicoNew(rtBE);
-        }
 
         public Boolean EliminarReporteTecnico(int idDocumento) {
             return rtec.EliminarReporteTecnico(idDocumento);
         }
-
-        public Boolean ModificarReporteTecnico(ReporteTecnicoBE rtBE) {
-            return rtec.ModificarReporteTecnico(rtBE);
-        }
-
     }
 }

@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 namespace BL.UTIL {
     public class TelefonosBL {
         TelefonoADO tel = new TelefonoADO();
+        TelefonoADO telado = new TelefonoADO();
 
-        public DataTable ListarTelefonos() {
-            return tel.ListarTelefonos();
-        }
         public Boolean EliminarTelefono(int idTelefono) {
             return tel.EliminarTelefono(idTelefono);
         }
@@ -28,7 +26,6 @@ namespace BL.UTIL {
             return tel.ListarTelefonosTipos();
         }
 
-        TelefonoADO telado = new TelefonoADO();
         public Boolean TelefonoNew(TelefonoBE telbe) {
             return telado.TelefonoNew(telbe);
         }
