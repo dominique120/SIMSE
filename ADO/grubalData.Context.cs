@@ -1048,20 +1048,6 @@ namespace ADO
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarDistritos_Result>("ListarDistritos");
         }
     
-        public virtual int ListarEmailsFull()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ListarEmailsFull");
-        }
-    
-        public virtual int ListarEmailsFullPorId(Nullable<int> id_persona)
-        {
-            var id_personaParameter = id_persona.HasValue ?
-                new ObjectParameter("id_persona", id_persona) :
-                new ObjectParameter("id_persona", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ListarEmailsFullPorId", id_personaParameter);
-        }
-    
         public virtual ObjectResult<ListarEmailsTipos_Result> ListarEmailsTipos()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarEmailsTipos_Result>("ListarEmailsTipos");
@@ -1091,11 +1077,6 @@ namespace ADO
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarPaises_Result>("ListarPaises");
         }
     
-        public virtual int ListarPersonasALL()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ListarPersonasALL");
-        }
-    
         public virtual int ListarPersonasConDirecciones()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ListarPersonasConDirecciones");
@@ -1104,11 +1085,6 @@ namespace ADO
         public virtual ObjectResult<ListarPersonasDeInteres_Result> ListarPersonasDeInteres()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarPersonasDeInteres_Result>("ListarPersonasDeInteres");
-        }
-    
-        public virtual ObjectResult<ListarPersonasDeInteresFull_Result> ListarPersonasDeInteresFull()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarPersonasDeInteresFull_Result>("ListarPersonasDeInteresFull");
         }
     
         public virtual ObjectResult<ListarPersonasDeInteresPorId_Result> ListarPersonasDeInteresPorId(Nullable<int> id_persona)
@@ -1375,11 +1351,6 @@ namespace ADO
                 new ObjectParameter("estado", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("NewEmpleado", id_personaParameter, puesto_empleadoParameter, doc_oficialParameter, ruc_empleadoParameter, fecha_nacimientoParameter, fecha_inicioParameter, primer_nomParameter, segundo_nomParameter, primer_apeParameter, segundo_apeParameter, estadoParameter);
-        }
-    
-        public virtual int NewPerson(ObjectParameter newId)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("NewPerson", newId);
         }
     
         public virtual int NuevoCliente(Nullable<int> ficha_marketing, string nom_cliente, string doc_oficial)
@@ -1676,6 +1647,49 @@ namespace ADO
                 new ObjectParameter("fecha_fin", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateProyecto", id_proyectoParameter, id_clienteParameter, id_divisionParameter, nom_proyectoParameter, dir_proyectoParameter, fecha_inicioParameter, fecha_finParameter);
+        }
+    
+        public virtual ObjectResult<ListarPersonasDeInteresFull_Result> ListarPersonasDeInteresFull()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarPersonasDeInteresFull_Result>("ListarPersonasDeInteresFull");
+        }
+    
+        public virtual ObjectResult<ListarPersonasALL_Result> ListarPersonasALL()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarPersonasALL_Result>("ListarPersonasALL");
+        }
+    
+        public virtual ObjectResult<ListarTelefonosFull_Result> ListarTelefonosFull()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarTelefonosFull_Result>("ListarTelefonosFull");
+        }
+    
+        public virtual ObjectResult<ListarTelefonosFullPorId_Result> ListarTelefonosFullPorId(Nullable<int> id_persona)
+        {
+            var id_personaParameter = id_persona.HasValue ?
+                new ObjectParameter("id_persona", id_persona) :
+                new ObjectParameter("id_persona", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarTelefonosFullPorId_Result>("ListarTelefonosFullPorId", id_personaParameter);
+        }
+    
+        public virtual int NewPerson(ObjectParameter newId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("NewPerson", newId);
+        }
+    
+        public virtual ObjectResult<ListarEmailsFull_Result> ListarEmailsFull()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarEmailsFull_Result>("ListarEmailsFull");
+        }
+    
+        public virtual ObjectResult<ListarEmailsFullPorId_Result> ListarEmailsFullPorId(Nullable<int> id_persona)
+        {
+            var id_personaParameter = id_persona.HasValue ?
+                new ObjectParameter("id_persona", id_persona) :
+                new ObjectParameter("id_persona", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarEmailsFullPorId_Result>("ListarEmailsFullPorId", id_personaParameter);
         }
     }
 }

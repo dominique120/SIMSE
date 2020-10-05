@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE._EFE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,27 +9,22 @@ using System.Threading.Tasks;
 
 namespace ADO.MarketingUTIL {
     public class PrimerInteresADO {
-        Conection conection = new Conection();
-        SqlConnection con = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
 
-        public DataTable ListarPrimerInteres() {
-            DataSet dts = new DataSet();
+        public List<PrimerInteresEFE> ListarPrimerInteres() {
+            grubalEntities db = new grubalEntities();
+            PrimerInteresEFE p;
+            List<PrimerInteresEFE> list = new List<PrimerInteresEFE>();
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "MARKETING.ListarPrimerInteres";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "PrimerInteres");
+                var q = db.ListarPrimerInteres();
+
+                foreach(var r in q) {
+                    p = new PrimerInteresEFE(r.id_interes, r.desc_primer_interes);
+                    list.Add(p);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de Primer Interés: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-            }
-            return dts.Tables["PrimerInteres"];
+            } 
         }
     }
 }

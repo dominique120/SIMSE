@@ -1,6 +1,7 @@
 ﻿using BE.AUTH;
 using BL.AUTH;
 using BL.MarketingUTIL;
+using BL.Persona;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,10 +35,10 @@ namespace GUI.AUTH {
         }
 
         private void frmNewUser_Load(object sender, EventArgs e) {
-            PersonaFuenteBL personafuente = new PersonaFuenteBL();
-            cboEmpleado.DataSource = personafuente.ListarEmpleados();
-            cboEmpleado.DisplayMember = "primer_nom";
-            cboEmpleado.ValueMember = "id_persona";
+            EmpleadoBL bL = new EmpleadoBL();
+            cboEmpleado.DataSource = bL.ListarEmpleadosFull(); ;
+            cboEmpleado.DisplayMember = "Nombre Completo";
+            cboEmpleado.ValueMember = "ID Empleado";
         }
     }
 }

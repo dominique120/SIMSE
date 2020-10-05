@@ -29,6 +29,17 @@ namespace BE.PERSONA {
             this.ext = ext;
         }
 
+        public TelefonoBE(int id_telefono, int id_persona, string codigo_pais, string campo_1, string campo_2, string campo_3, string ext) {
+
+            this.id_telefono = id_telefono;
+            this.id_persona = id_persona;
+            this.codigo_pais = codigo_pais;
+            this.campo_1 = campo_1;
+            this.campo_2 = campo_2;
+            this.campo_3 = campo_3;
+            this.ext = ext;
+        }
+
         public int Id_telefono { get => id_telefono; set => id_telefono = value; }
         public short Tipo_telefono { get => tipo_telefono; set => tipo_telefono = value; }
         public int Id_persona { get => id_persona; set => id_persona = value; }

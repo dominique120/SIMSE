@@ -208,6 +208,9 @@
     <Compile Include="ListarDivisiones_Result.cs">
       <DependentUpon>grubalData.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListarEmailsFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="ListarEmailsTipos_Result.cs">
       <DependentUpon>grubalData.tt</DependentUpon>
     </Compile>
@@ -236,6 +239,9 @@
       <DependentUpon>grubalData.tt</DependentUpon>
     </Compile>
     <Compile Include="ListarPaises_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPersonasALL_Result.cs">
       <DependentUpon>grubalData.tt</DependentUpon>
     </Compile>
     <Compile Include="ListarPersonasDeInteresFull_Result.cs">
@@ -307,6 +313,12 @@
     <Compile Include="ListarReporteTecnicoPorProyecto_Result.cs">
       <DependentUpon>grubalData.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListarTelefonosFullPorId_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListarTelefonosFull_Result.cs">
+      <DependentUpon>grubalData.tt</DependentUpon>
+    </Compile>
     <Compile Include="ListarTelefonosPorPersona_Result.cs">
       <DependentUpon>grubalData.tt</DependentUpon>
     </Compile>
@@ -326,7 +338,6 @@
     <Compile Include="Conection.cs" />
     <Compile Include="PERSONA\EmpleadoADO.cs" />
     <Compile Include="MarketingUTIL\ContactoInicialADO.cs" />
-    <Compile Include="MarketingUTIL\PersonaFuenteADO.cs" />
     <Compile Include="MarketingUTIL\PrimerInteresADO.cs" />
     <Compile Include="MARKETING\FichaMarketingADO.cs" />
     <Compile Include="PERSONA\PersonaADO.cs" />

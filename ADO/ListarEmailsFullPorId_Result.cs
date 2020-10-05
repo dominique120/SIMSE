@@ -11,14 +11,13 @@ namespace ADO
 {
     using System;
     
-    public partial class ListarPersonasDeInteresFull_Result
+    public partial class ListarEmailsFullPorId_Result
     {
-        public int Id_Persona { get; set; }
+        public Nullable<int> Id { get; set; }
+        public Nullable<int> Id_Persona { get; set; }
+        public string Tipo { get; set; }
         public string Nombre { get; set; }
-        public int Id_Directorio { get; set; }
-        public string Proyecto { get; set; }
-        public string Puesto { get; set; }
-        public short puesto_id { get; set; }
-        public int proyecto_id { get; set; }
+        public string Email { get; set; }
+        public Nullable<byte> tipo_email { get; set; }
     }
 }

@@ -26,7 +26,6 @@ namespace GUI.PERSONA.CLIENTE {
         EmailsBL emails = new EmailsBL();
 
         ContactoInicialBL contactoinicial = new ContactoInicialBL();
-        PersonaFuenteBL personafuente = new PersonaFuenteBL();
         PrimerInteresBL primerinteres = new PrimerInteresBL();
 
         private void OnlyLetters(object sender, KeyPressEventArgs e) {
@@ -90,10 +89,10 @@ namespace GUI.PERSONA.CLIENTE {
                 cboMarkContInic.DisplayMember = "nom_forma_contacto";
                 cboMarkContInic.ValueMember = "id_contacto";
 
-                //listar fuentes
-                cboPerFuente.DataSource = personafuente.ListarEmpleados();
-                cboPerFuente.DisplayMember = "primer_nom";
-                cboPerFuente.ValueMember = "id_persona";
+                EmpleadoBL bL = new EmpleadoBL();
+                cboPerFuente.DataSource = bL.ListarEmpleadosFull(); ;
+                cboPerFuente.DisplayMember = "Nombre Completo";
+                cboPerFuente.ValueMember = "ID Empleado";
 
                 //listar primer interes
                 cboPrInteres.DataSource = primerinteres.ListarPrimerInteres();

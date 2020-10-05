@@ -1,6 +1,7 @@
 ﻿using BE.DOCUMENTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,9 +10,7 @@ using System.Threading.Tasks;
 
 namespace ADO.DOCUMENTO {
     public class EntregaFinalADO {
-        Conection conection = new Conection();
-        SqlConnection con = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        grubalEntities db = new grubalEntities();
 
         public DataTable ListarEntregasFinalesFechas(DateTime fecha_inicio, DateTime fecha_fin) {
             DataSet dts = new DataSet();
@@ -30,135 +29,54 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["EntregasFinales"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando las Entregas Finales: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-            }
+            } 
         }
 
 
-        public Boolean EntregaFinalNew(EntregaFinalBE eBE) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "DOCUMENTO.EntregaFinalNew";
+        public Boolean EntregaFinalNew(EntregaFinalBE e) {
             bool success;
-
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_proyecto", eBE.Id_proyecto);
-                cmd.Parameters.AddWithValue("@id_encargado", eBE.Id_encargado);
-                cmd.Parameters.AddWithValue("@fecha", eBE.Fecha);
-                cmd.Parameters.AddWithValue("@path_scan_reporte", eBE.Path_scan_reporte);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
+                db.EntregaFinalNew(e.Id_proyecto, e.Id_encargado, e.Path_scan_reporte, e.Fecha);
 
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
         public Boolean EliminarEntregaFinal(int idDocumento) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "DOCUMENTO.EliminarEntregaFinal";
             bool success;
-
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.EliminarEntregaFinal(idDocumento);
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception("No se pudo eliminar el documento, tiene data relacionada a ella" + x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
-        public Boolean ModificarEntregaFinal(EntregaFinalBE eBE) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "DOCUMENTO.ActualizarEntregaFinal";
+        public Boolean ModificarEntregaFinal(EntregaFinalBE e) {
             bool success;
-
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_documento", eBE.Id_documento);
-                cmd.Parameters.AddWithValue("@id_proyecto", eBE.Id_proyecto);
-                cmd.Parameters.AddWithValue("@id_encargado", eBE.Id_encargado);
-                cmd.Parameters.AddWithValue("@fecha", eBE.Fecha);
-                cmd.Parameters.AddWithValue("@path_scan_reporte", eBE.Path_scan_reporte);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.ActualizarEntregaFinal(e.Id_documento,e.Id_proyecto, e.Id_encargado, e.Path_scan_reporte, e.Fecha);
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
         public EntregaFinalBE ListarEntregaPorId(int idDocumento) {
-            EntregaFinalBE entBE = new EntregaFinalBE();
+            EntregaFinalBE entBE;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DOCUMENTO.ListarEntregaFinalPorId";
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
-
-                con.Open();
-                SqlDataReader dtr = cmd.ExecuteReader();
-
-                if (dtr.HasRows == true) {
-                    dtr.Read();
-                    entBE.Id_documento = int.Parse(dtr["id_documento"].ToString());
-                    entBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
-                    entBE.Id_encargado = int.Parse(dtr["id_encargado"].ToString());
-                    entBE.Path_scan_reporte = dtr["path_scan_reporte"].ToString();
-                    entBE.Fecha = Convert.ToDateTime(dtr["fecha"]);
-                } else {
-                    throw new Exception("Error al buscar el documento.");
-                }
-                dtr.Close();
-
+                var r = db.ListarEntregaFinalPorId(idDocumento).FirstOrDefault();
+                entBE = new EntregaFinalBE(r.id_documento, r.id_proyecto, r.id_encargado, r.path_scan_reporte, (DateTime)r.fecha);
             } catch (Exception ex) {
                 throw new Exception(ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
             }
             return entBE;
         }

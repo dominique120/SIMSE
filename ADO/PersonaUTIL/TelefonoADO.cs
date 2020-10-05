@@ -1,4 +1,5 @@
-﻿using BE.PERSONA;
+﻿using BE._EFE;
+using BE.PERSONA;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,216 +10,107 @@ using System.Threading.Tasks;
 
 namespace ADO.PersonaUTIL {
     public class TelefonoADO {
-        Conection conection = new Conection();
-        SqlConnection con = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        grubalEntities db = new grubalEntities();
 
-        public DataTable ListarTelefonosTipos() {
-            DataSet dts = new DataSet();
+        public List<TelefonosTiposEFE> ListarTelefonosTipos() {
+            List<TelefonosTiposEFE> list = new List<TelefonosTiposEFE>();
+            TelefonosTiposEFE t;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarTelefonosTipos";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "TelefonosTipos");
+                var q = db.ListarTelefonosTipos();
+                foreach (var r in q) {
+                    t = new TelefonosTiposEFE(r.nombre_telefono, r.tipo_telefono);
+                    list.Add(t);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de teléfonos: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
-            return dts.Tables["TelefonosTipos"];
+            } 
         }
 
 
         Boolean success = false;
-        public Boolean TelefonoNew(TelefonoBE telBE) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.TelefonoNew";
-
+        public Boolean TelefonoNew(TelefonoBE t) {
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_persona", telBE.Id_persona);
-                cmd.Parameters.AddWithValue("@codigo_pais", telBE.Codigo_pais);
-                cmd.Parameters.AddWithValue("@campo_1", telBE.Campo_1);
-                cmd.Parameters.AddWithValue("@campo_2", telBE.Campo_2);
-                cmd.Parameters.AddWithValue("@campo_3", telBE.Campo_3);
-                cmd.Parameters.AddWithValue("@ext", telBE.Ext);
-                cmd.Parameters.AddWithValue("@tipo_telefono", telBE.Tipo_telefono);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.TelefonoNew(t.Id_persona, (byte)t.Tipo_telefono, t.Codigo_pais, t.Campo_1, t.Campo_2, t.Campo_3, t.Ext);
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
             }
             return success;
 
         }
-        public DataTable ListarTelefonosFull()
+        public List<TelefonoBE> ListarTelefonosFull()
         {
-            DataSet dts = new DataSet();
+            List<TelefonoBE> list = new List<TelefonoBE>();
+            TelefonoBE t;
             try
             {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.LestarTelefonosFull";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Teléfonos");
+                var q = db.ListarTelefonosFull();
+                foreach(var r in q) {
+                    t = new TelefonoBE((int)r.Id, (int)r.Id_Persona, r.Codigo_Pais, r.C1, r.C2, r.C3, r.EXT);
+                    list.Add(t);
+                }
+                return list;
             }
             catch (Exception ex)
             {
                 throw new Exception("Error mostrando los teléfonos: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Teléfonos"];
+            } 
         }
 
-        public DataTable ListarTelefonosFullPorId(int idPersona)
+        public List<TelefonoBE> ListarTelefonosFullPorId(int idPersona)
         {
-            DataSet dts = new DataSet();
+            List<TelefonoBE> list = new List<TelefonoBE>();
+            TelefonoBE t;
             try
             {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.LestarTelefonosFullPorId";
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_persona", idPersona);
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Teléfonos");
+                var q = db.ListarTelefonosFullPorId(idPersona);
+               
+                foreach(var r in q) {
+                    t = new TelefonoBE((int)r.Id, (int)r.Id_Persona, r.Codigo_Pais, r.C1, r.C2, r.C3, r.EXT);
+                    list.Add(t);
+                }
+                return list;
             }
             catch (Exception ex)
             {
                 throw new Exception("Error mostrando los emails: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-
-                }
-                cmd.Parameters.Clear();
-            }
-            return dts.Tables["Teléfonos"];
+            } 
         }
 
         public Boolean EliminarTelefono(int idTelefono) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.EliminarTelefono";
 
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_telefono", idTelefono);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.EliminarTelefono(idTelefono);
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
-        public Boolean ModificarTelefono(TelefonoBE telBE) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.ModificarTelefono";
-
+        public Boolean ModificarTelefono(TelefonoBE t) {
             try {
-                cmd.Parameters.Clear();
-
-                cmd.Parameters.AddWithValue("@id_telefono", telBE.Id_telefono);
-                cmd.Parameters.AddWithValue("@tipo_telefono", telBE.Tipo_telefono);
-                cmd.Parameters.AddWithValue("@codigo_pais", telBE.Codigo_pais);
-                cmd.Parameters.AddWithValue("@campo_1", telBE.Campo_1);
-                cmd.Parameters.AddWithValue("@campo_2", telBE.Campo_2);
-                cmd.Parameters.AddWithValue("@campo_3", telBE.Campo_3);
-                cmd.Parameters.AddWithValue("@ext", telBE.Ext);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.ModificarTelefono(t.Id_telefono, (byte)t.Tipo_telefono, t.Codigo_pais, t.Campo_1, t.Campo_2, t.Campo_3, t.Ext);
                 success = true;
-
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
         public TelefonoBE SelectTelefono(int id_telefono) {
-            DataSet dts = new DataSet();
-            TelefonoBE telBE = new TelefonoBE();
+            TelefonoBE telBEl;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.SelectTelefono";
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_telefono", id_telefono);
-
-                con.Open();
-                SqlDataReader dtr = cmd.ExecuteReader();
-
-                if (dtr.HasRows == true) {
-                    dtr.Read();
-
-                    telBE.Campo_1 = dtr["campo_1"].ToString();
-                    telBE.Campo_2 = dtr["campo_2"].ToString();
-                    telBE.Campo_3 = dtr["campo_3"].ToString();
-                    telBE.Codigo_pais = dtr["codigo_pais"].ToString();
-                    telBE.Tipo_telefono = short.Parse(dtr["tipo_telefono"].ToString());
-                    telBE.Id_telefono = int.Parse(dtr["id_telefono"].ToString());
-                    telBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
-                    telBE.Ext = dtr["ext"].ToString();
-
-                } else {
-                    throw new Exception("Error al buscar el teléfono.");
-                }
-                dtr.Close();
+                var r = db.SelectTelefono(id_telefono).FirstOrDefault();
+                telBEl = new TelefonoBE((short)r.id_telefono, r.id_persona, r.codigo_pais, r.campo_1, r.campo_2, r.campo_3, r.ext);
+                return telBEl;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los teléfonos: " + ex.Message);
-            } finally {
-                con.Close();
             }
-            cmd.Parameters.Clear();
-            return telBE;
         }
     }
 }

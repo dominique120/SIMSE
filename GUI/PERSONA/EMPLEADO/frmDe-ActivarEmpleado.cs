@@ -13,7 +13,6 @@ using System.Windows.Forms;
 
 namespace GUI.PERSONA.EMPLEADO {
     public partial class frmDe_ActivarEmpleado : Form {
-        PersonaFuenteBL personaFuenteBL = new PersonaFuenteBL();
         EmpleadoBL empBL = new EmpleadoBL();
         EmpleadoBE empBE;
         public frmDe_ActivarEmpleado() {
@@ -22,9 +21,11 @@ namespace GUI.PERSONA.EMPLEADO {
 
         private void frmDe_ActivarEmpleado_Load(object sender, EventArgs e) {
             try {
-                cboBuscarEmpleado.DataSource = personaFuenteBL.ListarEmpleados(); ;
-                cboBuscarEmpleado.DisplayMember = "fullnom";
-                cboBuscarEmpleado.ValueMember = "id_persona";
+
+                EmpleadoBL bL = new EmpleadoBL();
+                cboBuscarEmpleado.DataSource = bL.ListarEmpleadosFull(); ;
+                cboBuscarEmpleado.DisplayMember = "Nombre Completo";
+                cboBuscarEmpleado.ValueMember = "ID Empleado";
 
             } catch (Exception ex) {
                 MessageBox.Show("Error al poblar opciones de puesto : " + ex.Message);

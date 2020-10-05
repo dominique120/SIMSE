@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 
 namespace ADO.DOCUMENTO {
     public class CotizacionADO {
-        Conection conection = new Conection();
-        SqlConnection con = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        grubalEntities db = new grubalEntities();
 
         public int CotizacionConDetallesNew(CotizacionBE cotBE) {
             try {

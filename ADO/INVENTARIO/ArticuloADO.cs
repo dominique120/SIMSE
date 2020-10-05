@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace ADO.INVENTARIO {
     public class ArticuloADO {
-
-        Conection conection = new Conection();
-        SqlConnection con = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        grubalEntities db = new grubalEntities();
 
         public DataTable ListarArticulos() {
             DataSet dts = new DataSet();
@@ -24,12 +21,7 @@ namespace ADO.INVENTARIO {
                 adapter.Fill(dts, "Articulos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando Articulos: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-            }
-            return dts.Tables["Articulos"];
+            } 
         }
     }
 }

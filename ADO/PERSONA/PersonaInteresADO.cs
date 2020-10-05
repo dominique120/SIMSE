@@ -21,10 +21,9 @@ namespace ADO {
             try {
                 var q = db.ListarPersonasDeInteresFull();
 
-                // TODO: fix return type of project and title
                 foreach(var r in q) {
-                   // p = new PersonaDeInteresBE(r.Id_Persona, r.Id_Directorio, r.Proyecto, r.Puesto, r.Nombre);
-                   // list.Add(p);
+                   p = new PersonaDeInteresBE(r.Id_Persona, r.Id_Directorio, r.proyecto_id, r.puesto_id, r.Nombre);
+                   list.Add(p);
                 }
                 return list;
             } catch (Exception ex) {
@@ -36,8 +35,7 @@ namespace ADO {
             grubalEntities db = new grubalEntities();
 
             try {
-                // TODO: Puesto needs to return different type
-                db.PersonaDeInteresNew(p.Id_persona, p.Id_directorio, p.Id_proyecto, (short?)p.Puesto, p.Nom_persona);
+                db.PersonaDeInteresNew(p.Id_persona, p.Id_directorio, p.Id_proyecto, (short)p.Puesto, p.Nom_persona);
                 success = true;
             } catch (SqlException x) {
                 success = false;
@@ -98,99 +96,42 @@ namespace ADO {
         }
 
         public PersonaDeInteresBE ListarPersonasDeInteresPorId(int idPersonaInter) {
-            PersonaDeInteresBE perintBE = new PersonaDeInteresBE();
+            grubalEntities db = new grubalEntities();
+            PersonaDeInteresBE p;
+
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarPersonasDeInteresPorId";
+                var q = db.ListarPersonasDeInteresPorId(idPersonaInter).FirstOrDefault();
 
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_persona", idPersonaInter);
-
-                con.Open();
-                SqlDataReader dtr = cmd.ExecuteReader();
-
-                if (dtr.HasRows == true) {
-                    dtr.Read();
-                    perintBE.Id_directorio = int.Parse(dtr["id_directorio"].ToString());
-                    perintBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
-                    perintBE.Nom_persona = dtr["nom_persona"].ToString();
-                    perintBE.Puesto = int.Parse(dtr["puesto"].ToString());
-                    perintBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
-
-                } else {
-                    throw new Exception("Error al buscar la persona de interés.");
-                }
-                dtr.Close();
-
+                p = new PersonaDeInteresBE(q.id_persona, q.id_directorio, q.id_proyecto, q.puesto, q.nom_persona);
+                return p;
             } catch (Exception ex) {
                 throw new Exception(ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
-            return perintBE;
+            } 
         }
 
-        public Boolean ModificarPersonaInteres(PersonaDeInteresBE perinteBE) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.UpdatePersonaInteres";
-
+        public Boolean ModificarPersonaInteres(PersonaDeInteresBE p) {
+            grubalEntities db = new grubalEntities();
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_persona", perinteBE.Id_persona);
-                cmd.Parameters.AddWithValue("@puesto", perinteBE.Puesto);
-                cmd.Parameters.AddWithValue("@id_proyecto", perinteBE.Id_proyecto);
-                cmd.Parameters.AddWithValue("@id_directorio", perinteBE.Id_directorio);
-                cmd.Parameters.AddWithValue("@nom_persona", perinteBE.Nom_persona);
-   
-
-                con.Open();
-                cmd.ExecuteNonQuery();
+                db.UpdatePersonaInteres(p.Id_persona, p.Id_directorio, p.Id_proyecto, (short)p.Puesto, p.Nom_persona);
 
                 success = true;
 
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
         public Boolean EliminarPersonaDeInteres(int idPersona) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.EliminarPersonaDeInteres";
-
+            grubalEntities db = new grubalEntities();
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_persona", idPersona);
-
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.EliminarPersonaDeInteres(idPersona);
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
     }

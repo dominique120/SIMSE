@@ -1,4 +1,5 @@
-﻿using BE.PERSONA;
+﻿using BE._EFE;
+using BE.PERSONA;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,141 +10,96 @@ using System.Threading.Tasks;
 
 namespace ADO.PersonaUTIL.Direcciones {
     public class DireccionADO {
-        Conection conection = new Conection();
-        SqlConnection con = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        grubalEntities db = new grubalEntities();
 
-        public DataTable ListarDistritos() {
-            DataSet dts = new DataSet();
+        public List<DistritoEFE> ListarDistritos() {
+            List<DistritoEFE> list = new List<DistritoEFE>();
+            DistritoEFE d;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarDistritos";
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Distritos");
+                var q = db.ListarDistritos();
+                foreach(var r in q) {
+                    d = new DistritoEFE(r.id_ciudad, r.id_distrito, r.nom_distrito);
+                    list.Add(d);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los distritos: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Distritos"];
+            } 
         }
 
-        public DataTable ListarDistritosPorIdCiudad(int idCiudad) {
-            DataSet dts = new DataSet();
+        public List<DistritoEFE> ListarDistritosPorIdCiudad(int idCiudad) {
+            List<DistritoEFE> list = new List<DistritoEFE>();
+            DistritoEFE d;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarDistritoPorIdPorCiudad";
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_ciudad", idCiudad);
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Distritos");
+                var q = db.ListarDistritoPorIdPorCiudad(idCiudad);
+                foreach (var r in q) {
+                    d = new DistritoEFE(r.id_ciudad, r.id_distrito, r.nom_distrito);
+                    list.Add(d);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los distritos: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Distritos"];
+            } 
         }
 
-        public DataTable ListarCiudades() {
-            DataSet dts = new DataSet();
+        public List<CiudadEFE> ListarCiudades() {
+            List<CiudadEFE> list = new List<CiudadEFE>();
+            CiudadEFE c;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarCiudades";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Ciudades");
+                var q = db.ListarCiudades();
+                foreach (var r in q) {
+                    c = new CiudadEFE(r.id_ciudad,r.id_region,r.nom_ciudad);
+                    list.Add(c);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los ciudades: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Ciudades"];
+            } 
         }
 
-        public DataTable ListarCiudadesPorIdRegion(int idRegion) {
-            DataSet dts = new DataSet();
+        public List<CiudadEFE> ListarCiudadesPorIdRegion(int idRegion) {
+            List<CiudadEFE> list = new List<CiudadEFE>();
+            CiudadEFE c;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarCiudadesPorIdRegion";
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_region", idRegion);
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Regiones");
+                var q = db.ListarCiudadesPorIdRegion(idRegion);
+                foreach (var r in q) {
+                    c = new CiudadEFE(r.id_ciudad, r.id_region, r.nom_ciudad);
+                    list.Add(c);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las ciudades: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Regiones"];
+            } 
         }
 
-        public DataTable ListarRegiones() {
-            DataSet dts = new DataSet();
+        public List<RegionEFE> ListarRegiones() {
+            List<RegionEFE> list = new List<RegionEFE>();
+            RegionEFE c;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarRegiones";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Regiones");
+                var q = db.ListarRegiones();
+                foreach (var r in q) {
+                    c = new RegionEFE(r.id_region,r.id_pais,r.nom_region);
+                    list.Add(c);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los regiones: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Regiones"];
+            } 
         }
 
-        public DataTable ListarRegionesPorIdPais(int idPais) {
-            DataSet dts = new DataSet();
+        public List<RegionEFE> ListarRegionesPorIdPais(int idPais) {
+            List<RegionEFE> list = new List<RegionEFE>();
+            RegionEFE c;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.ListarRegionesPorIdPais";
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_pais", idPais);
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "Regiones");
+                var q = db.ListarRegionesPorIdPais(idPais);
+                foreach (var r in q) {
+                    c = new RegionEFE(r.id_region, r.id_pais, r.nom_region);
+                    list.Add(c);
+                }
+                return list;
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las regiones: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Regiones"];
+            } 
         }
 
         public DataTable ListarPaises() {
@@ -157,13 +113,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Países");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los países: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Países"];
+            } 
         }
 
         public DataTable ListarDireccionesTipos() {
@@ -177,48 +127,18 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "DireccionesTipos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los tipos de dirección: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["DireccionesTipos"];
+            } 
         }
 
         Boolean success = false;
-        public Boolean DireccionNew(DireccionBE dirBE) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.DireccionNew";
-
+        public Boolean DireccionNew(DireccionBE d) {
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@tipo_direccion", dirBE.Tipo_direccion);
-                cmd.Parameters.AddWithValue("@id_persona", dirBE.Id_persona);
-                cmd.Parameters.AddWithValue("@dir_pais", dirBE.Dir_pais);
-                cmd.Parameters.AddWithValue("@dir_provincia", dirBE.Dir_provincia);
-
-                cmd.Parameters.AddWithValue("@dir_ciudad", dirBE.Dir_ciudad);
-                cmd.Parameters.AddWithValue("@dir_distrito", dirBE.Dir_distrito);
-                cmd.Parameters.AddWithValue("@dir_linea_1", dirBE.Dir_linea_1);
-                cmd.Parameters.AddWithValue("@dir_linea_2", dirBE.Dir_linea_2);
-                cmd.Parameters.AddWithValue("@dir_codigo_postal", dirBE.Dir_codigo_postal);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.DireccionNew(d.Tipo_direccion, d.Id_persona, (byte)d.Dir_pais, d.Dir_provincia, d.Dir_ciudad, d.Dir_distrito, d.Dir_linea_1, d.Dir_linea_2, d.Dir_codigo_postal);
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
@@ -234,13 +154,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Direcciones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    cmd.Parameters.Clear();
-                    con.Close();
-                }
-            }
-            return dts.Tables["Direcciones"];
+            } 
         }
 
         public DataTable ListarPersonasConDirecciones() {
@@ -254,12 +168,7 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "PersonasConDirecciones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las personas con direcciones: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-            }
-            return dts.Tables["PersonasConDirecciones"];
+            } 
         }
 
         public DataTable ListarDireccionesFullPorId(int idPersona) {
@@ -277,115 +186,39 @@ namespace ADO.PersonaUTIL.Direcciones {
                 adapter.Fill(dts, "Direcciones");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                    cmd.Parameters.Clear();
-                }
-            }
-            return dts.Tables["Direcciones"];
+            } 
         }
 
         public DireccionBE SelectDireccion(int idDireccion) {
-            DataSet dts = new DataSet();
-            DireccionBE dirBE = new DireccionBE();
+            DireccionBE dirBE;
             try {
-                con.ConnectionString = conection.GetCon();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PERSONA.SelectDireccion";
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_direccion", idDireccion);
-
-                con.Open();
-                SqlDataReader dtr = cmd.ExecuteReader();
-
-                if (dtr.HasRows == true) {
-                    dtr.Read();
-                    dirBE.Tipo_direccion = byte.Parse(dtr["tipo_direccion"].ToString());
-                    dirBE.Id_direccion = int.Parse(dtr["id_direccion"].ToString());
-                    dirBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
-                    dirBE.Dir_pais = short.Parse(dtr["dir_pais"].ToString());
-                    dirBE.Dir_provincia = int.Parse(dtr["dir_provincia"].ToString());
-                    dirBE.Dir_ciudad = int.Parse(dtr["dir_ciudad"].ToString());
-                    dirBE.Dir_distrito = int.Parse(dtr["dir_distrito"].ToString());
-                    dirBE.Dir_linea_1 = dtr["dir_linea_1"].ToString();
-                    dirBE.Dir_linea_2 = dtr["dir_linea_2"].ToString();
-                    dirBE.Dir_codigo_postal = dtr["dir_codigo_postal"].ToString();
-
-                } else {
-                    throw new Exception("Error al buscar la dirección.");
-                }
-                dtr.Close();
+                var q =db.SelectDireccion(idDireccion).FirstOrDefault();
+                dirBE = new DireccionBE(q.tipo_direccion, q.id_persona, q.dir_pais, q.dir_provincia, q.dir_ciudad, q.dir_distrito, q.dir_linea_1, q.dir_linea_2, q.dir_codigo_postal);
             } catch (Exception ex) {
                 throw new Exception("Error mostrando las direcciones: " + ex.Message);
-            } finally {
-                con.Close();
-                cmd.Parameters.Clear();
-            }
+            } 
             return dirBE;
         }
 
-        public Boolean ModificarDireccion(DireccionBE dirBE) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.ModificarDireccion";
-
+        public Boolean ModificarDireccion(DireccionBE d) {
             try {
-                cmd.Parameters.Clear();
-
-                cmd.Parameters.AddWithValue("@id_direccion", dirBE.Id_direccion);
-                cmd.Parameters.AddWithValue("@tipo_direccion", dirBE.Tipo_direccion);
-                cmd.Parameters.AddWithValue("@id_persona", dirBE.Id_persona);
-                cmd.Parameters.AddWithValue("@dir_pais", dirBE.Dir_pais);
-                cmd.Parameters.AddWithValue("@dir_provincia", dirBE.Dir_provincia);
-                cmd.Parameters.AddWithValue("@dir_ciudad", dirBE.Dir_ciudad);
-                cmd.Parameters.AddWithValue("@dir_distrito", dirBE.Dir_distrito);
-                cmd.Parameters.AddWithValue("@dir_linea_1", dirBE.Dir_linea_1);
-                cmd.Parameters.AddWithValue("@dir_linea_2", dirBE.Dir_linea_2);
-                cmd.Parameters.AddWithValue("@dir_codigo_postal", dirBE.Dir_codigo_postal);
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.ModificarDireccion(d.Id_direccion, d.Tipo_direccion, d.Id_persona, (byte)d.Dir_pais, d.Dir_provincia, d.Dir_ciudad, d.Dir_distrito, d.Dir_linea_1, d.Dir_linea_2, d.Dir_codigo_postal);
                 success = true;
-
             } catch (Exception x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
 
         public Boolean EliminarDireccion(int idDireccion) {
-            con.ConnectionString = conection.GetCon();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "PERSONA.EliminarDireccion";
-
             try {
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id_direccion", idDireccion);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-
+                db.EliminarDireccion(idDireccion);
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } finally {
-                if (con.State == ConnectionState.Open) {
-                    con.Close();
-                }
-                cmd.Parameters.Clear();
-            }
+            } 
             return success;
         }
     }
