@@ -18,7 +18,5 @@ namespace ADO
         public int Id_Directorio { get; set; }
         public string Proyecto { get; set; }
         public string Puesto { get; set; }
-        public short puesto_id { get; set; }
-        public int proyecto_id { get; set; }
     }
 }

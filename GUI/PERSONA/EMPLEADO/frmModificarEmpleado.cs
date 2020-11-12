@@ -15,6 +15,7 @@ namespace GUI.PERSONA.EMPLEADO {
     public partial class frmModificarEmpleado : Form {
         EmpleadoBL emBL = new EmpleadoBL();
         ClienteBL cliBL = new ClienteBL();
+        PersonaFuenteBL personaFuenteBL = new PersonaFuenteBL();
         PersonaDeInteresBL puest = new PersonaDeInteresBL();
         EmpleadoBE empbe = new EmpleadoBE();
         public frmModificarEmpleado() {
@@ -39,10 +40,9 @@ namespace GUI.PERSONA.EMPLEADO {
 
         private void frmModificarEmpleado_Load(object sender, EventArgs e) {
             try { 
-                EmpleadoBL bL = new EmpleadoBL();
-                cboBuscarEmpleado.DataSource = bL.ListarEmpleadosFull(); ;
-                cboBuscarEmpleado.DisplayMember = "Nombre Completo";
-                cboBuscarEmpleado.ValueMember = "ID Empleado";
+                cboBuscarEmpleado.DataSource = personaFuenteBL.ListarEmpleados(); ;
+                cboBuscarEmpleado.DisplayMember = "fullnom";
+                cboBuscarEmpleado.ValueMember = "id_persona";
 
             } catch (Exception ex) {
                 MessageBox.Show("Error al poblar opciones de puesto : " + ex.Message);

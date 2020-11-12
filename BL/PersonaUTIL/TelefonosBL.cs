@@ -15,11 +15,9 @@ namespace BL.UTIL {
         public Boolean EliminarTelefono(int idTelefono) {
             return tel.EliminarTelefono(idTelefono);
         }
-
         public TelefonoBE SelectTelefono(int id_telefono) {
             return tel.SelectTelefono(id_telefono);
         }
-
         public Boolean ModificarTelefono(TelefonoBE telBE) {
             return tel.ModificarTelefono(telBE);
         }
@@ -31,12 +29,10 @@ namespace BL.UTIL {
         public Boolean TelefonoNew(TelefonoBE telbe) {
             return telado.TelefonoNew(telbe);
         }
-
         public DataTable ListarTelefonosFull()
         {
             return tel.ListarTelefonosFull();
         }
-
         public DataTable ListarTelefonosFullPorId(int idPersona)
         {
             return tel.ListarTelefonosFullPorId(idPersona);

@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace ADO.DOCUMENTO {
     public class ReporteTecnicoADO {
-        grubalEntities db = new grubalEntities();
+        Conection conection = new Conection();
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+
 
         public DataTable ListarReporteTecnicoProyecto(int id_proyecto) {
             DataSet dts = new DataSet();
@@ -60,14 +63,29 @@ namespace ADO.DOCUMENTO {
         }
 
         public Boolean EliminarReporteTecnico(int idDocumento) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "DOCUMENTO.EliminarReporteTecnico";
             bool success;
+
             try {
-                db.EliminarReporteTecnico(idDocumento);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception("No se pudo eliminar el documento, tiene data relacionada a ella" + x.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
             return success;
         }
     }

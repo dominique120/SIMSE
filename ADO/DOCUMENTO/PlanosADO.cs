@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace ADO.DOCUMENTO {
     public class PlanosADO {
-        grubalEntities db = new grubalEntities();
+        Conection conection = new Conection();
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+
         public DataTable ListarPlanosPorProyectoTipo(int id_proyecto, int id_tipo) {
             DataSet dts = new DataSet();
             try {
@@ -50,6 +53,10 @@ namespace ADO.DOCUMENTO {
                 return dts.Tables["Planos"];
             } catch (SqlException ex) {
                 throw new Exception("Error mostrando Planos: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
         }
 
@@ -64,52 +71,158 @@ namespace ADO.DOCUMENTO {
                 adapter.Fill(dts, "TiposPlanos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los Tipos de Plano: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
             }
+            return dts.Tables["TiposPlanos"];
         }
 
-        public Boolean PlanoNew(PlanoBE p) {
+        public Boolean PlanoNew(PlanoBE plBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "DOCUMENTO.InsertarPlano";
             bool success;
+
             try {
-                db.InsertarPlano(p.Id_proyecto, p.Revision, p.Tipo_plano, p.Dibujado_por, p.Revisado_por, p.Nom_plano, p.Fecha_creacion, p.Fecha_revision, p.Fecha_envio, p.Path_plano);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_proyecto", plBE.Id_proyecto);
+                cmd.Parameters.AddWithValue("@revision", plBE.Revision);
+                cmd.Parameters.AddWithValue("@tipo_plano", plBE.Tipo_plano);
+                cmd.Parameters.AddWithValue("@dibujado_por", plBE.Dibujado_por);
+
+                cmd.Parameters.AddWithValue("@revisado_por", plBE.Revisado_por);
+                cmd.Parameters.AddWithValue("@nom_plano", plBE.Nom_plano);
+                cmd.Parameters.AddWithValue("@fecha_creacion", plBE.Fecha_creacion);
+                cmd.Parameters.AddWithValue("@fecha_revision", plBE.Fecha_revision);
+
+                cmd.Parameters.AddWithValue("@fecha_envio", plBE.Fecha_envio);
+                cmd.Parameters.AddWithValue("@path_plano", plBE.Path_plano);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
             }
             return success;
         }
 
         public Boolean EliminarPlano(int idPlano) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "DOCUMENTO.EliminarPlano";
             bool success;
+
             try {
-                db.EliminarPlano(idPlano);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idPlano);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception("No se pudo eliminar el plano, tiene data relacionada a ella" + x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
             }
             return success;
         }
 
-        public Boolean ModificarPlano(PlanoBE p) {
+        public Boolean ModificarPlano(PlanoBE plBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "DOCUMENTO.ModificarPlano";
             bool success;
+
             try {
-                db.ModificarPlano(p.Id_documento, p.Id_proyecto, p.Revision, p.Tipo_plano, p.Dibujado_por, p.Revisado_por, p.Nom_plano, p.Fecha_creacion, p.Fecha_revision, p.Fecha_envio, p.Path_plano);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", plBE.Id_documento);
+                cmd.Parameters.AddWithValue("@id_proyecto", plBE.Id_proyecto);
+                cmd.Parameters.AddWithValue("@revision", plBE.Revision);
+                cmd.Parameters.AddWithValue("@tipo_plano", plBE.Tipo_plano);
+                cmd.Parameters.AddWithValue("@dibujado_por", plBE.Dibujado_por);
+
+                cmd.Parameters.AddWithValue("@revisado_por", plBE.Revisado_por);
+                cmd.Parameters.AddWithValue("@nom_plano", plBE.Nom_plano);
+                cmd.Parameters.AddWithValue("@fecha_creacion", plBE.Fecha_creacion);
+                cmd.Parameters.AddWithValue("@fecha_revision", plBE.Fecha_revision);
+
+                cmd.Parameters.AddWithValue("@fecha_envio", plBE.Fecha_envio);
+                cmd.Parameters.AddWithValue("@path_plano", plBE.Path_plano);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
             }
             return success;
         }
 
+
         public PlanoBE ListarPlanoPorId(int idDocumento) {
-            PlanoBE plaBE;
+            PlanoBE plaBE = new PlanoBE();
             try {
-                var q = db.ListarPlanosPorId(idDocumento).FirstOrDefault();
-                plaBE = new PlanoBE(q.id_documento, q.id_proyecto, q.revision, q.tipo_plano, q.dibujado_por, q.revisado_por, q.nom_plano, (DateTime)q.fecha_creacion, (DateTime)q.fecha_revision, (DateTime)q.fecha_envio, q.path_plano);
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarPlanosPorId";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_documento", idDocumento);
+
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    plaBE.Id_documento = int.Parse(dtr["id_documento"].ToString());
+                    plaBE.Id_proyecto = int.Parse(dtr["id_proyecto"].ToString());
+                    plaBE.Revision = dtr["revision"].ToString();
+                    plaBE.Tipo_plano = int.Parse(dtr["tipo_plano"].ToString());
+                    plaBE.Dibujado_por = int.Parse(dtr["dibujado_por"].ToString());
+                    plaBE.Revisado_por = int.Parse(dtr["revisado_por"].ToString());
+                    plaBE.Nom_plano = dtr["nom_plano"].ToString();
+                    plaBE.Fecha_creacion = Convert.ToDateTime(dtr["fecha_creacion"]);
+                    plaBE.Fecha_revision = Convert.ToDateTime(dtr["fecha_revision"]);
+                    plaBE.Fecha_envio = Convert.ToDateTime(dtr["fecha_envio"]);
+                    plaBE.Path_plano = dtr["path_plano"].ToString();
+                } else {
+                    throw new Exception("Error al buscar el documento.");
+                }
+                dtr.Close();
+
             } catch (Exception ex) {
                 throw new Exception(ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
             }
             return plaBE;
         }

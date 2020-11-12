@@ -17,7 +17,7 @@ namespace ADO {
             try {
                 var query = db.ListarEMpleadoFull();
 
-                // TODO: Implment conversion from puesto_empleado from string to short
+                // TODO: Implment conversion from puesto_empleado from strign to short
                 // its returning a string but expects the id
                 // TODO: Nombre Completeo comes as one string inseat of in its individual components
                 // PROPOSAL: Modify SP to return additional required fields withut affecting already mapped fields

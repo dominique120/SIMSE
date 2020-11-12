@@ -7,28 +7,28 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ADO.MarketingUTIL {
-    public class PrimerInteresADO {
+    public class PersonaFuenteADO {
         Conection conection = new Conection();
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable ListarPrimerInteres() {
+        public DataTable ListarEmpleados() {
             DataSet dts = new DataSet();
             try {
                 con.ConnectionString = conection.GetCon();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "MARKETING.ListarPrimerInteres";
+                cmd.CommandText = "PERSONA.ListarEmpleados";
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dts, "PrimerInteres");
+                adapter.Fill(dts, "Fuente");
             } catch (Exception ex) {
-                throw new Exception("Error mostrando los tipos de Primer Interés: " + ex.Message);
+                throw new Exception("Error mostrando las personas fuente: " + ex.Message);
             } finally {
                 if (con.State == ConnectionState.Open) {
                     con.Close();
                 }
             }
-            return dts.Tables["PrimerInteres"];
+            return dts.Tables["Fuente"];
         }
     }
 }

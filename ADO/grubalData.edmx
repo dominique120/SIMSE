@@ -1588,10 +1588,6 @@
         <Function Name="ListarRegionesPorIdPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PERSONA">
           <Parameter Name="id_pais" Type="int" Mode="In" />
         </Function>
-        <Function Name="ListarTelefonosFull" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PERSONA" />
-        <Function Name="ListarTelefonosFullPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PERSONA">
-          <Parameter Name="id_persona" Type="int" Mode="In" />
-        </Function>
         <Function Name="ListarTelefonosPorPersona" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PERSONA">
           <Parameter Name="id_persona" Type="int" Mode="In" />
         </Function>
@@ -4090,6 +4086,10 @@
           <Parameter Name="id_ciudad" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ListarDistritos" ReturnType="Collection(grubalModel.ListarDistritos_Result)" />
+          <FunctionImport Name="ListarEmailsFull" />
+          <FunctionImport Name="ListarEmailsFullPorId">
+          <Parameter Name="id_persona" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="ListarEmailsTipos" ReturnType="Collection(grubalModel.ListarEmailsTipos_Result)" />
           <FunctionImport Name="ListarEMpleadoFull" ReturnType="Collection(grubalModel.ListarEMpleadoFull_Result)" />
           <FunctionImport Name="ListarEmpleadoPorId" ReturnType="Collection(grubalModel.ListarEmpleadoPorId_Result)">
@@ -4097,8 +4097,10 @@
           </FunctionImport>
           <FunctionImport Name="ListarEmpleados" ReturnType="Collection(grubalModel.ListarEmpleados_Result)" />
           <FunctionImport Name="ListarPaises" ReturnType="Collection(grubalModel.ListarPaises_Result)" />
+          <FunctionImport Name="ListarPersonasALL" />
           <FunctionImport Name="ListarPersonasConDirecciones" />
           <FunctionImport Name="ListarPersonasDeInteres" ReturnType="Collection(grubalModel.ListarPersonasDeInteres_Result)" />
+          <FunctionImport Name="ListarPersonasDeInteresFull" ReturnType="Collection(grubalModel.ListarPersonasDeInteresFull_Result)" />
           <FunctionImport Name="ListarPersonasDeInteresPorId" ReturnType="Collection(grubalModel.ListarPersonasDeInteresPorId_Result)">
           <Parameter Name="id_persona" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -4170,6 +4172,9 @@
             <Parameter Name="primer_ape" Mode="In" Type="String" />
             <Parameter Name="segundo_ape" Mode="In" Type="String" />
             <Parameter Name="estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="NewPerson">
+          <Parameter Name="NewId" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="NuevoCliente">
             <Parameter Name="ficha_marketing" Mode="In" Type="Int32" />
@@ -4254,19 +4259,6 @@
             <Parameter Name="dir_proyecto" Mode="In" Type="String" />
             <Parameter Name="fecha_inicio" Mode="In" Type="DateTime" />
             <Parameter Name="fecha_fin" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="ListarPersonasDeInteresFull" ReturnType="Collection(grubalModel.ListarPersonasDeInteresFull_Result)" />
-          <FunctionImport Name="ListarPersonasALL" ReturnType="Collection(grubalModel.ListarPersonasALL_Result)" />
-          <FunctionImport Name="ListarTelefonosFull" ReturnType="Collection(grubalModel.ListarTelefonosFull_Result)" />
-          <FunctionImport Name="ListarTelefonosFullPorId" ReturnType="Collection(grubalModel.ListarTelefonosFullPorId_Result)">
-          <Parameter Name="id_persona" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="NewPerson">
-          <Parameter Name="NewId" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ListarEmailsFull" ReturnType="Collection(grubalModel.ListarEmailsFull_Result)" />
-          <FunctionImport Name="ListarEmailsFullPorId" ReturnType="Collection(grubalModel.ListarEmailsFullPorId_Result)">
-            <Parameter Name="id_persona" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="crud_LISTA_DE_MATERIALESSelect_Result">
@@ -4576,6 +4568,13 @@
           <Property Type="Int16" Name="puesto" Nullable="false" />
           <Property Type="String" Name="nom_persona" Nullable="false" MaxLength="200" />
         </ComplexType>
+        <ComplexType Name="ListarPersonasDeInteresFull_Result">
+          <Property Type="Int32" Name="Id_Persona" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Id_Directorio" Nullable="false" />
+          <Property Type="String" Name="Proyecto" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Puesto" Nullable="false" MaxLength="50" />
+        </ComplexType>
         <ComplexType Name="ListarPersonasDeInteresPorId_Result">
           <Property Type="Int32" Name="id_persona" Nullable="false" />
           <Property Type="Int32" Name="id_directorio" Nullable="false" />
@@ -4668,55 +4667,6 @@
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="99" />
           <Property Type="DateTime" Name="Fecha_de_Inicio" Nullable="true" />
           <Property Type="DateTime" Name="Fecha_de_Fin" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="ListarPersonasDeInteresFull_Result">
-          <Property Type="Int32" Name="Id_Persona" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
-          <Property Type="Int32" Name="Id_Directorio" Nullable="false" />
-          <Property Type="String" Name="Proyecto" Nullable="true" MaxLength="99" />
-          <Property Type="String" Name="Puesto" Nullable="false" MaxLength="50" />
-          <Property Type="Int16" Name="puesto_id" Nullable="false" />
-          <Property Type="Int32" Name="proyecto_id" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="ListarPersonasALL_Result">
-          <Property Type="Int32" Name="Id_Persona" Nullable="false" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
-        </ComplexType>
-        <ComplexType Name="ListarTelefonosFull_Result">
-          <Property Type="Int32" Name="Id" Nullable="true" />
-          <Property Type="Int32" Name="Id_Persona" Nullable="true" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Codigo_Pais" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="C1" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="C2" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="C3" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="EXT" Nullable="true" MaxLength="5" />
-        </ComplexType>
-        <ComplexType Name="ListarTelefonosFullPorId_Result">
-          <Property Type="Int32" Name="Id" Nullable="true" />
-          <Property Type="Int32" Name="Id_Persona" Nullable="true" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Codigo_Pais" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="C1" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="C2" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="C3" Nullable="true" MaxLength="5" />
-          <Property Type="String" Name="EXT" Nullable="true" MaxLength="5" />
-        </ComplexType>
-        <ComplexType Name="ListarEmailsFull_Result">
-          <Property Type="Int32" Name="Id" Nullable="true" />
-          <Property Type="Int32" Name="Id_Persona" Nullable="true" />
-          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Email" Nullable="true" MaxLength="320" />
-          <Property Type="Byte" Name="tipo_email" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="ListarEmailsFullPorId_Result">
-          <Property Type="Int32" Name="Id" Nullable="true" />
-          <Property Type="Int32" Name="Id_Persona" Nullable="true" />
-          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Email" Nullable="true" MaxLength="320" />
-          <Property Type="Byte" Name="tipo_email" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -5608,6 +5558,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListarEmailsFull" FunctionName="grubalModel.Store.ListarEmailsFull" />
+          <FunctionImportMapping FunctionImportName="ListarEmailsFullPorId" FunctionName="grubalModel.Store.ListarEmailsFullPorId" />
           <FunctionImportMapping FunctionImportName="ListarEmailsTipos" FunctionName="grubalModel.Store.ListarEmailsTipos">
             <ResultMapping>
               <ComplexTypeMapping TypeName="grubalModel.ListarEmailsTipos_Result">
@@ -5673,6 +5625,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListarPersonasALL" FunctionName="grubalModel.Store.ListarPersonasALL" />
           <FunctionImportMapping FunctionImportName="ListarPersonasConDirecciones" FunctionName="grubalModel.Store.ListarPersonasConDirecciones" />
           <FunctionImportMapping FunctionImportName="ListarPersonasDeInteres" FunctionName="grubalModel.Store.ListarPersonasDeInteres">
             <ResultMapping>
@@ -5682,6 +5635,17 @@
                 <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
                 <ScalarProperty Name="puesto" ColumnName="puesto" />
                 <ScalarProperty Name="nom_persona" ColumnName="nom_persona" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListarPersonasDeInteresFull" FunctionName="grubalModel.Store.ListarPersonasDeInteresFull">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="grubalModel.ListarPersonasDeInteresFull_Result">
+                <ScalarProperty Name="Id_Persona" ColumnName="Id Persona" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Directorio" ColumnName="Id Directorio" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -5766,6 +5730,7 @@
           <FunctionImportMapping FunctionImportName="ModificarEmpleado" FunctionName="grubalModel.Store.ModificarEmpleado" />
           <FunctionImportMapping FunctionImportName="ModificarTelefono" FunctionName="grubalModel.Store.ModificarTelefono" />
           <FunctionImportMapping FunctionImportName="NewEmpleado" FunctionName="grubalModel.Store.NewEmpleado" />
+          <FunctionImportMapping FunctionImportName="NewPerson" FunctionName="grubalModel.Store.NewPerson" />
           <FunctionImportMapping FunctionImportName="NuevoCliente" FunctionName="grubalModel.Store.NuevoCliente" />
           <FunctionImportMapping FunctionImportName="NuevoEmpleado" FunctionName="grubalModel.Store.NuevoEmpleado" />
           <FunctionImportMapping FunctionImportName="PersonaDeInteresNew" FunctionName="grubalModel.Store.PersonaDeInteresNew" />
@@ -5850,80 +5815,6 @@
           <FunctionImportMapping FunctionImportName="NuevoProyecto" FunctionName="grubalModel.Store.NuevoProyecto" />
           <FunctionImportMapping FunctionImportName="ProyectoNew" FunctionName="grubalModel.Store.ProyectoNew" />
           <FunctionImportMapping FunctionImportName="UpdateProyecto" FunctionName="grubalModel.Store.UpdateProyecto" />
-          <FunctionImportMapping FunctionImportName="ListarPersonasDeInteresFull" FunctionName="grubalModel.Store.ListarPersonasDeInteresFull">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="grubalModel.ListarPersonasDeInteresFull_Result">
-                <ScalarProperty Name="Id_Persona" ColumnName="Id Persona" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id_Directorio" ColumnName="Id Directorio" />
-                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
-                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
-                <ScalarProperty Name="puesto_id" ColumnName="puesto_id" />
-                <ScalarProperty Name="proyecto_id" ColumnName="proyecto_id" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ListarPersonasALL" FunctionName="grubalModel.Store.ListarPersonasALL">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="grubalModel.ListarPersonasALL_Result">
-                <ScalarProperty Name="Id_Persona" ColumnName="Id Persona" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ListarTelefonosFull" FunctionName="grubalModel.Store.ListarTelefonosFull">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="grubalModel.ListarTelefonosFull_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Persona" ColumnName="Id Persona" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Codigo_Pais" ColumnName="Codigo Pais" />
-                <ScalarProperty Name="C1" ColumnName="C1" />
-                <ScalarProperty Name="C2" ColumnName="C2" />
-                <ScalarProperty Name="C3" ColumnName="C3" />
-                <ScalarProperty Name="EXT" ColumnName="EXT" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ListarTelefonosFullPorId" FunctionName="grubalModel.Store.ListarTelefonosFullPorId">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="grubalModel.ListarTelefonosFullPorId_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Persona" ColumnName="Id Persona" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Codigo_Pais" ColumnName="Codigo Pais" />
-                <ScalarProperty Name="C1" ColumnName="C1" />
-                <ScalarProperty Name="C2" ColumnName="C2" />
-                <ScalarProperty Name="C3" ColumnName="C3" />
-                <ScalarProperty Name="EXT" ColumnName="EXT" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="NewPerson" FunctionName="grubalModel.Store.NewPerson" />
-          <FunctionImportMapping FunctionImportName="ListarEmailsFull" FunctionName="grubalModel.Store.ListarEmailsFull">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="grubalModel.ListarEmailsFull_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Persona" ColumnName="Id Persona" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="tipo_email" ColumnName="tipo_email" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ListarEmailsFullPorId" FunctionName="grubalModel.Store.ListarEmailsFullPorId">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="grubalModel.ListarEmailsFullPorId_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_Persona" ColumnName="Id Persona" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="tipo_email" ColumnName="tipo_email" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

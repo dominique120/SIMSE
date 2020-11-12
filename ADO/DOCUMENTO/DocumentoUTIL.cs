@@ -7,7 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ADO.DOCUMENTO {
-    class NewIdADO {
+    public class DocumentoUTIL {
+
         Conection conection = new Conection();
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
@@ -31,9 +32,12 @@ namespace ADO.DOCUMENTO {
         //    } catch (Exception ex) {
         //        throw new Exception("Error generando nuevo Id de documento: " + ex.Message);
         //    } finally {
-        //        con.Close();
+        //        if (con.State == ConnectionState.Open) {
+        //            con.Close();
+        //        }
         //    }
         //    return newid;
         //}
+    
     }
 }
