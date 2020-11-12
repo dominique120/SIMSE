@@ -13,6 +13,29 @@ namespace ADO.DOCUMENTO {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
+        public DataTable ListarCotizacionesPorProyecto(int id_proyecto) {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarCotizacionesPorProyecto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_proyecto", id_proyecto);
+
+                SqlDataAdapter adapter;
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Cotizaciones");
+                return dts.Tables["Cotizaciones"];
+            } catch (SqlException ex) {
+                throw new Exception("Error mostrando las Cotizaciones: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+        }
+
         public int CotizacionConDetallesNew(CotizacionBE cotBE) {
             try {
                 con.ConnectionString = conection.GetCon();

@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using BE;
-using BE._EFE;
-using BE.PROYECTO;
 
 namespace ADO {
     public class PersonaInteresADO {
+        Conection conection = new Conection();
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+
         Boolean success = false;
 
         public List<PersonaDeInteresBE> ListarPersonasDeInteresFull() {
@@ -23,8 +25,8 @@ namespace ADO {
 
                 // TODO: fix return type of project and title
                 foreach(var r in q) {
-                   // p = new PersonaDeInteresBE(r.Id_Persona, r.Id_Directorio, r.Proyecto, r.Puesto, r.Nombre);
-                   // list.Add(p);
+                    p = new PersonaDeInteresBE(r.Id_Persona, r.Id_Directorio, r.Proyecto, r.Puesto, r.Nombre);
+                    list.Add(p);
                 }
                 return list;
             } catch (Exception ex) {
@@ -32,69 +34,117 @@ namespace ADO {
             } 
         }
 
-        public Boolean PersonaDeInteresNew(PersonaDeInteresBE p) {
-            grubalEntities db = new grubalEntities();
+        public Boolean PersonaDeInteresNew(PersonaDeInteresBE PerIntBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.PersonaDeInteresNew";
 
             try {
-                // TODO: Puesto needs to return different type
-                db.PersonaDeInteresNew(p.Id_persona, p.Id_directorio, p.Id_proyecto, (short?)p.Puesto, p.Nom_persona);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", PerIntBE.Id_persona);
+                cmd.Parameters.AddWithValue("@id_directorio", PerIntBE.Id_directorio);
+                cmd.Parameters.AddWithValue("@id_proyecto", PerIntBE.Id_proyecto);
+                cmd.Parameters.AddWithValue("@puesto", PerIntBE.Puesto);
+                cmd.Parameters.AddWithValue("@nom_persona", PerIntBE.Nom_persona);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
             return success;
 
         }
-        public List<PuestoEFE> ListarPuestos() {
-            grubalEntities db = new grubalEntities();
-            List<PuestoEFE> list = new List<PuestoEFE>();
-            PuestoEFE e;
+        public DataTable ListarPuestos() {
+            DataSet dts = new DataSet();
             try {
-                var q = db.ListarPuestos();
-                foreach(var r in q) {
-                    e = new PuestoEFE(r.id_puesto, r.desc_puesto);
-                    list.Add(e);
-                }
-                return list;
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarPuestos";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Puestos");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los puestos: " + ex.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return dts.Tables["Puestos"];
         }
 
-        public List<ProyectoBE> ListarProyecto() {
-            grubalEntities db = new grubalEntities();
-            ProyectoBE p;
-            List<ProyectoBE> list = new List<ProyectoBE>();
+        public DataTable ListarProyecto() {
+            DataSet dts = new DataSet();
             try {
-                var q = db.ListarProyecto();
-                foreach(var r in q) {
-                    p = new ProyectoBE(r.id_proyecto, r.nom_proyecto);
-                    list.Add(p);
-                }
-                return list;
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarProyecto";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Proyecto");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando proyecto: " + ex.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return dts.Tables["Proyecto"];
         }
 
-        public List<PersonaDeInteresBE> ListarPersonasDeInteres() {
-            grubalEntities db = new grubalEntities();
-            PersonaDeInteresBE p;
-            List<PersonaDeInteresBE> list = new List<PersonaDeInteresBE>();
-
+        public DataTable ListarPersonasDeInteres() {
+            DataSet dts = new DataSet();
             try {
-                var q = db.ListarPersonasDeInteres();
-
-                foreach (var r in q) {
-                    p = new PersonaDeInteresBE(r.id_persona, r.id_directorio, r.id_proyecto, r.puesto,r.nom_persona);
-                    list.Add(p);
-                }
-                return list;
-
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarPersonasDeInteres";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "PersonasDeInteres");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando PersonasDeInteres: " + ex.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return dts.Tables["PersonasDeInteres"];
+        }
+
+        public int NewIdPersonaInteres() {
+            int newid;
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.NewPerson";
+
+                var returnParameter = cmd.Parameters.Add("@NewId", SqlDbType.Int);
+                returnParameter.Direction = ParameterDirection.Output;
+
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                newid = (int)cmd.Parameters["@NewId"].Value; ;
+
+            } catch (Exception ex) {
+                throw new Exception("Error generando nuevo Id de persona: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return newid;
         }
 
         public PersonaDeInteresBE ListarPersonasDeInteresPorId(int idPersonaInter) {

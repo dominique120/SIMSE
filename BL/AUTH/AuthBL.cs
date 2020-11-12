@@ -22,6 +22,22 @@ namespace BL.AUTH {
             return authado.ListarCredenciales();
         }
 
+        public AuthBE CredentialSelect(string username) {
+            return authado.CredentialSelect(username);
+        }
+
+        public Boolean CredentialUpdate(AuthBE authBE) {
+            return authado.CredentialUpdate(authBE);
+        }
+
+        public Boolean CredentialDeactivate(AuthBE authBE) {
+            return authado.CredentialDeactivate(authBE);
+        }
+
+        public Boolean CredentialActivate(AuthBE authBE) {
+            return authado.CredentialActivate(authBE);
+        }
+
         public Boolean EliminarCredencial(string usuario) {
             return authado.EliminarCredencial(usuario);
         }
@@ -97,19 +113,19 @@ namespace BL.AUTH {
             return algorithm.ComputeHash(plainTextWithSaltBytes);
         }
 
-        //public static bool CompareByteArrays(byte[] array1, byte[] array2) {
-        //    if (array1.Length != array2.Length) {
-        //        return false;
-        //    }
+        public static bool CompareByteArrays(byte[] array1, byte[] array2) {
+            if (array1.Length != array2.Length) {
+                return false;
+            }
 
-        //    for (int i = 0; i < array1.Length; i++) {
-        //        if (array1[i] != array2[i]) {
-        //            return false;
-        //        }
-        //    }
+            for (int i = 0; i < array1.Length; i++) {
+                if (array1[i] != array2[i]) {
+                    return false;
+                }
+            }
 
-        //    return true;
-        //}
+            return true;
+        }
 
     }
 

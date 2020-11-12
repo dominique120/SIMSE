@@ -19,11 +19,6 @@ namespace BE.PROYECTO
         public ProyectoBE() {
         }
 
-        public ProyectoBE(int id_proyecto, string nom_proyecto) {
-            this.id_proyecto = id_proyecto;
-            this.nom_proyecto = nom_proyecto;
-        }
-
         public ProyectoBE(int id_proyecto, int id_cliente, int id_division, string nom_proyecto, string dir_proyecto, DateTime fecha_inicio, DateTime fecha_fin)
         {
             this.id_proyecto = id_proyecto;

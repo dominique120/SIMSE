@@ -13,31 +13,31 @@ namespace ADO.DOCUMENTO {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        //public int NewId() {
-        //    int newid;
-        //    try {
-        //        con.ConnectionString = conection.GetCon();
-        //        cmd.Connection = con;
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.CommandText = "DOCUMENTO.NewDocument";
+        public int NewId() {
+            int newid;
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.NewDocument";
 
-        //        var returnParameter = cmd.Parameters.Add("@NewId", SqlDbType.Int);
-        //        returnParameter.Direction = ParameterDirection.Output;
+                var returnParameter = cmd.Parameters.Add("@NewId", SqlDbType.Int);
+                returnParameter.Direction = ParameterDirection.Output;
 
-        //        con.Open();
-        //        cmd.ExecuteNonQuery();
+                con.Open();
+                cmd.ExecuteNonQuery();
 
-        //        newid = (int)cmd.Parameters["@NewId"].Value; ;
+                newid = (int)cmd.Parameters["@NewId"].Value; ;
 
-        //    } catch (Exception ex) {
-        //        throw new Exception("Error generando nuevo Id de documento: " + ex.Message);
-        //    } finally {
-        //        if (con.State == ConnectionState.Open) {
-        //            con.Close();
-        //        }
-        //    }
-        //    return newid;
-        //}
+            } catch (Exception ex) {
+                throw new Exception("Error generando nuevo Id de documento: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return newid;
+        }
     
     }
 }

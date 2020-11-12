@@ -13,6 +13,25 @@ namespace ADO.DOCUMENTO {
         SqlConnection con = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         
+        public DataTable ListarReporteSupervisionFull() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DOCUMENTO.ListarReporteSupervisionFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "ReporteSupervision");
+            } catch (Exception ex) {
+                throw new Exception("Error mostrando Reportes de Supervision: " + ex.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return dts.Tables["ReporteSupervision"];
+        }
+
         public DataTable ListarReporteSupervisionProyectoSupervisor(int id_proyecto, int id_supervisor) {
             DataSet dts = new DataSet();
             try {

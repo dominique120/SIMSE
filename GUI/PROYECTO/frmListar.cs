@@ -20,9 +20,5 @@ namespace GUI.PROYECTO {
         private void frmListar_Load(object sender, EventArgs e) {
             dtgProyectos.DataSource = proBL.ListarProyectos();
         }
-
-        private void dtgProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-        }
     }
 }

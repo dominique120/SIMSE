@@ -13,6 +13,10 @@ namespace BL.Documento {
 
         PlanosADO pla = new PlanosADO();
 
+        public DataTable ListarPlanosFull() {
+            return pla.ListarPlanosFull();
+        }
+
         public PlanoBE ListarPlanoPorId(int idDocumento) {
             return pla.ListarPlanoPorId(idDocumento);
         }

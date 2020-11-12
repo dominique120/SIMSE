@@ -42,7 +42,6 @@
             this.dtgProyectos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgProyectos.Size = new System.Drawing.Size(952, 409);
             this.dtgProyectos.TabIndex = 0;
-            this.dtgProyectos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProyectos_CellContentClick);
             // 
             // frmListar
             // 
