@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,106 +9,168 @@ using System.Threading.Tasks;
 
 namespace ADO {
     public class ClienteADO {
-        bool success = false;
+        Conection conection = new Conection();
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
 
-        public List<ClienteBE> ListarClientesFull() {
-            grubalEntities db = new grubalEntities();
-            List<ClienteBE> cliList = new List<ClienteBE>();
+        Boolean success = false;
 
+        public DataTable ListarClientesFull() {
+            DataSet dts = new DataSet();
             try {
-                var query = db.ListarClientesFull();
-
-                foreach (var result in query) {
-                    ClienteBE bE = new ClienteBE {
-                        Doc_oficial = result.Documento,
-                        Marketing = result.ID_Ficha_Marketing,
-                        Id_persona = result.ID_Persona,
-                        Nom_cliente = result.Nombre_Cliente
-                    };
-                    cliList.Add(bE);
-                }
-                return cliList;
-
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarClientesFull";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Clientes");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando clientes: " + ex.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return dts.Tables["Clientes"];
         }
 
         public Boolean ClienteNew(ClienteBE cliBE) {
-            grubalEntities db = new grubalEntities();
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.ClienteNew";
+
             try {
-                db.ClienteNew(cliBE.Id_persona, cliBE.Marketing, cliBE.Nom_cliente, cliBE.Doc_oficial);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", cliBE.Id_persona);
+                cmd.Parameters.AddWithValue("@marketing", cliBE.Marketing);
+                cmd.Parameters.AddWithValue("@nom_cliente", cliBE.Nom_cliente);
+                cmd.Parameters.AddWithValue("@doc_oficial", cliBE.Doc_oficial);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception(x.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
             return success;
         }
 
         public Boolean EliminarCliente(int IdCliente, int IdFichaMarketing) {
-            grubalEntities db = new grubalEntities();
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.EliminarCliente";
+
             try {
-                db.EliminarCliente(IdCliente, IdFichaMarketing);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", IdCliente);
+                cmd.Parameters.AddWithValue("@id_ficha_marketing", IdFichaMarketing);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
 
                 success = true;
             } catch (SqlException x) {
                 success = false;
                 throw new Exception("No se pudo eliminar la persona, tiene data relacionada a ella" + x.Message);
-            } 
-            return success;
-        }
-
-        public Boolean ModificarCliente(ClienteBE cliBE) {
-            grubalEntities db = new grubalEntities();
-
-            try {
-                db.ModificarCliente(cliBE.Id_persona, cliBE.Marketing, cliBE.Nom_cliente, cliBE.Doc_oficial);
-                success = true;
-            } catch (SqlException x) {
-                success = false;
-                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
             }
             return success;
         }
 
-        public List<ClienteBE> ListarClientes() {
-            grubalEntities db = new grubalEntities();
-            List<ClienteBE> cliList = new List<ClienteBE>();
-            try {
-                var query = db.ListarClientes();
+        public Boolean ModificarCliente(ClienteBE cliBE) {
+            con.ConnectionString = conection.GetCon();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PERSONA.ModificarCliente";
 
-                foreach (var result in query) {
-                    ClienteBE bE = new ClienteBE {
-                        Doc_oficial = result.doc_oficial,
-                        Marketing = result.marketing,
-                        Id_persona = result.id_persona,
-                        Nom_cliente = result.nom_cliente
-                    };
-                    cliList.Add(bE);
+            try {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", cliBE.Id_persona);
+                cmd.Parameters.AddWithValue("@marketing", cliBE.Marketing);
+                cmd.Parameters.AddWithValue("@nom_cliente", cliBE.Nom_cliente);
+                cmd.Parameters.AddWithValue("@doc_oficial", cliBE.Doc_oficial);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                success = true;
+            } catch (SqlException x) {
+                success = false;
+                throw new Exception(x.Message);
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
                 }
-                return cliList;
- 
+                cmd.Parameters.Clear();
+            }
+            return success;
+        }
+
+        public DataTable ListarClientes() {
+            DataSet dts = new DataSet();
+            try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarClientes";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dts, "Clientes");
             } catch (Exception ex) {
                 throw new Exception("Error mostrando los clientes: " + ex.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+            }
+            return dts.Tables["Clientes"];
         }
 
         public ClienteBE ListarClientesPorId(int idCliente) {
             ClienteBE cliBE = new ClienteBE();
-            grubalEntities db = new grubalEntities();
             try {
+                con.ConnectionString = conection.GetCon();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "PERSONA.ListarClientesPorId";
 
-                var query = db.ListarClientesPorId(idCliente).FirstOrDefault();
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_persona", idCliente);
 
-                cliBE.Doc_oficial = query.doc_oficial;
-                cliBE.Nom_cliente = query.nom_cliente;
-                cliBE.Marketing = query.marketing;
-                cliBE.Id_persona = query.id_persona;
+                con.Open();
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.HasRows == true) {
+                    dtr.Read();
+                    cliBE.Id_persona = int.Parse(dtr["id_persona"].ToString());
+                    cliBE.Marketing = int.Parse(dtr["marketing"].ToString());
+                    cliBE.Nom_cliente = dtr["nom_cliente"].ToString();
+                    cliBE.Doc_oficial = dtr["doc_oficial"].ToString();
+                } else {
+                    throw new Exception("Error al buscar al cliente.");
+                }
+                dtr.Close();
 
             } catch (Exception ex) {
                 throw new Exception(ex.Message);
-            } 
+            } finally {
+                if (con.State == ConnectionState.Open) {
+                    con.Close();
+                }
+                cmd.Parameters.Clear();
+            }
             return cliBE;
         }
     }
